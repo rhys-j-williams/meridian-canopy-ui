@@ -99,6 +99,19 @@ ensure_tag() {
   git -C "$REPO_ROOT" rev-parse -q --verify "refs/tags/$1" >/dev/null 2>&1
 }
 
+# Release tags cut before PLAT-2620 still carry the previous institution name in the package scope,
+# lockfile and prose. The tags are immutable, so the worktree is renamed in place before it is
+# built; the published tarball then matches what the consumers pin.
+apply_institution_rename() {
+  local dir="$1"
+  git -C "$dir" grep -qIil 'meridian' -- . >/dev/null 2>&1 || return 0
+  log "$(basename "$dir"): tag predates PLAT-2620, applying institution rename in the worktree"
+  git -C "$dir" grep -Il -i 'meridian' -- . \
+    | while IFS= read -r f; do
+        sed -i -e 's/Meridian/Northgate/g' -e 's/meridian/northgate/g' -e 's/MERIDIAN/NORTHGATE/g' "$dir/$f"
+      done
+}
+
 PREV_MODULES=""   # node_modules of the previous worktree; reused when the lockfile is identical
 PUBLISHED=0; PRESENT=0; FAILED=0
 
@@ -115,6 +128,7 @@ publish_tag() {
   git -C "$REPO_ROOT" worktree add -q --detach "$wt" "refs/tags/$tag"
   dir="$wt"
   [ -f "$dir/package.json" ] || { warn "$tag: no package.json at that tag"; FAILED=$((FAILED+1)); return 0; }
+  apply_institution_rename "$dir"
 
   local pkgver
   pkgver="$(node -p "require('$dir/projects/canopy-ui/package.json').version")"
