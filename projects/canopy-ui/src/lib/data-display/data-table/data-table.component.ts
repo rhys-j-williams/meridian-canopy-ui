@@ -9,7 +9,7 @@ import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { CN_CONFIG, CnConfig, CnDensity } from '@meridian/canopy-ui/core';
+import { CN_CONFIG, CnConfig, CnDensity } from '@northgate/canopy-ui/core';
 import { CnColumnDefDirective } from './column-def.directive';
 
 export type CnColumnType = 'text' | 'currency' | 'date' | 'number' | 'status' | 'template';

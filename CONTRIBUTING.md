@@ -1,6 +1,6 @@
 # Contributing to Canopy design system
 
-Owning team: @meridian/canopy-design-system. Ask in `#canopy-design-system` on the internal chat platform before starting anything that
+Owning team: @northgate/canopy-design-system. Ask in `#canopy-design-system` on the internal chat platform before starting anything that
 crosses a team boundary.
 
 ## Branches
@@ -30,7 +30,7 @@ change advisory board reference. The calendar is in `platform-tooling/governance
 ## Pull requests
 
 Two approvals, one of which must come from the owning team. Security sensitive paths listed in
-CODEOWNERS additionally require @meridian/gis-appsec. Fill in every field of the pull request
+CODEOWNERS additionally require @northgate/gis-appsec. Fill in every field of the pull request
 template; the change advisory board reference may be `N/A` outside a freeze, but the rollback plan
 may not.
 
@@ -63,7 +63,7 @@ may not.
 | Canopy | Angular | Status |
 |---|---|---|
 | 3.x | 14 | Current. Fixes and additive changes. |
-| 2.x | 8 to 11 | Frozen at 2.9.4. Security fixes only, and only for Meridian Business until MBZ-2210. |
+| 2.x | 8 to 11 | Frozen at 2.9.4. Security fixes only, and only for Northgate Business until MBZ-2210. |
 | 4.0 | 15 or later | Planned. See `docs/adr/0004-defer-material-15-migration.md`. Not started. |
 
 A framework major, a Material major or a change to any exported symbol's signature is a Canopy

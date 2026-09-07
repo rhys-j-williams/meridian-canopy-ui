@@ -5,7 +5,7 @@ metadata:
   labels:
     app: {{ .Chart.Name }}
     app.kubernetes.io/part-of: canopy
-    meridian.internal/team: canopy-design-system
+    northgate.internal/team: canopy-design-system
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:

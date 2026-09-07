@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CnMenuItem } from '@meridian/canopy-ui/actions';
+import { CnMenuItem } from '@northgate/canopy-ui/actions';
 
 @Component({
   selector: 'cs-menu-page',

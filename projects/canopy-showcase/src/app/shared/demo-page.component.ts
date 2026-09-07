@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CnBreadcrumb } from '@meridian/canopy-ui/layout';
+import { CnBreadcrumb } from '@northgate/canopy-ui/layout';
 
 /** Page frame every component page uses: header, import line, then the projected sections. */
 @Component({
@@ -8,7 +8,7 @@ import { CnBreadcrumb } from '@meridian/canopy-ui/layout';
     <cn-page-header [title]="title" [eyebrow]="selector" [lede]="lede" [breadcrumbs]="crumbs">
       <cn-badge cnPageAction [tone]="status === 'stable' ? 'success' : status === 'deprecated' ? 'warn' : 'info'">{{ status }}</cn-badge>
     </cn-page-header>
-    <pre class="cs-code" *ngIf="importFrom">import {{ '{' }} {{ imports }} {{ '}' }} from '@meridian/canopy-ui/{{ importFrom }}';</pre>
+    <pre class="cs-code" *ngIf="importFrom">import {{ '{' }} {{ imports }} {{ '}' }} from '@northgate/canopy-ui/{{ importFrom }}';</pre>
     <div class="cs-stack" style="margin-top: 24px">
       <ng-content></ng-content>
     </div>

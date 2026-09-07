@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { CnThemeName, CnThemeService } from '@meridian/canopy-ui/core';
+import { CnThemeName, CnThemeService } from '@northgate/canopy-ui/core';
 
 /** Top bar theme picker. Persists through CnThemeService. */
 @Component({

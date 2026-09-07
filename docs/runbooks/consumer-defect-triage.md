@@ -1,7 +1,7 @@
 # Runbook: a consumer reports a Canopy defect during an incident
 
 Canopy has no production footprint of its own, so this runbook is about what to do when an
-incident commander for Meridian Online, Meridian Business, Ledgerline, Keystone or Iris pulls the
+incident commander for Northgate Online, Northgate Business, Ledgerline, Keystone or Iris pulls the
 Canopy rota (`CSWT-CANOPY-L2`) into a bridge.
 
 ## First five minutes

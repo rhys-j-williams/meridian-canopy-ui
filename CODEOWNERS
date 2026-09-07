@@ -2,13 +2,13 @@
 # Teams are defined in the CSWT organisation; membership changes go through the
 # access request process, not through this file.
 
-*                                @meridian/canopy-design-system
+*                                @northgate/canopy-design-system
 
 # Security sensitive paths. GIS-STD-014 requires an application security reviewer on all of these.
-/Dockerfile                      @meridian/canopy-design-system @meridian/gis-appsec
-/Jenkinsfile                     @meridian/canopy-design-system @meridian/gis-appsec
-/checkmarx.yml                   @meridian/canopy-design-system @meridian/gis-appsec
-/SECURITY.md                     @meridian/gis-appsec
-/.npmrc                          @meridian/canopy-design-system @meridian/gis-appsec
+/Dockerfile                      @northgate/canopy-design-system @northgate/gis-appsec
+/Jenkinsfile                     @northgate/canopy-design-system @northgate/gis-appsec
+/checkmarx.yml                   @northgate/canopy-design-system @northgate/gis-appsec
+/SECURITY.md                     @northgate/gis-appsec
+/.npmrc                          @northgate/canopy-design-system @northgate/gis-appsec
 
-/docs/adr/                       @meridian/cswt-architecture
+/docs/adr/                       @northgate/cswt-architecture

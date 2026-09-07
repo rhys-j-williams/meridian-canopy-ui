@@ -1,17 +1,17 @@
 import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { CnA11yAnnouncerService } from '@meridian/canopy-ui/a11y';
-import { CnMenuItem } from '@meridian/canopy-ui/actions';
-import { CnAccountSummary, CnColumn, CnFilterChip, CnRowSelection } from '@meridian/canopy-ui/data-display';
-import { CnDateRange, CnSelectOption } from '@meridian/canopy-ui/forms';
-import { CnDialogService, CnToastService } from '@meridian/canopy-ui/overlays';
+import { CnA11yAnnouncerService } from '@northgate/canopy-ui/a11y';
+import { CnMenuItem } from '@northgate/canopy-ui/actions';
+import { CnAccountSummary, CnColumn, CnFilterChip, CnRowSelection } from '@northgate/canopy-ui/data-display';
+import { CnDateRange, CnSelectOption } from '@northgate/canopy-ui/forms';
+import { CnDialogService, CnToastService } from '@northgate/canopy-ui/overlays';
 import { ShowcaseFixturesService, TxnRow } from '../../shared/fixtures.service';
 
 type StatusFilter = TxnRow['status'];
 
 /**
- * The page the presenters use. It is deliberately a plausible slice of Meridian Online rather
+ * The page the presenters use. It is deliberately a plausible slice of Northgate Online rather
  * than a component gallery: pick an account, filter its activity, move money, get a toast.
  */
 @Component({

@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { CnCurrencyFormatService } from '@meridian/canopy-ui/core';
+import { CnCurrencyFormatService } from '@northgate/canopy-ui/core';
 
 /** `{{ balance | cnCurrency }}` or `{{ balance | cnCurrency:'GBP' }}`. Null renders as an em dash. */
 @Pipe({ name: 'cnCurrency' })

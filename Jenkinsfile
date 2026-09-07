@@ -1,9 +1,9 @@
 // Canopy design system. Shared library: platform-tooling/jenkins-shared-library.
 // Node pipeline parameters are documented in that library's README. Ask #platform-engineering
 // before adding stages here; anything reusable belongs in the library.
-@Library('meridian-pipeline@v3') _
+@Library('northgate-pipeline@v3') _
 
-meridianNodePipeline(
+northgateNodePipeline(
   agentLabel: 'nodejs16-rhel8',
   nodeVersion: '16.20.2',
   jiraProject: 'CNPY',
@@ -24,7 +24,7 @@ meridianNodePipeline(
     minimumLines: 45
   ],
   sonar: [
-    projectKey: 'meridian:canopy-ui',
+    projectKey: 'northgate:canopy-ui',
     propertiesFile: 'sonar-project.properties'
   ],
   checkmarx: [

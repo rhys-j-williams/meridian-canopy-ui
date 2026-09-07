@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CnRadioOption } from '@meridian/canopy-ui/forms';
+import { CnRadioOption } from '@northgate/canopy-ui/forms';
 
 @Component({
   selector: 'cs-radio-group-page',

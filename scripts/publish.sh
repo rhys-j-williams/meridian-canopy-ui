@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Publishes @meridian/canopy-ui from a release tag. Run by the Jenkins release stage, or by hand
+# Publishes @northgate/canopy-ui from a release tag. Run by the Jenkins release stage, or by hand
 # against the local Verdaccio when a consumer needs a build that has not gone through the train.
 #
-#   v3.7.2   ->  @meridian/canopy-ui@3.7.2
+#   v3.7.2   ->  @northgate/canopy-ui@3.7.2
 #
 # The version is taken from the tag, never from package.json, because the two drifted in 3.4.1
 # (CNPY-1512) and Keystone spent a day on the wrong build. package.json is rewritten in dist only.
@@ -49,4 +49,4 @@ if [[ "${DRY_RUN:-0}" == "1" ]]; then
 fi
 
 (cd "${DIST}" && npm publish --registry "${REGISTRY}")
-echo "published @meridian/canopy-ui@${VERSION} to ${REGISTRY}"
+echo "published @northgate/canopy-ui@${VERSION} to ${REGISTRY}"
