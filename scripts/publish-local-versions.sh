@@ -7,7 +7,7 @@
 # skipped, so running it twice is harmless. Needs Node 16 (nvm 16.20.2 is picked up when present),
 # npm and git. Nothing else; node_modules is installed with npm ci from the tag's lockfile.
 #
-#   mock-external/scripts/verdaccio-up.sh        # in meridian-cswt-estate; estate-up.sh calls this
+#   ../meridian-mock-external/scripts/verdaccio-up.sh   # estate-up.sh calls this
 #   scripts/publish-local-versions.sh            # publishes 3.5.0, 3.6.1 and 3.7.2
 #
 #   REGISTRY_URL   registry, default http://localhost:4873

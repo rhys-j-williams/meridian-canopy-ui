@@ -39,7 +39,7 @@ Last exercised: 3.7.2, November 2024 (S. Whitfield).
 
 ## Local publish (for testing a consumer against an unreleased build)
 
-Use the local Verdaccio from `meridian-cswt-estate/mock-external`, never Artifactory.
+Use the local Verdaccio from `meridian-mock-external`, never Artifactory.
 
 ```
 NPM_REGISTRY=http://localhost:4873 bash scripts/publish.sh v3.7.2

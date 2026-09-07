@@ -14,11 +14,13 @@ design tokens, adds the components Material does not have (account card, currenc
 chips with our semantics, error summary, disclosure) and carries the accessibility behaviour that
 the digital accessibility standard (DAS-2.1) requires of every customer facing screen.
 
-Consumers live in the CSWT applications repository
-([meridian-cswt-estate](https://github.com/rhys-j-williams/meridian-cswt-estate)) and install the
-library from the internal registry; nothing in that repository builds Canopy from source. Canopy was
-moved out of that workspace into its own repository under CNPY-2140 so the library could be
-released on its own cadence and consumer builds pin a published version rather than a commit.
+Consumers are the CSWT application repositories (meridian-retail-web, meridian-business-web,
+meridian-keystone-web, meridian-ledgerline-web, meridian-iris-widget; the set is listed in
+[meridian-cswt-workspace](https://github.com/rhys-j-williams/meridian-cswt-workspace)) and they
+install the library from the internal registry; none of them builds Canopy from source. Canopy was
+the first deliverable moved out of the former single workspace into its own repository (CNPY-2140)
+so the library could be released on its own cadence and consumer builds pin a published version
+rather than a commit.
 
 Consumers and the version they are on, as of the 2026.09 train:
 
@@ -92,7 +94,7 @@ npm start                  # http://localhost:4204
 The showcase is self contained. It does not call any service; the dashboard pages are driven by
 `@meridian/domain-fixtures` (seeded, deterministic). There is nothing to run from
 `mock-external` for Canopy itself. If you want to see a component inside a real application, run
-retail-web (in `meridian-cswt-estate`) against its mock stack and point its `.npmrc` at a Verdaccio
+retail-web (`meridian-retail-web`) against its mock stack and point its `.npmrc` at a Verdaccio
 you have published to (see `docs/runbooks/publish-a-release.md`, section "Local publish").
 
 ## Publishing
