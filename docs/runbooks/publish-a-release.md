@@ -39,13 +39,13 @@ Last exercised: 3.7.2, November 2024 (S. Whitfield).
 
 ## Local publish (for testing a consumer against an unreleased build)
 
-Use the local Verdaccio from `meridian-mock-external`, never Artifactory.
+Use the local Verdaccio from `northgate-mock-external`, never Artifactory.
 
 ```
 NPM_REGISTRY=http://localhost:4873 bash scripts/publish.sh v3.7.2
 ```
 
-Point the consumer's `.npmrc` at the same registry and `npm install @meridian/canopy-ui@3.7.2`.
+Point the consumer's `.npmrc` at the same registry and `npm install @northgate/canopy-ui@3.7.2`.
 Verdaccio will refuse to overwrite an existing version; `npm unpublish --force` it first if you are
 iterating. Do not commit the consumer's `.npmrc` change.
 

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, forwardRef, Inject, Input, Output, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatSliderChange } from '@angular/material/slider';
-import { CN_CONFIG, CnConfig, CnCurrencyFormatService } from '@meridian/canopy-ui/core';
+import { CN_CONFIG, CnConfig, CnCurrencyFormatService } from '@northgate/canopy-ui/core';
 
 /**
  * Slider for picking an amount inside a range: loan amount, payment amount, savings goal. Shows

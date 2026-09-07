@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { CnDensity } from '@meridian/canopy-ui/core';
-import { CnColumn } from '@meridian/canopy-ui/data-display';
-import { CnRadioOption } from '@meridian/canopy-ui/forms';
+import { CnDensity } from '@northgate/canopy-ui/core';
+import { CnColumn } from '@northgate/canopy-ui/data-display';
+import { CnRadioOption } from '@northgate/canopy-ui/forms';
 import { ShowcaseFixturesService, TxnRow } from '../../shared/fixtures.service';
 
 @Component({

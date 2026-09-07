@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CnFilterChip } from '@meridian/canopy-ui/data-display';
+import { CnFilterChip } from '@northgate/canopy-ui/data-display';
 import { ShowcaseFixturesService } from '../../shared/fixtures.service';
 
 @Component({

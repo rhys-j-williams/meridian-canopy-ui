@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CN_ICON_NAMES } from '@meridian/canopy-ui/icons';
+import { CN_ICON_NAMES } from '@northgate/canopy-ui/icons';
 
 @Component({
   selector: 'cs-icons-page',

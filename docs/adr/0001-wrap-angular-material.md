@@ -6,13 +6,13 @@ Supersedes: none. Superseded by: none.
 
 ## Context
 
-Canopy 2.x is a Bootstrap 4 based Angular component set that grew out of the 2018 Meridian Online
+Canopy 2.x is a Bootstrap 4 based Angular component set that grew out of the 2018 Northgate Online
 redesign. By late 2020 it had three problems that kept coming up in the digital portfolio review:
 
-1. Accessibility. The DAS-2.1 audit (October 2020) raised 41 findings against Meridian Online, 29
+1. Accessibility. The DAS-2.1 audit (October 2020) raised 41 findings against Northgate Online, 29
    of them in Canopy 2 components: focus management in modals, missing live regions, keyboard
    handling in the custom select. Each fix was bespoke.
-2. Duplication. Meridian Business had forked four components (chips, table, date picker, dialog)
+2. Duplication. Northgate Business had forked four components (chips, table, date picker, dialog)
    because Canopy 2 did not have what they needed, and those forks had drifted.
 3. Angular 11 and the Ivy renderer. Canopy 2 still shipped a View Engine build with `ngcc`
    warnings on every consumer install.
@@ -37,7 +37,7 @@ live announcer, overlay, a11y key manager) and the component harnesses for testi
   by a Canopy class on the host.
 
 The `cn` prefix is used throughout. 2.x is frozen at 2.9.4 and receives security fixes only until
-Meridian Business has migrated (target: 2021.09 train, actual: 2022.03).
+Northgate Business has migrated (target: 2021.09 train, actual: 2022.03).
 
 ## Consequences
 
@@ -48,7 +48,7 @@ Meridian Business has migrated (target: 2021.09 train, actual: 2022.03).
   Material's class names have been stable across 8 through 11 and that a Material major would be
   treated as a Canopy major. (2024 note: this is exactly what the MDC based components in
   Material 15 do to us. See ADR-0004.)
-- Bundle size went up by roughly 180 KB gzipped for Meridian Online. Accepted.
+- Bundle size went up by roughly 180 KB gzipped for Northgate Online. Accepted.
 - The Business team's forks are deleted as each Canopy 3 equivalent lands. Tracked under
   MBZ-1140.
 - Material's Moment date adapter is used for the date range rather than the native adapter

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { CnSkeletonModule } from '@meridian/canopy-ui/data-display';
+import { CnSkeletonModule } from '@northgate/canopy-ui/data-display';
 import { CnDisclosureComponent } from './disclosure.component';
 
 @NgModule({

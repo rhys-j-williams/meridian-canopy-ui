@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CnBreadcrumb } from '@meridian/canopy-ui/layout';
+import { CnBreadcrumb } from '@northgate/canopy-ui/layout';
 
 @Component({
   selector: 'cs-page-header-page',

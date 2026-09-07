@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { TemplateRef, ViewChild } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { CnRadioOption } from '@meridian/canopy-ui/forms';
-import { CnDialogService, CnDialogSize, CnToastService } from '@meridian/canopy-ui/overlays';
+import { CnRadioOption } from '@northgate/canopy-ui/forms';
+import { CnDialogService, CnDialogSize, CnToastService } from '@northgate/canopy-ui/overlays';
 import { ShowcaseFixturesService } from '../../shared/fixtures.service';
 
 @Component({

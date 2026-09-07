@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CnNavItem } from '@meridian/canopy-ui/layout';
+import { CnNavItem } from '@northgate/canopy-ui/layout';
 import { ShowcaseFixturesService } from './shared/fixtures.service';
 import { COMPONENT_PAGES } from './pages/components/component-pages';
 

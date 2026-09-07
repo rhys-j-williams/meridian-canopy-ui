@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { CnSelectOption } from '@meridian/canopy-ui/forms';
-import { CnToastService } from '@meridian/canopy-ui/overlays';
+import { CnSelectOption } from '@northgate/canopy-ui/forms';
+import { CnToastService } from '@northgate/canopy-ui/overlays';
 import { ShowcaseFixturesService } from '../../shared/fixtures.service';
 
 @Component({

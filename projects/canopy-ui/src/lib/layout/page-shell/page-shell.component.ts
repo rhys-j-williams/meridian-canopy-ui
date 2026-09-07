@@ -14,7 +14,7 @@ export interface CnNavItem {
  * Application frame: top bar, left navigation, main content region, skip link. The consumer app
  * puts this in its root component and routes render inside it.
  *
- *   <cn-page-shell appName="Meridian Online" [nav]="navItems" [userName]="user.displayName">
+ *   <cn-page-shell appName="Northgate Online" [nav]="navItems" [userName]="user.displayName">
  *     <ng-container cnShellToolbar>...</ng-container>
  *     <router-outlet></router-outlet>
  *   </cn-page-shell>

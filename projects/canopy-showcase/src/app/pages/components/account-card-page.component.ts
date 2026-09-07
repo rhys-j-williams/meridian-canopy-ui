@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CnAccountSummary } from '@meridian/canopy-ui/data-display';
+import { CnAccountSummary } from '@northgate/canopy-ui/data-display';
 import { ShowcaseFixturesService } from '../../shared/fixtures.service';
 
 @Component({

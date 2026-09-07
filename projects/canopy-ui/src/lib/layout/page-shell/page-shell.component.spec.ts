@@ -12,7 +12,7 @@ describe('CnPageShellComponent', () => {
     await TestBed.configureTestingModule({ imports: [CnPageShellModule, RouterTestingModule, NoopAnimationsModule] }).compileComponents();
     fixture = TestBed.createComponent(CnPageShellComponent);
     component = fixture.componentInstance;
-    component.appName = 'Meridian Online';
+    component.appName = 'Northgate Online';
     component.nav = [{ id: 'home', label: 'Home', icon: 'cn:home', link: '/' }, { id: 'pay', label: 'Payments', link: '/pay', badge: 2 }];
     fixture.detectChanges();
   });

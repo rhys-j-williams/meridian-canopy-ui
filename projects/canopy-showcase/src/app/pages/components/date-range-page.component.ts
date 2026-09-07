@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CnDateRange } from '@meridian/canopy-ui/forms';
+import { CnDateRange } from '@northgate/canopy-ui/forms';
 
 @Component({
   selector: 'cs-date-range-page',

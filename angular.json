@@ -85,7 +85,7 @@
             "scripts": [],
             "allowedCommonJsDependencies": [
               "moment",
-              "@meridian/domain-fixtures"
+              "@northgate/domain-fixtures"
             ]
           },
           "configurations": {

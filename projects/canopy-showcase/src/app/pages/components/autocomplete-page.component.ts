@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
-import { CnAutocompleteSource } from '@meridian/canopy-ui/forms';
+import { CnAutocompleteSource } from '@northgate/canopy-ui/forms';
 import { ShowcaseFixturesService } from '../../shared/fixtures.service';
 
 @Component({

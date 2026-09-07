@@ -2,7 +2,7 @@
 
 Status: Accepted, 2024-05-23. Architecture forum minute AF-2024-11. Review date: 2025-03.
 Owners: Canopy design system (L. Fontaine, S. Whitfield), CSWT architecture (W. Tanaka).
-Related: ADR-0001, MOL-4471 (Meridian Online upgrade epic), CNPY-1900 (Angular 15 spike).
+Related: ADR-0001, MOL-4471 (Northgate Online upgrade epic), CNPY-1900 (Angular 15 spike).
 
 ## Context
 
@@ -31,7 +31,7 @@ Angular 15.2 and Material 15.2 on a branch. Findings, in order of cost:
    redesign with the design team, not just an engineering change.
 6. `@angular/flex-layout` is end of life at 15. `cn-page-header` and `cn-page-shell` use it, as
    do a large number of consumer templates.
-7. Meridian Business is still on Canopy 3.5.0 and RxJS 6 (MBZ-2210). Any Canopy release that
+7. Northgate Business is still on Canopy 3.5.0 and RxJS 6 (MBZ-2210). Any Canopy release that
    requires Angular 15 leaves them behind regardless.
 
 The spike branch built, with the legacy modules, after ten days. It did not pass visual review.

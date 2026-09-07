@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { CnCoreModule } from '@meridian/canopy-ui/core';
+import { CnCoreModule } from '@northgate/canopy-ui/core';
 import { CnCurrencyInputComponent } from './currency-input.component';
 import { CnCurrencyInputModule } from './currency-input.module';
 

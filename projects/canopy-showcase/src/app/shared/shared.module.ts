@@ -4,18 +4,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import { CnA11yModule } from '@meridian/canopy-ui/a11y';
-import { CnButtonModule, CnIconButtonModule, CnMenuModule } from '@meridian/canopy-ui/actions';
-import { CnDisclosureModule } from '@meridian/canopy-ui/content';
+import { CnA11yModule } from '@northgate/canopy-ui/a11y';
+import { CnButtonModule, CnIconButtonModule, CnMenuModule } from '@northgate/canopy-ui/actions';
+import { CnDisclosureModule } from '@northgate/canopy-ui/content';
 import {
   CnAccountCardModule, CnBadgeModule, CnCardModule, CnDataTableModule, CnDividerModule, CnExpansionModule,
   CnFilterChipsModule, CnListModule, CnSkeletonModule, CnVirtualListModule
-} from '@meridian/canopy-ui/data-display';
-import { CnErrorSummaryModule, CnProgressModule } from '@meridian/canopy-ui/feedback';
-import { CnFormsModule } from '@meridian/canopy-ui/forms';
-import { CnPageHeaderModule, CnPageShellModule } from '@meridian/canopy-ui/layout';
-import { CnStepperShellModule, CnTabsModule } from '@meridian/canopy-ui/navigation';
-import { CnBottomSheetModule, CnDialogShellModule, CnToastModule, CnTooltipModule } from '@meridian/canopy-ui/overlays';
+} from '@northgate/canopy-ui/data-display';
+import { CnErrorSummaryModule, CnProgressModule } from '@northgate/canopy-ui/feedback';
+import { CnFormsModule } from '@northgate/canopy-ui/forms';
+import { CnPageHeaderModule, CnPageShellModule } from '@northgate/canopy-ui/layout';
+import { CnStepperShellModule, CnTabsModule } from '@northgate/canopy-ui/navigation';
+import { CnBottomSheetModule, CnDialogShellModule, CnToastModule, CnTooltipModule } from '@northgate/canopy-ui/overlays';
 import { DemoPageComponent } from './demo-page.component';
 import { DemoSectionComponent } from './demo-section.component';
 
