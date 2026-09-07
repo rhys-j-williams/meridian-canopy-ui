@@ -19,7 +19,7 @@ meridianNodePipeline(
   ],
   coverage: [
     reportPath: 'coverage/canopy-ui/lcov.info',
-    // Gate is lower than the estate default because half the specs are creation only. CNPY-1402
+    // Gate is lower than the CSWT default because half the specs are creation only. CNPY-1402
     // tracks getting this to 60 and has done since 2022.
     minimumLines: 45
   ],
@@ -40,7 +40,7 @@ meridianNodePipeline(
   // otherwise. Branch builds stop after the quality gates.
   publish: [
     when: 'tag',
-    tagPattern: 'canopy-ui/v*',
+    tagPattern: 'v*',
     command: 'bash scripts/publish.sh'
   ],
   container: [

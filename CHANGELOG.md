@@ -195,19 +195,19 @@ are in the 3.0 migration guide on the wiki.
 ### Removed
 - Everything from 2.x. See the migration guide.
 
-[Unreleased]: https://git.meridian.internal/cswt/canopy-ui/compare/canopy-ui/v3.7.2...develop
-[3.7.2]: https://git.meridian.internal/cswt/canopy-ui/compare/canopy-ui/v3.7.1...canopy-ui/v3.7.2
-[3.7.1]: https://git.meridian.internal/cswt/canopy-ui/compare/canopy-ui/v3.7.0...canopy-ui/v3.7.1
-[3.7.0]: https://git.meridian.internal/cswt/canopy-ui/compare/canopy-ui/v3.6.1...canopy-ui/v3.7.0
-[3.6.1]: https://git.meridian.internal/cswt/canopy-ui/compare/canopy-ui/v3.6.0...canopy-ui/v3.6.1
-[3.6.0]: https://git.meridian.internal/cswt/canopy-ui/compare/canopy-ui/v3.5.0...canopy-ui/v3.6.0
-[3.5.0]: https://git.meridian.internal/cswt/canopy-ui/compare/canopy-ui/v3.4.2...canopy-ui/v3.5.0
-[3.4.2]: https://git.meridian.internal/cswt/canopy-ui/compare/canopy-ui/v3.4.1...canopy-ui/v3.4.2
-[3.4.1]: https://git.meridian.internal/cswt/canopy-ui/compare/canopy-ui/v3.4.0...canopy-ui/v3.4.1
-[3.4.0]: https://git.meridian.internal/cswt/canopy-ui/compare/canopy-ui/v3.3.1...canopy-ui/v3.4.0
-[3.3.1]: https://git.meridian.internal/cswt/canopy-ui/compare/canopy-ui/v3.3.0...canopy-ui/v3.3.1
-[3.3.0]: https://git.meridian.internal/cswt/canopy-ui/compare/canopy-ui/v3.2.0...canopy-ui/v3.3.0
-[3.2.0]: https://git.meridian.internal/cswt/canopy-ui/compare/canopy-ui/v3.1.0...canopy-ui/v3.2.0
-[3.1.0]: https://git.meridian.internal/cswt/canopy-ui/compare/canopy-ui/v3.0.1...canopy-ui/v3.1.0
-[3.0.1]: https://git.meridian.internal/cswt/canopy-ui/compare/canopy-ui/v3.0.0...canopy-ui/v3.0.1
-[3.0.0]: https://git.meridian.internal/cswt/canopy-ui/releases/tag/canopy-ui/v3.0.0
+[Unreleased]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.7.2...develop
+[3.7.2]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.7.1...v3.7.2
+[3.7.1]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.7.0...v3.7.1
+[3.7.0]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.6.1...v3.7.0
+[3.6.1]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.6.0...v3.6.1
+[3.6.0]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.5.0...v3.6.0
+[3.5.0]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.4.2...v3.5.0
+[3.4.2]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.4.1...v3.4.2
+[3.4.1]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.4.0...v3.4.1
+[3.4.0]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.3.1...v3.4.0
+[3.3.1]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.3.0...v3.3.1
+[3.3.0]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.2.0...v3.3.0
+[3.2.0]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.1.0...v3.2.0
+[3.1.0]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.0.1...v3.1.0
+[3.0.1]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.0.0...v3.0.1
+[3.0.0]: https://git.meridian.internal/cswt/canopy-ui/releases/tag/v3.0.0

@@ -2,7 +2,7 @@
 # Publishes @meridian/canopy-ui from a release tag. Run by the Jenkins release stage, or by hand
 # against the local Verdaccio when a consumer needs a build that has not gone through the train.
 #
-#   canopy-ui/v3.7.2   ->  @meridian/canopy-ui@3.7.2
+#   v3.7.2   ->  @meridian/canopy-ui@3.7.2
 #
 # The version is taken from the tag, never from package.json, because the two drifted in 3.4.1
 # (CNPY-1512) and Keystone spent a day on the wrong build. package.json is rewritten in dist only.
@@ -10,16 +10,16 @@ set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
-TAG="${1:-$(git describe --tags --exact-match --match 'canopy-ui/v*' 2>/dev/null || true)}"
+TAG="${1:-$(git describe --tags --exact-match --match 'v*' 2>/dev/null || true)}"
 if [[ -z "${TAG}" ]]; then
   # Not on a release tag and none given: this is the estate-up / publish-internal.sh path, which
   # wants every version the consumers pin. Hand over to the multi version script.
-  echo "not on a canopy-ui/vX.Y.Z tag; publishing all consumer pinned versions instead" >&2
+  echo "not on a vX.Y.Z tag; publishing all consumer pinned versions instead" >&2
   exec bash "$(dirname "$0")/publish-local-versions.sh"
 fi
-VERSION="${TAG#canopy-ui/v}"
+VERSION="${TAG#v}"
 if ! [[ "${VERSION}" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]]; then
-  echo "tag ${TAG} does not look like canopy-ui/vX.Y.Z" >&2
+  echo "tag ${TAG} does not look like vX.Y.Z" >&2
   exit 1
 fi
 

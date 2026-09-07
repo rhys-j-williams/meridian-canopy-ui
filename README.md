@@ -14,6 +14,12 @@ design tokens, adds the components Material does not have (account card, currenc
 chips with our semantics, error summary, disclosure) and carries the accessibility behaviour that
 the digital accessibility standard (DAS-2.1) requires of every customer facing screen.
 
+Consumers live in the CSWT applications repository
+([meridian-cswt-estate](https://github.com/rhys-j-williams/meridian-cswt-estate)) and install the
+library from the internal registry; nothing in that repository builds Canopy from source. Canopy was
+moved out of that workspace into its own repository under CNPY-2140 so the library could be
+released on its own cadence and consumer builds pin a published version rather than a commit.
+
 Consumers and the version they are on, as of the 2026.09 train:
 
 | Application | Version | Notes |
@@ -86,12 +92,12 @@ npm start                  # http://localhost:4204
 The showcase is self contained. It does not call any service; the dashboard pages are driven by
 `@meridian/domain-fixtures` (seeded, deterministic). There is nothing to run from
 `mock-external` for Canopy itself. If you want to see a component inside a real application, run
-retail-web against the mock stack and point its `.npmrc` at a Verdaccio you have published to
-(see `docs/runbooks/publish-a-release.md`, section "Local publish").
+retail-web (in `meridian-cswt-estate`) against its mock stack and point its `.npmrc` at a Verdaccio
+you have published to (see `docs/runbooks/publish-a-release.md`, section "Local publish").
 
 ## Publishing
 
-Releases are cut from tags of the form `canopy-ui/v3.7.2` and published by Jenkins through
+Releases are cut from tags of the form `v3.7.2` and published by Jenkins through
 `scripts/publish.sh`. The version in `projects/canopy-ui/package.json` must match the tag and have
 a `CHANGELOG.md` entry (`npm run changelog:check` is the gate). Never `npm publish` from a
 laptop. The one time that happened (3.4.1, June 2022) it shipped a build from a dirty working tree

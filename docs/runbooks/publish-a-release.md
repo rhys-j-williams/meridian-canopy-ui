@@ -22,13 +22,12 @@ Last exercised: 3.7.2, November 2024 (S. Whitfield).
 2. Tag `main`:
 
    ```
-   git tag -a canopy-ui/vX.Y.Z -m "canopy-ui X.Y.Z"
-   git push origin canopy-ui/vX.Y.Z
+   git tag -a vX.Y.Z -m "canopy-ui X.Y.Z"
+   git push origin vX.Y.Z
    ```
 
-   The tag must be namespaced `canopy-ui/`. The monorepo has other components with their own
-   version lines; an unprefixed `v3.7.2` will publish nothing and will confuse the release
-   dashboard.
+   Tags are `vX.Y.Z`, nothing else. Before the repository split (CNPY-2140) tags carried a
+   `canopy-ui/` prefix; the release dashboard still maps the old names, but Jenkins does not.
 3. Jenkins picks the tag up (`cswt/canopy-ui/tags`) and runs `scripts/publish.sh`. The script
    reads the version from the tag, refuses to run if it does not match `package.json`, builds,
    stamps `gitHead`, and publishes to the registry in `.npmrc`.
@@ -40,10 +39,10 @@ Last exercised: 3.7.2, November 2024 (S. Whitfield).
 
 ## Local publish (for testing a consumer against an unreleased build)
 
-Use the estate Verdaccio, never Artifactory.
+Use the local Verdaccio from `meridian-cswt-estate/mock-external`, never Artifactory.
 
 ```
-NPM_REGISTRY=http://localhost:4873 bash scripts/publish.sh canopy-ui/v3.7.2
+NPM_REGISTRY=http://localhost:4873 bash scripts/publish.sh v3.7.2
 ```
 
 Point the consumer's `.npmrc` at the same registry and `npm install @meridian/canopy-ui@3.7.2`.

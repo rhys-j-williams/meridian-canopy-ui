@@ -10,7 +10,7 @@ Canopy rota (`CSWT-CANOPY-L2`) into a bridge.
    is on 3.5.0 and people forget.
 2. Get the browser and assistive technology if it is an accessibility incident. Most of our
    "Canopy is broken" pages since 2023 have been a screen reader update, not us.
-3. Reproduce on the showcase at the same version. Checkout `canopy-ui/vX.Y.Z`, `npm ci`,
+3. Reproduce on the showcase at the same version. Checkout `vX.Y.Z`, `npm ci`,
    `npm start`, open 4204. If the showcase page for the component behaves correctly, the defect
    is in the consumer's usage and you can say so on the bridge with the page URL as evidence.
 4. If the showcase reproduces it, it is ours. Say so quickly. Open a `CNPY` ticket with the
@@ -27,7 +27,7 @@ Canopy rota (`CSWT-CANOPY-L2`) into a bridge.
   an incident.
 - Canopy patch release. Follow `publish-a-release.md`. A patch from `develop` takes about an hour
   end to end if the fix is small. If the consumer is not on the latest minor, you are cutting a
-  patch off the tag they are on (`canopy-ui/v3.5.x` for Business), which means a branch from the
+  patch off the tag they are on (`v3.5.x` for Business), which means a branch from the
   tag, a cherry pick and a separate tag. Do not merge that branch back.
 
 ## After the bridge

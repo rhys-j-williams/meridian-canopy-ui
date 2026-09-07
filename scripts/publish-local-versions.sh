@@ -7,27 +7,28 @@
 # skipped, so running it twice is harmless. Needs Node 16 (nvm 16.20.2 is picked up when present),
 # npm and git. Nothing else; node_modules is installed with npm ci from the tag's lockfile.
 #
-#   mock-external/scripts/verdaccio-up.sh        # or estate-up.sh, which calls this for us
-#   canopy-ui/scripts/publish-local-versions.sh  # publishes 3.5.0, 3.6.1 and 3.7.2
+#   mock-external/scripts/verdaccio-up.sh        # in meridian-cswt-estate; estate-up.sh calls this
+#   scripts/publish-local-versions.sh            # publishes 3.5.0, 3.6.1 and 3.7.2
 #
 #   REGISTRY_URL   registry, default http://localhost:4873
-#   NPM_TOKEN      registry token; when absent we log in as the estate publisher account
+#   NPM_TOKEN      registry token; when absent we log in as the workspace publisher account
 #   CANOPY_TAGS    space separated override of the tag list
 #   KEEP_WORKTREE  1 keeps the temporary worktree for post mortem
 #
 # CNPY-2140. Consumer pins as of the 2026.09 train: business-web 3.5.0, keystone-web 3.6.1,
 # retail-web, ledgerline-web and iris-widget 3.7.2. Add a tag here when a consumer pins something
-# new; publish-internal.sh in mock-external delegates to this through scripts/publish.sh.
+# new; publish-internal.sh in mock-external delegates to this through scripts/publish.sh, locating
+# this checkout through CANOPY_REPO.
 set -euo pipefail
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CANOPY_ROOT="$(cd "$HERE/.." && pwd)"
-REPO_ROOT="$(cd "$CANOPY_ROOT/.." && pwd)"
+REPO_ROOT="$CANOPY_ROOT"
 
 REGISTRY_URL="${REGISTRY_URL:-${NPM_REGISTRY:-http://localhost:4873}}"
 PUBLISHER_USER="${VERDACCIO_PUBLISHER_USER:-meridian-publisher}"
 PUBLISHER_PASSWORD="${VERDACCIO_PUBLISHER_PASSWORD:-CHANGEME-verdaccio-publisher}"
-TAGS="${CANOPY_TAGS:-canopy-ui/v3.5.0 canopy-ui/v3.6.1 canopy-ui/v3.7.2}"
+TAGS="${CANOPY_TAGS:-v3.5.0 v3.6.1 v3.7.2}"
 PKG=@meridian/canopy-ui
 PKG_URL="$REGISTRY_URL/@meridian%2fcanopy-ui"
 
@@ -102,7 +103,7 @@ PREV_MODULES=""   # node_modules of the previous worktree; reused when the lockf
 PUBLISHED=0; PRESENT=0; FAILED=0
 
 publish_tag() {
-  local tag="$1" version="${1#canopy-ui/v}"
+  local tag="$1" version="${1#v}"
   if version_present "$version"; then
     log "$PKG@$version already on $REGISTRY_URL, skipping"
     PRESENT=$((PRESENT+1)); return 0
@@ -112,8 +113,8 @@ publish_tag() {
   local wt="$WORK/wt-$version" dir
   log "$tag: checking out into worktree"
   git -C "$REPO_ROOT" worktree add -q --detach "$wt" "refs/tags/$tag"
-  dir="$wt/canopy-ui"
-  [ -f "$dir/package.json" ] || { warn "$tag: no canopy-ui/package.json at that tag"; FAILED=$((FAILED+1)); return 0; }
+  dir="$wt"
+  [ -f "$dir/package.json" ] || { warn "$tag: no package.json at that tag"; FAILED=$((FAILED+1)); return 0; }
 
   local pkgver
   pkgver="$(node -p "require('$dir/projects/canopy-ui/package.json').version")"
