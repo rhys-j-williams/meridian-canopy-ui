@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CnA11yAnnouncerService } from '@meridian/canopy-ui/a11y';
+import { CnA11yAnnouncerService } from '@northgate/canopy-ui/a11y';
 
 @Component({
   selector: 'cs-a11y-announcer-page',

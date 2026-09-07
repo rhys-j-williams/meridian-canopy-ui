@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Populate a local Verdaccio with every @meridian/canopy-ui version the consumers pin.
+# Populate a local Verdaccio with every @northgate/canopy-ui version the consumers pin.
 #
 # Consumers are built on their own boxes, each with an empty registry, so "just install it" does
 # not work: this script walks the release tags, builds the library at each one in a throwaway
@@ -7,7 +7,7 @@
 # skipped, so running it twice is harmless. Needs Node 16 (nvm 16.20.2 is picked up when present),
 # npm and git. Nothing else; node_modules is installed with npm ci from the tag's lockfile.
 #
-#   ../meridian-mock-external/scripts/verdaccio-up.sh   # estate-up.sh calls this
+#   ../northgate-mock-external/scripts/verdaccio-up.sh   # estate-up.sh calls this
 #   scripts/publish-local-versions.sh            # publishes 3.5.0, 3.6.1 and 3.7.2
 #
 #   REGISTRY_URL   registry, default http://localhost:4873
@@ -26,11 +26,11 @@ CANOPY_ROOT="$(cd "$HERE/.." && pwd)"
 REPO_ROOT="$CANOPY_ROOT"
 
 REGISTRY_URL="${REGISTRY_URL:-${NPM_REGISTRY:-http://localhost:4873}}"
-PUBLISHER_USER="${VERDACCIO_PUBLISHER_USER:-meridian-publisher}"
+PUBLISHER_USER="${VERDACCIO_PUBLISHER_USER:-northgate-publisher}"
 PUBLISHER_PASSWORD="${VERDACCIO_PUBLISHER_PASSWORD:-CHANGEME-verdaccio-publisher}"
 TAGS="${CANOPY_TAGS:-v3.5.0 v3.6.1 v3.7.2}"
-PKG=@meridian/canopy-ui
-PKG_URL="$REGISTRY_URL/@meridian%2fcanopy-ui"
+PKG=@northgate/canopy-ui
+PKG_URL="$REGISTRY_URL/@northgate%2fcanopy-ui"
 
 log()  { printf '[canopy-publish] %s\n' "$*"; }
 warn() { printf '[canopy-publish] WARN %s\n' "$*" >&2; }
@@ -128,12 +128,12 @@ publish_tag() {
     ln -s "$CANOPY_ROOT/node_modules" "$dir/node_modules"
   else
     # The registry is re-seeded from source on every box, and a tarball packed by a different npm
-    # does not hash the same (PLAT-2718). Re-resolve our own @meridian packages against the live
+    # does not hash the same (PLAT-2718). Re-resolve our own @northgate packages against the live
     # registry in the throwaway worktree before npm ci; the tag's lockfile is not touched.
-    log "$tag: refreshing @meridian lock entries against $REGISTRY_URL"
+    log "$tag: refreshing @northgate lock entries against $REGISTRY_URL"
     ( cd "$dir" && npm install --package-lock-only --userconfig "$NPMRC" --no-audit --no-fund --loglevel error \
-        $(node -p "Object.keys(require('./package-lock.json').packages||{}).filter(k=>k.startsWith('node_modules/@meridian/')).map(k=>k.slice('node_modules/'.length)+'@'+require('./package-lock.json').packages[k].version).join(' ')") ) \
-      || warn "$tag: could not refresh @meridian lock entries, trying npm ci as-is"
+        $(node -p "Object.keys(require('./package-lock.json').packages||{}).filter(k=>k.startsWith('node_modules/@northgate/')).map(k=>k.slice('node_modules/'.length)+'@'+require('./package-lock.json').packages[k].version).join(' ')") ) \
+      || warn "$tag: could not refresh @northgate lock entries, trying npm ci as-is"
     log "$tag: npm ci (this is the slow part, a few minutes on a cold cache)"
     ( cd "$dir" && npm ci --userconfig "$NPMRC" --no-audit --no-fund --loglevel error ) \
       || { warn "$tag: npm ci failed"; FAILED=$((FAILED+1)); return 0; }

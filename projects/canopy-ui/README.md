@@ -1,16 +1,16 @@
-# @meridian/canopy-ui
+# @northgate/canopy-ui
 
-Meridian Trust Bank's Angular component library. Angular 14, Material 14.
+Northgate Trust Bank's Angular component library. Angular 14, Material 14.
 
 ```
-ng add @meridian/canopy-ui
+ng add @northgate/canopy-ui
 ```
 
 Then import the entry point you need:
 
 ```ts
-import { CnButtonModule } from '@meridian/canopy-ui/actions';
-import { CnDataTableModule, CnFilterChipsModule } from '@meridian/canopy-ui/data-display';
+import { CnButtonModule } from '@northgate/canopy-ui/actions';
+import { CnDataTableModule, CnFilterChipsModule } from '@northgate/canopy-ui/data-display';
 ```
 
 Entry points: `core`, `icons`, `a11y`, `actions`, `forms`, `data-display`, `navigation`,
@@ -20,7 +20,7 @@ the specific one.
 Theme:
 
 ```scss
-@use '@meridian/canopy-ui/styles' as canopy;
+@use '@northgate/canopy-ui/styles' as canopy;
 @include canopy.theme();
 ```
 

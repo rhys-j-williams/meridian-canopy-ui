@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CnSelectOption } from '@meridian/canopy-ui/forms';
+import { CnSelectOption } from '@northgate/canopy-ui/forms';
 import { ShowcaseFixturesService } from '../../shared/fixtures.service';
 
 @Component({

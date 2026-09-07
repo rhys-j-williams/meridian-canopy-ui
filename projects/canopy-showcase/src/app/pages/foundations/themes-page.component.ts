@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { CnThemeName, CnThemeService } from '@meridian/canopy-ui/core';
+import { CnThemeName, CnThemeService } from '@northgate/canopy-ui/core';
 
 @Component({
   selector: 'cs-themes-page',
   template: `
     <cn-page-header title="Themes" eyebrow="Foundations"
-                    lede="Light is the default. Dark shipped in 3.6.0 for Meridian Online's evening mode; high contrast follows forced-colors and is required by the accessibility statement.">
+                    lede="Light is the default. Dark shipped in 3.6.0 for Northgate Online's evening mode; high contrast follows forced-colors and is required by the accessibility statement.">
     </cn-page-header>
     <div class="cs-stack" style="margin-top: 24px">
       <cn-card title="Switch theme" subtitle="CnThemeService toggles cn-theme-* on the html element and persists the choice when a storage key is configured.">
@@ -16,7 +16,7 @@ this.theme.toggleDark();</pre>
       </cn-card>
       <cn-card title="What a theme is" subtitle="The mixin, from themes/_theme.scss">
         <pre class="cs-code">@use '@angular/material' as mat;
-@use '@meridian/canopy-ui/themes' as canopy;
+@use '@northgate/canopy-ui/themes' as canopy;
 
 @include canopy.theme($include-dark: true, $include-high-contrast: true);
 

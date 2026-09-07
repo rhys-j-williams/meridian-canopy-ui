@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CnNavItem } from '@meridian/canopy-ui/layout';
+import { CnNavItem } from '@northgate/canopy-ui/layout';
 
 @Component({
   selector: 'cs-page-shell-page',
@@ -12,7 +12,7 @@ import { CnNavItem } from '@meridian/canopy-ui/layout';
   </cs-demo-section>
   <cs-demo-section title="Embedded, collapsed nav" [tinted]="true">
     <div style="height: 360px; border: 1px solid var(--cn-color-border); overflow: hidden">
-      <cn-page-shell appName="Meridian Business" environmentLabel="UAT" [nav]="nav" userName="Demo User" [navCollapsed]="true" [showThemeToggle]="true"
+      <cn-page-shell appName="Northgate Business" environmentLabel="UAT" [nav]="nav" userName="Demo User" [navCollapsed]="true" [showThemeToggle]="true"
                      (navSelect)="last = $event.label" (signOut)="last = 'sign out'">
         <cn-icon-button cnShellToolbar icon="cn:bell" ariaLabel="Notifications" [badge]="2"></cn-icon-button>
         <p style="padding: 16px">Content area. Last nav event: {{ last || '-' }}</p>

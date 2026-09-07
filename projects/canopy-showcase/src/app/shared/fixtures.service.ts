@@ -7,8 +7,8 @@ import {
   Transaction,
   generateFixtures,
   maskAccountNumber
-} from '@meridian/domain-fixtures';
-import { CnAccountKind, CnAccountStatus, CnAccountSummary } from '@meridian/canopy-ui/data-display';
+} from '@northgate/domain-fixtures';
+import { CnAccountKind, CnAccountStatus, CnAccountSummary } from '@northgate/canopy-ui/data-display';
 
 /** Row shape the showcase tables use. Minor units are converted once, here, not in templates. */
 export interface TxnRow {
@@ -44,7 +44,7 @@ const STATUS: Record<Account['status'], CnAccountStatus> = {
 };
 
 /**
- * Everything on the showcase comes out of `@meridian/domain-fixtures` with the `CNPY-showcase`
+ * Everything on the showcase comes out of `@northgate/domain-fixtures` with the `CNPY-showcase`
  * seed, so a screenshot taken for a design review matches the one in the visual regression run.
  * Do not hand-write customer or card data here; the forbidden strings hook will not catch a
  * plausible looking account number but the data classification review will.

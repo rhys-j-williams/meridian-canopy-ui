@@ -41,7 +41,7 @@ $cn-high-contrast-theme: mat.define-light-theme((
 /// dark and high contrast variants behind html.cn-theme-dark / html.cn-theme-high-contrast so
 /// CnThemeService can switch at runtime without a rebuild.
 ///
-///   @use '@meridian/canopy-ui/themes' as canopy;
+///   @use '@northgate/canopy-ui/themes' as canopy;
 ///   @include canopy.theme();
 ///
 /// Pass $include-dark: false when an application has no dark mode (business-web) to save ~40kb.

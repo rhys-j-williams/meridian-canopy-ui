@@ -6,8 +6,8 @@ import {
 import { ControlValueAccessor, FormGroupDirective, NgControl, NgForm } from '@angular/forms';
 import { MatFormFieldControl } from '@angular/material/form-field';
 import { Subject } from 'rxjs';
-import { CN_CONFIG, CnConfig } from '@meridian/canopy-ui/core';
-import { CnCurrencyFormatService } from '@meridian/canopy-ui/core';
+import { CN_CONFIG, CnConfig } from '@northgate/canopy-ui/core';
+import { CnCurrencyFormatService } from '@northgate/canopy-ui/core';
 
 let nextId = 0;
 

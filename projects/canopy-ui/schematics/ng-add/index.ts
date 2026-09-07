@@ -2,11 +2,11 @@ import { chain, Rule, SchematicContext, SchematicsException, Tree } from '@angul
 import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
 import { Schema } from './schema';
 
-const THEME_IMPORT = `@use '@meridian/canopy-ui/themes' as canopy;\n@include canopy.theme();\n`;
-const THEME_IMPORT_LIGHT = `@use '@meridian/canopy-ui/themes' as canopy;\n@include canopy.theme($include-dark: false, $include-high-contrast: false);\n`;
+const THEME_IMPORT = `@use '@northgate/canopy-ui/themes' as canopy;\n@include canopy.theme();\n`;
+const THEME_IMPORT_LIGHT = `@use '@northgate/canopy-ui/themes' as canopy;\n@include canopy.theme($include-dark: false, $include-high-contrast: false);\n`;
 const SPRITE_ASSET = {
   glob: 'canopy-sprite.svg',
-  input: './node_modules/@meridian/canopy-ui/icons',
+  input: './node_modules/@northgate/canopy-ui/icons',
   output: '/assets/canopy'
 };
 
@@ -61,7 +61,7 @@ export function addThemeToStyles(options: Schema): Rule {
       return tree;
     }
     const existing = tree.read(first)?.toString('utf-8') ?? '';
-    if (existing.includes('@meridian/canopy-ui/themes')) {
+    if (existing.includes('@northgate/canopy-ui/themes')) {
       context.logger.info('Canopy theme already included, leaving styles.scss alone.');
       return tree;
     }

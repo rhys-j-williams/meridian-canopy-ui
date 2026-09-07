@@ -25,7 +25,7 @@ export const CN_DEFAULT_CONFIG: CnConfig = {
   currency: 'USD',
   density: 'default',
   defaultTheme: 'light',
-  themeStorageKey: 'meridian.canopy.theme'
+  themeStorageKey: 'northgate.canopy.theme'
 };
 
 export const CN_CONFIG = new InjectionToken<CnConfig>('CN_CONFIG', {

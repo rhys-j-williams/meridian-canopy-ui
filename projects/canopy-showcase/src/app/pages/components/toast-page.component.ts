@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CnToastService } from '@meridian/canopy-ui/overlays';
+import { CnToastService } from '@northgate/canopy-ui/overlays';
 
 @Component({
   selector: 'cs-toast-page',

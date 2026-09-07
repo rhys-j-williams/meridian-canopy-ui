@@ -1,22 +1,22 @@
-# Canopy design system (`@meridian/canopy-ui`)
+# Canopy design system (`@northgate/canopy-ui`)
 
 | | |
 |---|---|
-| Owning team | Canopy design system (`@meridian/canopy-design-system`), part of CSWT |
+| Owning team | Canopy design system (`@northgate/canopy-design-system`), part of CSWT |
 | Jira | `CNPY` |
 | Chat | `#canopy-design-system`, `#canopy-consumers` for questions from app teams |
 | On call | Canopy is not paged. Consumer incidents route to the consuming application's rota; the Canopy rota (`CSWT-CANOPY-L2`, business hours ET) is engaged by the incident commander when a defect is traced to the library. See the runbook under `docs/runbooks/`. |
-| Current version | 3.7.2 (`develop`), 3.5.0 still consumed by Meridian Business |
+| Current version | 3.7.2 (`develop`), 3.5.0 still consumed by Northgate Business |
 | Angular | 14.3.0, Material 14.2.7, Node 16.20.2 |
 
-Canopy is the bank's Angular component library. It wraps Angular Material with the Meridian
+Canopy is the bank's Angular component library. It wraps Angular Material with the Northgate
 design tokens, adds the components Material does not have (account card, currency input, filter
 chips with our semantics, error summary, disclosure) and carries the accessibility behaviour that
 the digital accessibility standard (DAS-2.1) requires of every customer facing screen.
 
-Consumers are the CSWT application repositories (meridian-retail-web, meridian-business-web,
-meridian-keystone-web, meridian-ledgerline-web, meridian-iris-widget; the set is listed in
-[meridian-cswt-workspace](https://github.com/rhys-j-williams/meridian-cswt-workspace)) and they
+Consumers are the CSWT application repositories (northgate-retail-web, northgate-business-web,
+northgate-keystone-web, northgate-ledgerline-web, northgate-iris-widget; the set is listed in
+[northgate-cswt-workspace](https://github.com/rhys-j-williams/northgate-cswt-workspace)) and they
 install the library from the internal registry; none of them builds Canopy from source. Canopy was
 the first deliverable moved out of the former single workspace into its own repository (CNPY-2140)
 so the library could be released on its own cadence and consumer builds pin a published version
@@ -26,8 +26,8 @@ Consumers and the version they are on, as of the 2026.09 train:
 
 | Application | Version | Notes |
 |---|---|---|
-| retail-web (Meridian Online) | 3.7.2 | |
-| business-web (Meridian Business) | 3.5.0 | Pinned exactly. See MBZ-2210, blocked on their RxJS 6 work. |
+| retail-web (Northgate Online) | 3.7.2 | |
+| business-web (Northgate Business) | 3.5.0 | Pinned exactly. See MBZ-2210, blocked on their RxJS 6 work. |
 | ledgerline-web | 3.7.2 | Carries patches against the published package. We have asked them to stop (LDG-3104). |
 | keystone-web | 3.6.1 | |
 | iris-widget | 3.7.2 | `cn-toast` and icons only. |
@@ -49,7 +49,7 @@ projects/canopy-ui            the library. One secondary entry point per compone
   src/lib/content             disclosure
   src/lib/tokens              SCSS tokens and the CSS custom property sheet
   src/lib/themes              light, dark, high contrast. `canopy.theme()` is the consumer mixin.
-  src/styles                  consumer facing SCSS entry (`@use '@meridian/canopy-ui/styles'`)
+  src/styles                  consumer facing SCSS entry (`@use '@northgate/canopy-ui/styles'`)
   schematics/ng-add           installs the theme import and the sprite asset
 projects/canopy-showcase      living style guide, port 4204
 docs/api                      generated public API reports, committed, diffed in review
@@ -60,7 +60,7 @@ scripts/                      publish, api report, changelog gate, asset copy
 Consumers import from the entry point, never from a deep path:
 
 ```ts
-import { CnDataTableModule } from '@meridian/canopy-ui/data-display';
+import { CnDataTableModule } from '@northgate/canopy-ui/data-display';
 ```
 
 ## Build
@@ -92,9 +92,9 @@ npm start                  # http://localhost:4204
 ```
 
 The showcase is self contained. It does not call any service; the dashboard pages are driven by
-`@meridian/domain-fixtures` (seeded, deterministic). There is nothing to run from
+`@northgate/domain-fixtures` (seeded, deterministic). There is nothing to run from
 `mock-external` for Canopy itself. If you want to see a component inside a real application, run
-retail-web (`meridian-retail-web`) against its mock stack and point its `.npmrc` at a Verdaccio
+retail-web (`northgate-retail-web`) against its mock stack and point its `.npmrc` at a Verdaccio
 you have published to (see `docs/runbooks/publish-a-release.md`, section "Local publish").
 
 ## Publishing
@@ -110,11 +110,11 @@ and the `gitHead` in the package did not exist; INC0412876.
 Consumers include the theme once, in their root stylesheet:
 
 ```scss
-@use '@meridian/canopy-ui/styles' as canopy;
+@use '@northgate/canopy-ui/styles' as canopy;
 @include canopy.theme();               // light, plus dark and high contrast under body classes
 ```
 
-`ng add @meridian/canopy-ui` does this for a new application and copies the sprite into
+`ng add @northgate/canopy-ui` does this for a new application and copies the sprite into
 `assets/canopy`. Tokens are available both as SCSS variables (`canopy.$cn-space-4`) and as CSS
 custom properties (`var(--cn-space-4)`); prefer the custom properties in application code so
 theme switching works without a rebuild.

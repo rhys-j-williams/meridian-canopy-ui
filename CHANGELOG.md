@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to `@meridian/canopy-ui` are recorded here. The format follows
+All notable changes to `@northgate/canopy-ui` are recorded here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and the package follows semantic
 versioning within the constraints in CONTRIBUTING.md (public API frozen within a major).
 
@@ -44,7 +44,7 @@ Entries reference CNPY tickets. Entries raised by other teams carry their own ke
 - `cn-error-summary`: WCAG 2.2 style form error summary that focuses the first invalid control
   and links each message to its field (CNPY-1994). Required by DAS-2.1 section 4.
 - `cn-virtual-list`: CDK virtual scroll wrapper with keyboard navigation, `aria-setsize` and
-  `aria-posinset`, for the transaction lists in Meridian Online and Ledgerline (CNPY-1960).
+  `aria-posinset`, for the transaction lists in Northgate Online and Ledgerline (CNPY-1960).
 - `cn-a11y-announcer`: thin `LiveAnnouncer` wrapper that queues messages so consecutive toasts
   do not clobber each other (CNPY-2003).
 - Dark theme. `canopy.theme()` now emits `.cn-theme-dark` alongside the light theme using
@@ -69,7 +69,7 @@ Entries reference CNPY tickets. Entries raised by other teams carry their own ke
 ## [3.6.0] - 2024-03-07
 
 ### Added
-- `cn-bottom-sheet` (CNPY-1794), for the mobile web card controls in Meridian Online.
+- `cn-bottom-sheet` (CNPY-1794), for the mobile web card controls in Northgate Online.
 - `cn-disclosure`: `cn-disclosure[disclosureId]` renders regulatory copy from the content
   service. Content is bank authored so the HTML is rendered as is (CNPY-1801). Reviewed with GIS.
 - High contrast theme under `.cn-theme-hc` (CNPY-1753, DAS-2.1 finding).
@@ -147,7 +147,7 @@ Entries reference CNPY tickets. Entries raised by other teams carry their own ke
 ### Added
 - `cn-tabs` with `cnTab` content projection and badge slots (CNPY-1188).
 - `cn-filter-chips` on `MatChipList` with `selectable` chips and a `selectionChange` event
-  (CNPY-1201). Replaces the copy in Meridian Business.
+  (CNPY-1201). Replaces the copy in Northgate Business.
 - `cn-data-table` density input, `compact` and `default` (CNPY-1212).
 - `cnFocusTrap` directive (CNPY-1219).
 
@@ -158,7 +158,7 @@ Entries reference CNPY tickets. Entries raised by other teams carry their own ke
 
 ### Added
 - Secondary entry points per component family. The root entry point still re-exports everything
-  so nothing breaks, but consumers should move to `@meridian/canopy-ui/<family>` for tree shaking
+  so nothing breaks, but consumers should move to `@northgate/canopy-ui/<family>` for tree shaking
   (CNPY-1104, ADR-0002).
 - `ng add` schematic that adds the theme import and copies the sprite (CNPY-1120).
 - Public API reports under `docs/api`, regenerated on build (CNPY-1131).
@@ -195,19 +195,19 @@ are in the 3.0 migration guide on the wiki.
 ### Removed
 - Everything from 2.x. See the migration guide.
 
-[Unreleased]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.7.2...develop
-[3.7.2]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.7.1...v3.7.2
-[3.7.1]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.7.0...v3.7.1
-[3.7.0]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.6.1...v3.7.0
-[3.6.1]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.6.0...v3.6.1
-[3.6.0]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.5.0...v3.6.0
-[3.5.0]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.4.2...v3.5.0
-[3.4.2]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.4.1...v3.4.2
-[3.4.1]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.4.0...v3.4.1
-[3.4.0]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.3.1...v3.4.0
-[3.3.1]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.3.0...v3.3.1
-[3.3.0]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.2.0...v3.3.0
-[3.2.0]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.1.0...v3.2.0
-[3.1.0]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.0.1...v3.1.0
-[3.0.1]: https://git.meridian.internal/cswt/canopy-ui/compare/v3.0.0...v3.0.1
-[3.0.0]: https://git.meridian.internal/cswt/canopy-ui/releases/tag/v3.0.0
+[Unreleased]: https://git.northgate.internal/cswt/canopy-ui/compare/v3.7.2...develop
+[3.7.2]: https://git.northgate.internal/cswt/canopy-ui/compare/v3.7.1...v3.7.2
+[3.7.1]: https://git.northgate.internal/cswt/canopy-ui/compare/v3.7.0...v3.7.1
+[3.7.0]: https://git.northgate.internal/cswt/canopy-ui/compare/v3.6.1...v3.7.0
+[3.6.1]: https://git.northgate.internal/cswt/canopy-ui/compare/v3.6.0...v3.6.1
+[3.6.0]: https://git.northgate.internal/cswt/canopy-ui/compare/v3.5.0...v3.6.0
+[3.5.0]: https://git.northgate.internal/cswt/canopy-ui/compare/v3.4.2...v3.5.0
+[3.4.2]: https://git.northgate.internal/cswt/canopy-ui/compare/v3.4.1...v3.4.2
+[3.4.1]: https://git.northgate.internal/cswt/canopy-ui/compare/v3.4.0...v3.4.1
+[3.4.0]: https://git.northgate.internal/cswt/canopy-ui/compare/v3.3.1...v3.4.0
+[3.3.1]: https://git.northgate.internal/cswt/canopy-ui/compare/v3.3.0...v3.3.1
+[3.3.0]: https://git.northgate.internal/cswt/canopy-ui/compare/v3.2.0...v3.3.0
+[3.2.0]: https://git.northgate.internal/cswt/canopy-ui/compare/v3.1.0...v3.2.0
+[3.1.0]: https://git.northgate.internal/cswt/canopy-ui/compare/v3.0.1...v3.1.0
+[3.0.1]: https://git.northgate.internal/cswt/canopy-ui/compare/v3.0.0...v3.0.1
+[3.0.0]: https://git.northgate.internal/cswt/canopy-ui/releases/tag/v3.0.0

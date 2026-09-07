@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Inject, Input, Output, ViewEncapsulation } from '@angular/core';
-import { CN_CONFIG, CnConfig, CnCurrencyFormatService } from '@meridian/canopy-ui/core';
+import { CN_CONFIG, CnConfig, CnCurrencyFormatService } from '@northgate/canopy-ui/core';
 
 export type CnAccountKind = 'checking' | 'savings' | 'credit' | 'loan' | 'investment' | 'business';
 export type CnAccountStatus = 'open' | 'frozen' | 'closed' | 'pending';

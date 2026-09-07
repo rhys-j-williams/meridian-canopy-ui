@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TemplateRef, ViewChild } from '@angular/core';
-import { CnBottomSheetService } from '@meridian/canopy-ui/overlays';
+import { CnBottomSheetService } from '@northgate/canopy-ui/overlays';
 
 @Component({
   selector: 'cs-bottom-sheet-page',

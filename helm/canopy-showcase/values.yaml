@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: registry.meridian.internal/cswt/canopy-showcase
+  repository: registry.northgate.internal/cswt/canopy-showcase
   tag: "3.7.2"
   pullPolicy: IfNotPresent
 
@@ -9,7 +9,7 @@ service:
   port: 8080
 
 route:
-  host: canopy.apps.dev.ocp.meridian.internal
+  host: canopy.apps.dev.ocp.northgate.internal
   tls: edge
 
 resources:

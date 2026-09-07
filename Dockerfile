@@ -8,7 +8,7 @@ WORKDIR /opt/app-root/src
 COPY package.json package-lock.json .npmrc ./
 # Registry is whatever .npmrc says. In CI that is Artifactory; NPM_REGISTRY overrides for local builds.
 ARG NPM_REGISTRY=
-RUN if [ -n "$NPM_REGISTRY" ]; then npm config set @meridian:registry "$NPM_REGISTRY"; fi \
+RUN if [ -n "$NPM_REGISTRY" ]; then npm config set @northgate:registry "$NPM_REGISTRY"; fi \
  && npm ci --no-audit --no-fund
 COPY angular.json tsconfig.json ./
 COPY projects ./projects
