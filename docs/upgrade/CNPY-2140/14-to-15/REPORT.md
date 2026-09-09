@@ -61,7 +61,14 @@ commit format, `check-forbidden-strings`):
 | `92b932f` | Add ADR 0005, showcase visual candidate captures and MDC geometry fixes |
 | `6f95276` | Fade disabled `cn-toggle` label like 3.x, add showcase visual SUMMARY and re-captured evidence |
 | `12ee933` | Add hop report, consumer verification and compatibility matrix (REPORT / CONSUMERS / COMPATIBILITY_MATRIX, Xray violation listings) |
-| (this commit) | CAB_RECORD, MIGRATION-4.0, deprecations.log, KAN-33 references |
+| `d6fbf2b` | Add CAB record, migration guide and deprecation log (CAB_RECORD, MIGRATION-4.0, deprecations.log, KAN-33 references) |
+| `c0d6c06` | Rerun final gates on the 4.0.0 candidate tree (gate logs only, results unchanged) |
+| `eb1d347` | Record Verdaccio publish and `npm view` evidence for 4.0.0 |
+| `6cc386c` | Re-run consumer scratch verification against the final 4.0.0 tarball |
+| (this commit) | REPORT.md commit table and publish note refresh |
+
+No commit after `6f95276` touches `projects/`, `package.json`, `package-lock.json` or `angular.json`; the
+final gate, publish and consumer runs therefore exercise the same code as `6f95276`.
 
 ## 3. Migrations applied
 
@@ -99,14 +106,15 @@ commit format, `check-forbidden-strings`):
 | Checkmarx stand-in `cx` | passed | [`scanner-cx.log`](scanner-cx.log) Critical 0 High 0 Medium 0 Low 0, Suppressed 12 (unchanged list), quality gate PASSED | PASS |
 | Sonar stand-in `sonar-scanner` | passed | [`scanner-sonar.log`](scanner-sonar.log) QUALITY GATE PASSED, 0 bugs / 0 vulnerabilities / 0 code smells, 3.8% duplication, 47.6% lines imported | PASS |
 | Xray stand-in `xray` | Policy gate FAILED: High 3 | [`scanner-xray.log`](scanner-xray.log) Policy gate **FAILED**: Critical 0, **High 1** (`ws@8.13.0`, XRAY-124400, carried from baseline), Medium 7, Low 4 | **RED - carried** (section 5); 2 of the 3 baseline Highs are resolved by this hop |
-| Publish to Verdaccio `npm run publish:lib` | n/a | [`publish.log`](publish.log): `@northgate/canopy-ui@4.0.0` 494.6 kB packed / 2.6 MB unpacked / 303 files, shasum `db70b2fc…6ad4b`; [`npm-view.log`](npm-view.log) `npm view @northgate/canopy-ui@4.0.0 --registry http://localhost:4873` resolves | PASS (local registry only, nothing to Artifactory) |
+| Publish to Verdaccio `npm run publish:lib` | n/a | [`publish.log`](publish.log): `@northgate/canopy-ui@4.0.0` 494.6 kB packed / 2.6 MB unpacked / 303 files, shasum `891cdaa7…6b323`; [`npm-view.log`](npm-view.log) `npm view @northgate/canopy-ui@4.0.0 --registry http://localhost:4873` resolves | PASS (local registry only, nothing to Artifactory) |
 | Consumer scratch verification | n/a | [`CONSUMERS.md`](CONSUMERS.md): keystone-web (Angular 15) **PASS**; retail-web, iris-widget, business-web **FAIL as expected** (Angular 14 consumers) | PASS (expected pattern, see section 9) |
 | Showcase visual diff (39 routes, 1280x800) | `showcase-visual/baseline-3.7.2/` | [`showcase-visual/SUMMARY.md`](showcase-visual/SUMMARY.md): 39/39 routes render, 0 console errors, every non-zero diff explained (EXPECTED 17, MDC 18, FIXED 1, NONDETERMINISTIC 3) | evidence complete; **acceptance is KAN-31 (human)** |
 
-Note on the published tarball: `publish.log` / `dist/canopy-ui/package.json` stamp `gitHead: 92b932f`
-because the build ran from the working tree before the `6f95276` commit was made; the tarball content
-is the `6f95276` tree (it contains the `cn-toggle--disabled` rule that only exists in `6f95276`,
-verified with `npm pack @northgate/canopy-ui@4.0.0 --registry http://localhost:4873`).
+Note on the published tarball: the final publish ran from `d6fbf2b` (docs-only commits on top of the
+last code commit `6f95276`), so `dist/canopy-ui/package.json` stamps `gitHead: d6fbf2b` (verified with
+`npm pack @northgate/canopy-ui@4.0.0 --registry http://localhost:4873`). The earlier local publish of the
+same version was unpublished from Verdaccio first (`publish.log`, `--force`), which is a local-registry
+convenience only; Artifactory publishes are tag-driven and never replaced (`docs/runbooks/publish-a-release.md`).
 
 ## 5. Scanner and audit findings carried (governance)
 
