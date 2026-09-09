@@ -3,12 +3,256 @@ node v14.21.3 npm 6.14.18
 pin before: @northgate/canopy-ui 3.5.0
 angular/core: 14.2.12  rxjs: 6.6.7
 
+### step 0: refresh lockfile integrity for @northgate/domain-fixtures@1.6.0 (the local Verdaccio rebuilt the tarball, so the committed sha512 differs; local-registry artefact, not a Canopy change)
++ @northgate/domain-fixtures@1.6.0
+added 980 packages in 2.172s
+exit=0
+
 ### step 1: npm install @northgate/canopy-ui@4.0.0 --save-exact --registry http://localhost:4873 (strict peer resolution, no legacy-peer-deps)
-npm ERR! code EINTEGRITY
-npm ERR! sha512-gKBHGfj8Idy61MyEhKeYks4gPEFVYPw+QW6X//movHaFJRBqac/lB4LGh0CnasrVyM19K99IJuzWb3Ji0q0k0g== integrity checksum failed when using sha512: wanted sha512-gKBHGfj8Idy61MyEhKeYks4gPEFVYPw+QW6X//movHaFJRBqac/lB4LGh0CnasrVyM19K99IJuzWb3Ji0q0k0g== but got sha512-MVYFSNvvVCP0G/npVZcZ+KpCPN7/hwObB4LSoCa9PSJ5eaC0t6+IP6tsxKEPZzRpTjSS2wtcQL38FQaPDd892A==. (13985 bytes)
+
+
+> esbuild@0.15.5 postinstall /home/ubuntu/scratch/consumers/northgate-business-web/node_modules/esbuild
+> node install.js
+
+npm WARN @northgate/canopy-ui@4.0.0 requires a peer of @angular/animations@^15.0.0 but none is installed. You must install peer dependencies yourself.
+npm WARN @northgate/canopy-ui@4.0.0 requires a peer of @angular/cdk@^15.0.0 but none is installed. You must install peer dependencies yourself.
+npm WARN @northgate/canopy-ui@4.0.0 requires a peer of @angular/common@^15.0.0 but none is installed. You must install peer dependencies yourself.
+npm WARN @northgate/canopy-ui@4.0.0 requires a peer of @angular/core@^15.0.0 but none is installed. You must install peer dependencies yourself.
+npm WARN @northgate/canopy-ui@4.0.0 requires a peer of @angular/forms@^15.0.0 but none is installed. You must install peer dependencies yourself.
+npm WARN @northgate/canopy-ui@4.0.0 requires a peer of @angular/material@^15.0.0 but none is installed. You must install peer dependencies yourself.
+npm WARN @northgate/canopy-ui@4.0.0 requires a peer of @angular/material-moment-adapter@^15.0.0 but none is installed. You must install peer dependencies yourself.
+npm WARN @northgate/canopy-ui@4.0.0 requires a peer of @angular/router@^15.0.0 but none is installed. You must install peer dependencies yourself.
+npm WARN @northgate/canopy-ui@4.0.0 requires a peer of ngx-mask@^15.0.0 but none is installed. You must install peer dependencies yourself.
+npm WARN @northgate/canopy-ui@4.0.0 requires a peer of rxjs@^7.5.0 but none is installed. You must install peer dependencies yourself.
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@2.3.3 (node_modules/fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.3.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-windows-arm64@0.15.5 (node_modules/esbuild-windows-arm64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-windows-arm64@0.15.5: wanted {"os":"win32","arch":"arm64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-windows-32@0.15.5 (node_modules/esbuild-windows-32):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-windows-32@0.15.5: wanted {"os":"win32","arch":"ia32"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-windows-64@0.15.5 (node_modules/esbuild-windows-64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-windows-64@0.15.5: wanted {"os":"win32","arch":"x64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-sunos-64@0.15.5 (node_modules/esbuild-sunos-64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-sunos-64@0.15.5: wanted {"os":"sunos","arch":"x64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-openbsd-64@0.15.5 (node_modules/esbuild-openbsd-64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-openbsd-64@0.15.5: wanted {"os":"openbsd","arch":"x64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-netbsd-64@0.15.5 (node_modules/esbuild-netbsd-64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-netbsd-64@0.15.5: wanted {"os":"netbsd","arch":"x64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-linux-s390x@0.15.5 (node_modules/esbuild-linux-s390x):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-linux-s390x@0.15.5: wanted {"os":"linux","arch":"s390x"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-linux-riscv64@0.15.5 (node_modules/esbuild-linux-riscv64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-linux-riscv64@0.15.5: wanted {"os":"linux","arch":"riscv64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-linux-ppc64le@0.15.5 (node_modules/esbuild-linux-ppc64le):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-linux-ppc64le@0.15.5: wanted {"os":"linux","arch":"ppc64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-linux-mips64le@0.15.5 (node_modules/esbuild-linux-mips64le):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-linux-mips64le@0.15.5: wanted {"os":"linux","arch":"mips64el"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-linux-arm64@0.15.5 (node_modules/esbuild-linux-arm64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-linux-arm64@0.15.5: wanted {"os":"linux","arch":"arm64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-linux-arm@0.15.5 (node_modules/esbuild-linux-arm):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-linux-arm@0.15.5: wanted {"os":"linux","arch":"arm"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-linux-32@0.15.5 (node_modules/esbuild-linux-32):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-linux-32@0.15.5: wanted {"os":"linux","arch":"ia32"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-freebsd-arm64@0.15.5 (node_modules/esbuild-freebsd-arm64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-freebsd-arm64@0.15.5: wanted {"os":"freebsd","arch":"arm64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-freebsd-64@0.15.5 (node_modules/esbuild-freebsd-64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-freebsd-64@0.15.5: wanted {"os":"freebsd","arch":"x64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-darwin-arm64@0.15.5 (node_modules/esbuild-darwin-arm64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-darwin-arm64@0.15.5: wanted {"os":"darwin","arch":"arm64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-darwin-64@0.15.5 (node_modules/esbuild-darwin-64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-darwin-64@0.15.5: wanted {"os":"darwin","arch":"x64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-android-arm64@0.15.5 (node_modules/esbuild-android-arm64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-android-arm64@0.15.5: wanted {"os":"android","arch":"arm64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-android-64@0.15.5 (node_modules/esbuild-android-64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-android-64@0.15.5: wanted {"os":"android","arch":"x64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: @esbuild/linux-loong64@0.15.5 (node_modules/@esbuild/linux-loong64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for @esbuild/linux-loong64@0.15.5: wanted {"os":"linux","arch":"loong64"} (current: {"os":"linux","arch":"x64"})
+
++ @northgate/canopy-ui@4.0.0
+added 959 packages from 1291 contributors in 19.394s
+exit=0
+pin after: @northgate/canopy-ui 4.0.0
+
+### step 2: npx ng update @northgate/canopy-ui --migrate-only --from=3.6.1 --to=4.0.0 --allow-dirty
+Workspace extension with invalid name (_comment) found.
+Repository is not clean. Update changes will be mixed with pre-existing changes.
+The installed Angular CLI version is outdated.
+Installing a temporary Angular CLI versioned 14.2.13 to perform the update.
+- Installing packages...
+✔ Packages successfully installed.
+Workspace extension with invalid name (_comment) found.
+Repository is not clean. Update changes will be mixed with pre-existing changes.
+Using package manager: npm
+Collecting installed dependencies...
+Found 39 dependencies.
+** Executing migrations of package '@northgate/canopy-ui' **
+
+▸ Canopy 4.0.0 (CNPY-2140): rewrites 3.x Material 2014 typography level names ($display-4 ..
+  $input) in consumer canopy.theme() typography overrides to the Material 15 names.
+    canopy-4-theme-mixin: no Canopy typography overrides found, nothing to do.
+  Migration completed.
+
+exit=0
+
+### step 2b: git diff after migration
+ package-lock.json | 26 +++++++++++++-------------
+ package.json      |  4 ++--
+ 2 files changed, 15 insertions(+), 15 deletions(-)
+
+### step 3: npm run lint
+WARNING: 56:5    no-floating-promises                   Promises must be handled appropriately
+WARNING: 126:9   no-floating-promises                   Promises must be handled appropriately
+
+/home/ubuntu/scratch/consumers/northgate-business-web/src/app/features/wires/wire-detail/wire-detail.component.html:36:12
+WARNING: 36:12   template-use-track-by-function         Missing trackBy function in ngFor directive
+WARNING: 43:12   template-use-track-by-function         Missing trackBy function in ngFor directive
+
+/home/ubuntu/scratch/consumers/northgate-business-web/src/app/features/wires/wire-detail/wire-detail.component.ts:92:5
+WARNING: 92:5    no-floating-promises                   Promises must be handled appropriately
+WARNING: 106:5   no-floating-promises                   Promises must be handled appropriately
+
+/home/ubuntu/scratch/consumers/northgate-business-web/src/app/features/wires/wire-list/wire-list.component.ts:39:5
+WARNING: 39:5    no-floating-promises                   Promises must be handled appropriately
+WARNING: 75:5    no-floating-promises                   Promises must be handled appropriately
+WARNING: 79:5    no-floating-promises                   Promises must be handled appropriately
+
+/home/ubuntu/scratch/consumers/northgate-business-web/src/app/layout/auth-callback/auth-callback.component.ts:30:7
+WARNING: 30:7    no-floating-promises                   Promises must be handled appropriately
+WARNING: 38:5    no-floating-promises                   Promises must be handled appropriately
+
+/home/ubuntu/scratch/consumers/northgate-business-web/src/app/layout/shell/shell.component.ts:25:18
+WARNING: 25:18   use-component-view-encapsulation       Using ViewEncapsulation.None makes your styles global, which may have an unintended effect
+WARNING: 99:5    no-floating-promises                   Promises must be handled appropriately
+
+/home/ubuntu/scratch/consumers/northgate-business-web/src/app/layout/signed-out/signed-out.component.ts:21:5
+WARNING: 21:5    no-floating-promises                   Promises must be handled appropriately
+
+/home/ubuntu/scratch/consumers/northgate-business-web/src/app/shared/components/confirm-action-dialog/confirm-action-dialog.component.ts:28:18
+WARNING: 28:18   use-component-view-encapsulation       Using ViewEncapsulation.None makes your styles global, which may have an unintended effect
+
+exit=0
+
+### step 4: npm run build
+
+Error: node_modules/@northgate/canopy-ui/navigation/tabs/tab.directive.d.ts:12:18 - error TS2707: Generic type 'ɵɵDirectiveDeclaration' requires between 6 and 8 type arguments.
+
+12     static ɵdir: i0.ɵɵDirectiveDeclaration<CnTabDirective, "[cnTab]", never, { "label": "label"; "badge": "badge"; "icon": "icon"; "disabled": "disabled"; }, {}, never, never, false, never>;
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Error: node_modules/@northgate/canopy-ui/navigation/tabs/tabs.component.d.ts:32:18 - error TS2707: Generic type 'ɵɵComponentDeclaration' requires between 7 and 8 type arguments.
+
+32     static ɵcmp: i0.ɵɵComponentDeclaration<CnTabsComponent, "cn-tabs", never, { "selectedIndex": "selectedIndex"; "stretch": "stretch"; "ariaLabel": "ariaLabel"; }, { "selectedChange": "selectedChange"; }, ["tabs"], never, false, never>;
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Error: node_modules/@northgate/canopy-ui/overlays/bottom-sheet/bottom-sheet.component.d.ts:17:18 - error TS2707: Generic type 'ɵɵComponentDeclaration' requires between 7 and 8 type arguments.
+
+17     static ɵcmp: i0.ɵɵComponentDeclaration<CnBottomSheetComponent, "cn-bottom-sheet", never, { "title": "title"; "showClose": "showClose"; }, { "closed": "closed"; }, never, ["*"], false, never>;
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Error: node_modules/@northgate/canopy-ui/overlays/dialog-shell/confirm-dialog.component.d.ts:15:18 - error TS2707: Generic type 'ɵɵComponentDeclaration' requires between 7 and 8 type arguments.
+
+15     static ɵcmp: i0.ɵɵComponentDeclaration<CnConfirmDialogComponent, "cn-confirm-dialog", never, {}, {}, never, never, false, never>;
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Error: node_modules/@northgate/canopy-ui/overlays/dialog-shell/dialog-shell.component.d.ts:32:18 - error TS2707: Generic type 'ɵɵComponentDeclaration' requires between 7 and 8 type arguments.
+
+32     static ɵcmp: i0.ɵɵComponentDeclaration<CnDialogShellComponent, "cn-dialog-shell", never, { "title": "title"; "subtitle": "subtitle"; "showClose": "showClose"; "busy": "busy"; "size": "size"; "destructive": "destructive"; }, { "closed": "closed"; }, never, ["*", "[cnDialogActions]"], false, never>;
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Error: node_modules/@northgate/canopy-ui/overlays/toast/toast.component.d.ts:17:18 - error TS2707: Generic type 'ɵɵComponentDeclaration' requires between 7 and 8 type arguments.
+
+17     static ɵcmp: i0.ɵɵComponentDeclaration<CnToastComponent, "cn-toast", never, {}, {}, never, never, false, never>;
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Error: node_modules/@northgate/canopy-ui/overlays/tooltip/tooltip-styles.component.d.ts:8:18 - error TS2707: Generic type 'ɵɵComponentDeclaration' requires between 7 and 8 type arguments.
+
+8     static ɵcmp: i0.ɵɵComponentDeclaration<CnTooltipStylesComponent, "cn-tooltip-styles", never, {}, {}, never, never, false, never>;
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Error: node_modules/@northgate/canopy-ui/overlays/tooltip/tooltip.directive.d.ts:20:18 - error TS2707: Generic type 'ɵɵDirectiveDeclaration' requires between 6 and 8 type arguments.
+
+20     static ɵdir: i0.ɵɵDirectiveDeclaration<CnTooltipDirective, "[cnTooltip]", ["cnTooltip"], { "message": "cnTooltip"; "position": "cnTooltipPosition"; "disabled": "cnTooltipDisabled"; }, {}, never, never, false, never>;
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! northgate-business@2026.9.0 build: `ng build`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the northgate-business@2026.9.0 build script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/ubuntu/.npm/_logs/2026-09-09T13_32_44_358Z-debug.log
+npm ERR!     /home/ubuntu/.npm/_logs/2026-09-09T17_06_52_111Z-debug.log
 exit=1
 
-RESULT: FAIL (peer range) - expected for an Angular 14 consumer; upgrade is the consumer's own ticket
+### step 5: npm test
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Error: node_modules/@northgate/canopy-ui/forms/toggle/toggle.component.d.ts:30:18 - error TS2707: Generic type 'ɵɵComponentDeclaration' requires between 7 and 8 type arguments.
+30     static ɵcmp: i0.ɵɵComponentDeclaration<CnToggleComponent, "cn-toggle", never, { "hint": "hint"; "onText": "onText"; "offText": "offText"; "ariaLabel": "ariaLabel"; "labelPosition": "labelPosition"; }, { "changed": "changed"; }, never, ["*"], false, never>;
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Error: node_modules/@northgate/canopy-ui/layout/page-header/page-header.component.d.ts:24:18 - error TS2707: Generic type 'ɵɵComponentDeclaration' requires between 7 and 8 type arguments.
+24     static ɵcmp: i0.ɵɵComponentDeclaration<CnPageHeaderComponent, "cn-page-header", never, { "title": "title"; "lede": "lede"; "eyebrow": "eyebrow"; "breadcrumbs": "breadcrumbs"; "compact": "compact"; "backLink": "backLink"; "backLabel": "backLabel"; }, {}, never, ["[cnPageAction]", "*"], false, never>;
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Error: node_modules/@northgate/canopy-ui/layout/page-shell/page-shell.component.d.ts:40:18 - error TS2707: Generic type 'ɵɵComponentDeclaration' requires between 7 and 8 type arguments.
+40     static ɵcmp: i0.ɵɵComponentDeclaration<CnPageShellComponent, "cn-page-shell", never, { "appName": "appName"; "environmentLabel": "environmentLabel"; "nav": "nav"; "userName": "userName"; "showThemeToggle": "showThemeToggle"; "navCollapsed": "navCollapsed"; "maxContentWidth": "maxContentWidth"; }, { "navSelect": "navSelect"; "signOut": "signOut"; }, never, ["[cnShellToolbar]", "*"], false, never>;
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Error: node_modules/@northgate/canopy-ui/layout/page-shell/theme-toggle.component.d.ts:14:18 - error TS2707: Generic type 'ɵɵComponentDeclaration' requires between 7 and 8 type arguments.
+14     static ɵcmp: i0.ɵɵComponentDeclaration<CnThemeToggleComponent, "cn-theme-toggle", never, {}, {}, never, never, false, never>;
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Error: node_modules/@northgate/canopy-ui/navigation/stepper-shell/step.directive.d.ts:13:18 - error TS2707: Generic type 'ɵɵDirectiveDeclaration' requires between 6 and 8 type arguments.
+13     static ɵdir: i0.ɵɵDirectiveDeclaration<CnStepDirective, "[cnStep]", never, { "label": "label"; "optional": "optional"; "control": "control"; "editable": "editable"; }, {}, never, never, false, never>;
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Error: node_modules/@northgate/canopy-ui/navigation/stepper-shell/stepper-shell.component.d.ts:35:18 - error TS2707: Generic type 'ɵɵComponentDeclaration' requires between 7 and 8 type arguments.
+35     static ɵcmp: i0.ɵɵComponentDeclaration<CnStepperShellComponent, "cn-stepper-shell", never, { "compact": "compact"; "linear": "linear"; "continueLabel": "continueLabel"; "backLabel": "backLabel"; "finishLabel": "finishLabel"; "busy": "busy"; }, { "stepChange": "stepChange"; "completed": "completed"; "cancelled": "cancelled"; }, ["steps"], never, false, never>;
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Error: node_modules/@northgate/canopy-ui/navigation/tabs/tab.directive.d.ts:12:18 - error TS2707: Generic type 'ɵɵDirectiveDeclaration' requires between 6 and 8 type arguments.
+12     static ɵdir: i0.ɵɵDirectiveDeclaration<CnTabDirective, "[cnTab]", never, { "label": "label"; "badge": "badge"; "icon": "icon"; "disabled": "disabled"; }, {}, never, never, false, never>;
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Error: node_modules/@northgate/canopy-ui/navigation/tabs/tabs.component.d.ts:32:18 - error TS2707: Generic type 'ɵɵComponentDeclaration' requires between 7 and 8 type arguments.
+32     static ɵcmp: i0.ɵɵComponentDeclaration<CnTabsComponent, "cn-tabs", never, { "selectedIndex": "selectedIndex"; "stretch": "stretch"; "ariaLabel": "ariaLabel"; }, { "selectedChange": "selectedChange"; }, ["tabs"], never, false, never>;
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Error: node_modules/@northgate/canopy-ui/overlays/bottom-sheet/bottom-sheet.component.d.ts:17:18 - error TS2707: Generic type 'ɵɵComponentDeclaration' requires between 7 and 8 type arguments.
+17     static ɵcmp: i0.ɵɵComponentDeclaration<CnBottomSheetComponent, "cn-bottom-sheet", never, { "title": "title"; "showClose": "showClose"; }, { "closed": "closed"; }, never, ["*"], false, never>;
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Error: node_modules/@northgate/canopy-ui/overlays/dialog-shell/confirm-dialog.component.d.ts:15:18 - error TS2707: Generic type 'ɵɵComponentDeclaration' requires between 7 and 8 type arguments.
+15     static ɵcmp: i0.ɵɵComponentDeclaration<CnConfirmDialogComponent, "cn-confirm-dialog", never, {}, {}, never, never, false, never>;
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Error: node_modules/@northgate/canopy-ui/overlays/dialog-shell/dialog-shell.component.d.ts:32:18 - error TS2707: Generic type 'ɵɵComponentDeclaration' requires between 7 and 8 type arguments.
+32     static ɵcmp: i0.ɵɵComponentDeclaration<CnDialogShellComponent, "cn-dialog-shell", never, { "title": "title"; "subtitle": "subtitle"; "showClose": "showClose"; "busy": "busy"; "size": "size"; "destructive": "destructive"; }, { "closed": "closed"; }, never, ["*", "[cnDialogActions]"], false, never>;
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Error: node_modules/@northgate/canopy-ui/overlays/toast/toast.component.d.ts:17:18 - error TS2707: Generic type 'ɵɵComponentDeclaration' requires between 7 and 8 type arguments.
+17     static ɵcmp: i0.ɵɵComponentDeclaration<CnToastComponent, "cn-toast", never, {}, {}, never, never, false, never>;
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Error: node_modules/@northgate/canopy-ui/overlays/tooltip/tooltip-styles.component.d.ts:8:18 - error TS2707: Generic type 'ɵɵComponentDeclaration' requires between 7 and 8 type arguments.
+8     static ɵcmp: i0.ɵɵComponentDeclaration<CnTooltipStylesComponent, "cn-tooltip-styles", never, {}, {}, never, never, false, never>;
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Error: node_modules/@northgate/canopy-ui/overlays/tooltip/tooltip.directive.d.ts:20:18 - error TS2707: Generic type 'ɵɵDirectiveDeclaration' requires between 6 and 8 type arguments.
+20     static ɵdir: i0.ɵɵDirectiveDeclaration<CnTooltipDirective, "[cnTooltip]", ["cnTooltip"], { "message": "cnTooltip"; "position": "cnTooltipPosition"; "disabled": "cnTooltipDisabled"; }, {}, never, never, false, never>;
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+09 09 2026 17:07:23.393:INFO [karma-server]: Karma v6.4.1 server started at http://localhost:9877/
+09 09 2026 17:07:23.394:INFO [launcher]: Launching browsers ChromeHeadlessCI with concurrency unlimited
+09 09 2026 17:07:23.401:INFO [launcher]: Starting browser ChromeHeadless
+09 09 2026 17:07:23.738:INFO [Chrome Headless 133.0.0.0 (Linux 0.0.0)]: Connected on socket 3vjUbF7omxPzVJiVAAAA with id 93186886
+09 09 2026 17:07:23.770:WARN [web-server]: 404: /_karma_webpack_/main.js
+Chrome Headless 133.0.0.0 (Linux 0.0.0): Executed 0 of 0 SUCCESS (0 secs / 0 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 0 of 0 SUCCESS (0.006 secs / 0 secs)
+TOTAL: 0 SUCCESS
+=============================== Coverage summary ===============================
+Statements   : Unknown% ( 0/0 )
+Branches     : Unknown% ( 0/0 )
+Functions    : Unknown% ( 0/0 )
+Lines        : Unknown% ( 0/0 )
+================================================================================
+✔ Browser application bundle generation complete.
+✔ Browser application bundle generation complete.
+npm ERR! Test failed.  See above for more details.
+exit=1

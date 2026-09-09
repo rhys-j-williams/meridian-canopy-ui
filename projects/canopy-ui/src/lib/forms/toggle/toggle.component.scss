@@ -71,6 +71,12 @@
     display: none;
   }
 
+  // 3.x faded label and hint together with the control; MDC only recolours the label.
+  &#{&}--disabled &__control > div > label {
+    color: var(--cn-color-text);
+    opacity: 0.38;
+  }
+
   &__hint {
     font-size: 12px;
     color: var(--cn-color-text-muted);

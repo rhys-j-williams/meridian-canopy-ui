@@ -29,10 +29,10 @@ DIFF      /components/skeleton             256 px (0.012%) 1280x1645 -> 1280x164
 DIFF      /components/stepper-shell        2508 px (0.119%) 1280x1645 -> 1280x1645
 DIFF      /components/tabs                 189 px (0.009%) 1280x1645 -> 1280x1645
 DIFF      /components/toast                189 px (0.009%) 1280x1645 -> 1280x1645
-DIFF      /components/toggle               751 px (0.036%) 1280x1645 -> 1280x1645
+DIFF      /components/toggle               427 px (0.02%) 1280x1645 -> 1280x1645
 DIFF      /components/tooltip              189 px (0.009%) 1280x1645 -> 1280x1645
 DIFF      /components/virtual-list         189 px (0.009%) 1280x1645 -> 1280x1645
-DIFF      /dashboard                       54197 px (2.574%) 1280x1645 -> 1280x1645
+DIFF      /dashboard                       54196 px (2.574%) 1280x1645 -> 1280x1645
 DIFF      /foundations/icons               189 px (0.009%) 1280x1645 -> 1280x1645
 DIFF      /foundations/themes              189 px (0.009%) 1280x1645 -> 1280x1645
 DIFF      /foundations/tokens              4268 px (0.193%) 1280x1728 -> 1280x1728

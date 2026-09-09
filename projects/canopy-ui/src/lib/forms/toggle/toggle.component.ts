@@ -16,7 +16,7 @@ import { MatSlideToggleChange } from '@angular/material/slide-toggle';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => CnToggleComponent), multi: true }],
-  host: { class: 'cn-toggle', '[class.cn-toggle--on]': 'checked' }
+  host: { class: 'cn-toggle', '[class.cn-toggle--on]': 'checked', '[class.cn-toggle--disabled]': 'disabled' }
 })
 export class CnToggleComponent implements ControlValueAccessor {
   @Input() hint: string | null = null;

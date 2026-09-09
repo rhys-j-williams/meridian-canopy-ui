@@ -1,4 +1,3 @@
-npm WARN config production Use `--omit=dev` instead.
 # npm audit report
 
 @angular/common  <=19.2.25

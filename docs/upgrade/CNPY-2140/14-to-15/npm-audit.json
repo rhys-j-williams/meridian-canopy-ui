@@ -843,8 +843,8 @@
         "node_modules/esbuild"
       ],
       "fixAvailable": {
-        "name": "ng-packagr",
-        "version": "22.1.1",
+        "name": "@angular-devkit/build-angular",
+        "version": "22.1.7",
         "isSemVerMajor": true
       }
     },
