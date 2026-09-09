@@ -28,7 +28,7 @@
     <mat-progress-bar *ngIf="utilisation !== null" class="cn-account-card__utilisation" mode="determinate" [value]="utilisation"
                       [attr.aria-label]="'Credit used ' + utilisation + ' percent'"></mat-progress-bar>
     <span class="cn-account-card__trend" *ngIf="account.changeSinceYesterday !== undefined" [attr.data-cn-trend]="trend">
-      <mat-icon [svgIcon]="trend === 'up' ? 'cn:arrow-up' : trend === 'down' ? 'cn:arrow-down' : 'cn:trend-flat'" aria-hidden="true"></mat-icon>
+      <mat-icon class="cn-account-card__trend-icon" [svgIcon]="trend === 'up' ? 'cn:arrow-up' : trend === 'down' ? 'cn:arrow-down' : 'cn:trend-flat'" aria-hidden="true"></mat-icon>
       {{ format(account.changeSinceYesterday) }} since yesterday
     </span>
   </div>

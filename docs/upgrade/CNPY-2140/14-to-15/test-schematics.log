@@ -1,0 +1,17 @@
+
+> @northgate/canopy-ui-workspace@4.0.0 test:schematics
+> node scripts/test-schematics.js
+
+PASS canopy-4-theme-mixin migration migrateStylesheet leaves define-legacy-typography-config calls alone
+PASS canopy-4-theme-mixin migration migrateStylesheet leaves a config that already uses Material 15 names alone
+PASS canopy-4-theme-mixin migration migrateStylesheet keeps levels that exist in both systems and the theme include untouched
+PASS canopy-4-theme-mixin migration migrateStylesheet maps a lone 3.x $body-2 onto $subtitle-1
+PASS canopy-4-theme-mixin migration migrateStylesheet drops $input and reports it
+PASS canopy-4-theme-mixin migration migrateStylesheet collapses $body-2 onto $subtitle-1 and keeps $subheading-2 when both are given
+PASS canopy-4-theme-mixin migration migrateStylesheet renames every 2014 level to its Material 15 name
+PASS canopy-4-theme-mixin migration schematic is idempotent
+PASS canopy-4-theme-mixin migration schematic does not touch unrelated files, node_modules or non-SCSS files
+PASS canopy-4-theme-mixin migration schematic rewrites every SCSS file that configures typography
+
+schematic specs: passed
+exit=0

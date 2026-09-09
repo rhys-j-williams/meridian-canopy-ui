@@ -1,10 +1,12 @@
-<mat-tab-group class="cn-tabs__group" [selectedIndex]="selectedIndex" [class.mat-tab-group-stretch-tabs]="stretch" animationDuration="150ms"
+<mat-tab-group class="cn-tabs__group" [selectedIndex]="selectedIndex" [mat-stretch-tabs]="false" animationDuration="150ms"
                disableRipple [attr.aria-label]="ariaLabel" (selectedTabChange)="onChange($event)">
-  <mat-tab *ngFor="let tab of tabs" [disabled]="tab.disabled">
+  <mat-tab *ngFor="let tab of tabs" [disabled]="tab.disabled" labelClass="cn-tabs__tab">
     <ng-template mat-tab-label>
-      <mat-icon *ngIf="tab.icon" class="cn-tabs__icon" [svgIcon]="tab.icon" aria-hidden="true"></mat-icon>
-      <span>{{ tab.label }}</span>
-      <span class="cn-tabs__badge" *ngIf="tab.badge !== null && tab.badge !== 0">{{ tab.badge }}</span>
+      <span class="cn-tabs__label">
+        <mat-icon *ngIf="tab.icon" class="cn-tabs__icon" [svgIcon]="tab.icon" aria-hidden="true"></mat-icon>
+        <span>{{ tab.label }}</span>
+        <span class="cn-tabs__badge" *ngIf="tab.badge !== null && tab.badge !== 0">{{ tab.badge }}</span>
+      </span>
     </ng-template>
     <ng-template matTabContent>
       <div class="cn-tabs__body">

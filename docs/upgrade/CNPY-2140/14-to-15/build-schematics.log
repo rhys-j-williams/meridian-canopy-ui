@@ -1,0 +1,5 @@
+
+> @northgate/canopy-ui-workspace@4.0.0 build:schematics
+> tsc -p projects/canopy-ui/schematics/tsconfig.schematics.json
+
+exit=0

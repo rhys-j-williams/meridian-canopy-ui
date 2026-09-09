@@ -29,13 +29,26 @@
     gap: s.$cn-space-6;
   }
 
-  .mat-radio-label {
+  // MDC renders `<mat-radio-button><div (form field)>circle + label</div>`; the structural
+  // `> div` (no `.mat-*` class) top-aligns the circle against a label + description (ADR-0005).
+  // The ripple is disabled through the `disableRipple` input. The state layer is collapsed to
+  // the 20px circle so the option keeps the 3.x box: circle 2px down, label 8px to the right;
+  // the whole label stays the click target.
+  --mdc-radio-state-layer-size: 20px;
+
+  &__option > div {
     align-items: flex-start;
     white-space: normal;
-  }
 
-  .mat-radio-container {
-    margin-top: 2px;
+    > * {
+      margin-top: 2px;
+    }
+
+    > label {
+      margin-top: 0;
+      padding-left: s.$cn-space-2;
+      color: var(--cn-color-text);
+    }
   }
 
   &__label {

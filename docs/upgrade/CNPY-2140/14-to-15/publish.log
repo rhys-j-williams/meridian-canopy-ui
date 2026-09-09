@@ -1,0 +1,456 @@
+building v4.0.0 -> 4.0.0
+
+> @northgate/canopy-ui-workspace@4.0.0 build
+> ng build canopy-ui
+
+Building Angular Package
+
+------------------------------------------------------------------------------
+Building entry point '@northgate/canopy-ui/core'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in Ivy partial compilation mode.
+✔ Compiling with Angular sources in Ivy partial compilation mode.
+- Writing FESM bundles
+✔ Writing FESM bundles
+✔ Built @northgate/canopy-ui/core
+
+------------------------------------------------------------------------------
+Building entry point '@northgate/canopy-ui/icons'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in Ivy partial compilation mode.
+✔ Compiling with Angular sources in Ivy partial compilation mode.
+- Writing FESM bundles
+✔ Writing FESM bundles
+✔ Built @northgate/canopy-ui/icons
+
+------------------------------------------------------------------------------
+Building entry point '@northgate/canopy-ui/a11y'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in Ivy partial compilation mode.
+✔ Compiling with Angular sources in Ivy partial compilation mode.
+- Writing FESM bundles
+✔ Writing FESM bundles
+✔ Built @northgate/canopy-ui/a11y
+
+------------------------------------------------------------------------------
+Building entry point '@northgate/canopy-ui/actions'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in Ivy partial compilation mode.
+✔ Compiling with Angular sources in Ivy partial compilation mode.
+- Writing FESM bundles
+✔ Writing FESM bundles
+✔ Built @northgate/canopy-ui/actions
+
+------------------------------------------------------------------------------
+Building entry point '@northgate/canopy-ui/forms'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in Ivy partial compilation mode.
+✔ Compiling with Angular sources in Ivy partial compilation mode.
+- Writing FESM bundles
+✔ Writing FESM bundles
+✔ Built @northgate/canopy-ui/forms
+
+------------------------------------------------------------------------------
+Building entry point '@northgate/canopy-ui/data-display'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in Ivy partial compilation mode.
+✔ Compiling with Angular sources in Ivy partial compilation mode.
+- Writing FESM bundles
+✔ Writing FESM bundles
+✔ Built @northgate/canopy-ui/data-display
+
+------------------------------------------------------------------------------
+Building entry point '@northgate/canopy-ui/navigation'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in Ivy partial compilation mode.
+✔ Compiling with Angular sources in Ivy partial compilation mode.
+- Writing FESM bundles
+✔ Writing FESM bundles
+✔ Built @northgate/canopy-ui/navigation
+
+------------------------------------------------------------------------------
+Building entry point '@northgate/canopy-ui/overlays'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in Ivy partial compilation mode.
+✔ Compiling with Angular sources in Ivy partial compilation mode.
+- Writing FESM bundles
+✔ Writing FESM bundles
+✔ Built @northgate/canopy-ui/overlays
+
+------------------------------------------------------------------------------
+Building entry point '@northgate/canopy-ui/feedback'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in Ivy partial compilation mode.
+✔ Compiling with Angular sources in Ivy partial compilation mode.
+- Writing FESM bundles
+✔ Writing FESM bundles
+✔ Built @northgate/canopy-ui/feedback
+
+------------------------------------------------------------------------------
+Building entry point '@northgate/canopy-ui/layout'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in Ivy partial compilation mode.
+✔ Compiling with Angular sources in Ivy partial compilation mode.
+- Writing FESM bundles
+✔ Writing FESM bundles
+✔ Built @northgate/canopy-ui/layout
+
+------------------------------------------------------------------------------
+Building entry point '@northgate/canopy-ui/content'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in Ivy partial compilation mode.
+✔ Compiling with Angular sources in Ivy partial compilation mode.
+- Writing FESM bundles
+✔ Writing FESM bundles
+✔ Built @northgate/canopy-ui/content
+
+------------------------------------------------------------------------------
+Building entry point '@northgate/canopy-ui'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in Ivy partial compilation mode.
+✔ Compiling with Angular sources in Ivy partial compilation mode.
+- Writing FESM bundles
+✔ Writing FESM bundles
+- Copying assets
+✔ Copying assets
+- Writing package manifest
+✔ Writing package manifest
+✔ Built @northgate/canopy-ui
+
+------------------------------------------------------------------------------
+Built Angular Package
+ - from: /home/ubuntu/repos/northgate-canopy-ui/projects/canopy-ui
+ - to:   /home/ubuntu/repos/northgate-canopy-ui/dist/canopy-ui
+------------------------------------------------------------------------------
+
+Build at: 2026-09-09T18:23:07.755Z - Time: 28575ms
+
+
+> @northgate/canopy-ui-workspace@4.0.0 postbuild
+> npm run build:schematics && node scripts/copy-lib-assets.js
+
+
+> @northgate/canopy-ui-workspace@4.0.0 build:schematics
+> tsc -p projects/canopy-ui/schematics/tsconfig.schematics.json
+
+copied schematics into dist, stamped 4.0.0@d6fbf2b
+npm notice 
+npm notice 📦  @northgate/canopy-ui@4.0.0
+npm notice === Tarball Contents === 
+npm notice 14.8kB  CHANGELOG.md                                                
+npm notice 1.0kB   README.md                                                   
+npm notice 686B    a11y/a11y.module.d.ts                                       
+npm notice 1.5kB   a11y/announcer.component.d.ts                               
+npm notice 934B    a11y/focus-trap.directive.d.ts                              
+npm notice 130B    a11y/index.d.ts                                             
+npm notice 149B    a11y/public-api.d.ts                                        
+npm notice 941B    a11y/skip-link.directive.d.ts                               
+npm notice 1.7kB   actions/button/button.component.d.ts                        
+npm notice 678B    actions/button/button.module.d.ts                           
+npm notice 1.4kB   actions/icon-button/icon-button.component.d.ts              
+npm notice 763B    actions/icon-button/icon-button.module.d.ts                 
+npm notice 133B    actions/index.d.ts                                          
+npm notice 1.5kB   actions/menu/menu.component.d.ts                            
+npm notice 743B    actions/menu/menu.module.d.ts                               
+npm notice 261B    actions/public-api.d.ts                                     
+npm notice 1.1kB   content/disclosure/content.service.d.ts                     
+npm notice 1.7kB   content/disclosure/disclosure.component.d.ts                
+npm notice 622B    content/disclosure/disclosure.module.d.ts                   
+npm notice 133B    content/index.d.ts                                          
+npm notice 145B    content/public-api.d.ts                                     
+npm notice 985B    core/canopy-config.d.ts                                     
+npm notice 653B    core/core.module.d.ts                                       
+npm notice 963B    core/currency-format.service.d.ts                           
+npm notice 130B    core/index.d.ts                                             
+npm notice 140B    core/public-api.d.ts                                        
+npm notice 1.6kB   core/theme.service.d.ts                                     
+npm notice 2.6kB   data-display/account-card/account-card.component.d.ts       
+npm notice 777B    data-display/account-card/account-card.module.d.ts          
+npm notice 736B    data-display/badge/badge.component.d.ts                     
+npm notice 431B    data-display/badge/badge.module.d.ts                        
+npm notice 978B    data-display/card/card.component.d.ts                       
+npm notice 495B    data-display/card/card.module.d.ts                          
+npm notice 624B    data-display/data-table/column-def.directive.d.ts           
+npm notice 5.0kB   data-display/data-table/data-table.component.d.ts           
+npm notice 960B    data-display/data-table/data-table.module.d.ts              
+npm notice 621B    data-display/divider/divider.component.d.ts                 
+npm notice 522B    data-display/divider/divider.module.d.ts                    
+npm notice 1.2kB   data-display/expansion/expansion.component.d.ts             
+npm notice 641B    data-display/expansion/expansion.module.d.ts                
+npm notice 2.5kB   data-display/filter-chips/filter-chips.component.d.ts       
+npm notice 829B    data-display/filter-chips/filter-chips.module.d.ts          
+npm notice 138B    data-display/index.d.ts                                     
+npm notice 1.5kB   data-display/list/list.component.d.ts                       
+npm notice 643B    data-display/list/list.module.d.ts                          
+npm notice 973B    data-display/public-api.d.ts                                
+npm notice 921B    data-display/skeleton/skeleton.component.d.ts               
+npm notice 452B    data-display/skeleton/skeleton.module.d.ts                  
+npm notice 2.1kB   data-display/virtual-list/virtual-list.component.d.ts       
+npm notice 574B    data-display/virtual-list/virtual-list.module.d.ts          
+npm notice 3.3kB   esm2020/a11y/a11y.module.mjs                                
+npm notice 7.6kB   esm2020/a11y/announcer.component.mjs                        
+npm notice 4.0kB   esm2020/a11y/focus-trap.directive.mjs                       
+npm notice 548B    esm2020/a11y/northgate-canopy-ui-a11y.mjs                   
+npm notice 751B    esm2020/a11y/public-api.mjs                                 
+npm notice 6.4kB   esm2020/a11y/skip-link.directive.mjs                        
+npm notice 21.8kB  esm2020/actions/button/button.component.mjs                 
+npm notice 3.3kB   esm2020/actions/button/button.module.mjs                    
+npm notice 10.9kB  esm2020/actions/icon-button/icon-button.component.mjs       
+npm notice 3.7kB   esm2020/actions/icon-button/icon-button.module.mjs          
+npm notice 13.7kB  esm2020/actions/menu/menu.component.mjs                     
+npm notice 3.6kB   esm2020/actions/menu/menu.module.mjs                        
+npm notice 560B    esm2020/actions/northgate-canopy-ui-actions.mjs             
+npm notice 1.1kB   esm2020/actions/public-api.mjs                              
+npm notice 6.5kB   esm2020/content/disclosure/content.service.mjs              
+npm notice 18.3kB  esm2020/content/disclosure/disclosure.component.mjs         
+npm notice 3.1kB   esm2020/content/disclosure/disclosure.module.mjs            
+npm notice 560B    esm2020/content/northgate-canopy-ui-content.mjs             
+npm notice 715B    esm2020/content/public-api.mjs                              
+npm notice 2.7kB   esm2020/core/canopy-config.mjs                              
+npm notice 2.9kB   esm2020/core/core.module.mjs                                
+npm notice 8.8kB   esm2020/core/currency-format.service.mjs                    
+npm notice 548B    esm2020/core/northgate-canopy-ui-core.mjs                   
+npm notice 730B    esm2020/core/public-api.mjs                                 
+npm notice 16.0kB  esm2020/core/theme.service.mjs                              
+npm notice 30.7kB  esm2020/data-display/account-card/account-card.component.mjs
+npm notice 3.7kB   esm2020/data-display/account-card/account-card.module.mjs   
+npm notice 7.0kB   esm2020/data-display/badge/badge.component.mjs              
+npm notice 2.2kB   esm2020/data-display/badge/badge.module.mjs                 
+npm notice 9.3kB   esm2020/data-display/card/card.component.mjs                
+npm notice 2.5kB   esm2020/data-display/card/card.module.mjs                   
+npm notice 2.6kB   esm2020/data-display/data-table/column-def.directive.mjs    
+npm notice 59.7kB  esm2020/data-display/data-table/data-table.component.mjs    
+npm notice 4.5kB   esm2020/data-display/data-table/data-table.module.mjs       
+npm notice 6.7kB   esm2020/data-display/divider/divider.component.mjs          
+npm notice 2.6kB   esm2020/data-display/divider/divider.module.mjs             
+npm notice 11.4kB  esm2020/data-display/expansion/expansion.component.mjs      
+npm notice 3.2kB   esm2020/data-display/expansion/expansion.module.mjs         
+npm notice 22.6kB  esm2020/data-display/filter-chips/filter-chips.component.mjs
+npm notice 3.8kB   esm2020/data-display/filter-chips/filter-chips.module.mjs   
+npm notice 20.4kB  esm2020/data-display/list/list.component.mjs                
+npm notice 3.2kB   esm2020/data-display/list/list.module.mjs                   
+npm notice 580B    esm2020/data-display/northgate-canopy-ui-data-display.mjs   
+npm notice 3.2kB   esm2020/data-display/public-api.mjs                         
+npm notice 13.5kB  esm2020/data-display/skeleton/skeleton.component.mjs        
+npm notice 2.3kB   esm2020/data-display/skeleton/skeleton.module.mjs           
+npm notice 22.1kB  esm2020/data-display/virtual-list/virtual-list.component.mjs
+npm notice 2.9kB   esm2020/data-display/virtual-list/virtual-list.module.mjs   
+npm notice 15.4kB  esm2020/feedback/error-summary/error-summary.component.mjs  
+npm notice 2.7kB   esm2020/feedback/error-summary/error-summary.module.mjs     
+npm notice 564B    esm2020/feedback/northgate-canopy-ui-feedback.mjs           
+npm notice 12.5kB  esm2020/feedback/progress/progress.component.mjs            
+npm notice 3.2kB   esm2020/feedback/progress/progress.module.mjs               
+npm notice 880B    esm2020/feedback/public-api.mjs                             
+npm notice 16.8kB  esm2020/forms/amount-slider/amount-slider.component.mjs     
+npm notice 3.2kB   esm2020/forms/amount-slider/amount-slider.module.mjs        
+npm notice 26.8kB  esm2020/forms/autocomplete/autocomplete.component.mjs       
+npm notice 4.3kB   esm2020/forms/autocomplete/autocomplete.module.mjs          
+npm notice 11.1kB  esm2020/forms/checkbox/checkbox.component.mjs               
+npm notice 2.7kB   esm2020/forms/checkbox/checkbox.module.mjs                  
+npm notice 33.3kB  esm2020/forms/currency-input/currency-input.component.mjs   
+npm notice 3.3kB   esm2020/forms/currency-input/currency-input.module.mjs      
+npm notice 2.9kB   esm2020/forms/currency-input/currency.pipe.mjs              
+npm notice 1.7kB   esm2020/forms/date-range/date-formats.mjs                   
+npm notice 35.8kB  esm2020/forms/date-range/date-range.component.mjs           
+npm notice 6.4kB   esm2020/forms/date-range/date-range.module.mjs              
+npm notice 5.3kB   esm2020/forms/forms.module.mjs                              
+npm notice 15.3kB  esm2020/forms/masked-input/masked-input.component.mjs       
+npm notice 3.9kB   esm2020/forms/masked-input/masked-input.module.mjs          
+npm notice 552B    esm2020/forms/northgate-canopy-ui-forms.mjs                 
+npm notice 3.3kB   esm2020/forms/public-api.mjs                                
+npm notice 14.2kB  esm2020/forms/radio-group/radio-group.component.mjs         
+npm notice 2.7kB   esm2020/forms/radio-group/radio-group.module.mjs            
+npm notice 22.1kB  esm2020/forms/select/select.component.mjs                   
+npm notice 3.0kB   esm2020/forms/select/select.module.mjs                      
+npm notice 16.1kB  esm2020/forms/toggle/toggle.component.mjs                   
+npm notice 2.7kB   esm2020/forms/toggle/toggle.module.mjs                      
+npm notice 8.0kB   esm2020/icons/icon-registry.mjs                             
+npm notice 2.8kB   esm2020/icons/icon.module.mjs                               
+npm notice 552B    esm2020/icons/northgate-canopy-ui-icons.mjs                 
+npm notice 490B    esm2020/icons/public-api.mjs                                
+npm notice 556B    esm2020/layout/northgate-canopy-ui-layout.mjs               
+npm notice 14.3kB  esm2020/layout/page-header/page-header.component.mjs        
+npm notice 3.0kB   esm2020/layout/page-header/page-header.module.mjs           
+npm notice 30.6kB  esm2020/layout/page-shell/page-shell.component.mjs          
+npm notice 4.6kB   esm2020/layout/page-shell/page-shell.module.mjs             
+npm notice 6.9kB   esm2020/layout/page-shell/theme-toggle.component.mjs        
+npm notice 1.0kB   esm2020/layout/public-api.mjs                               
+npm notice 572B    esm2020/navigation/northgate-canopy-ui-navigation.mjs       
+npm notice 1.1kB   esm2020/navigation/public-api.mjs                           
+npm notice 2.9kB   esm2020/navigation/stepper-shell/step.directive.mjs         
+npm notice 17.5kB  esm2020/navigation/stepper-shell/stepper-shell.component.mjs
+npm notice 3.5kB   esm2020/navigation/stepper-shell/stepper-shell.module.mjs   
+npm notice 2.8kB   esm2020/navigation/tabs/tab.directive.mjs                   
+npm notice 14.0kB  esm2020/navigation/tabs/tabs.component.mjs                  
+npm notice 3.2kB   esm2020/navigation/tabs/tabs.module.mjs                     
+npm notice 516B    esm2020/northgate-canopy-ui.mjs                             
+npm notice 8.4kB   esm2020/overlays/bottom-sheet/bottom-sheet.component.mjs    
+npm notice 3.6kB   esm2020/overlays/bottom-sheet/bottom-sheet.module.mjs       
+npm notice 3.5kB   esm2020/overlays/bottom-sheet/bottom-sheet.service.mjs      
+npm notice 5.8kB   esm2020/overlays/dialog-shell/confirm-dialog.component.mjs  
+npm notice 15.5kB  esm2020/overlays/dialog-shell/dialog-shell.component.mjs    
+npm notice 4.3kB   esm2020/overlays/dialog-shell/dialog-shell.module.mjs       
+npm notice 5.9kB   esm2020/overlays/dialog-shell/dialog.service.mjs            
+npm notice 564B    esm2020/overlays/northgate-canopy-ui-overlays.mjs           
+npm notice 2.2kB   esm2020/overlays/public-api.mjs                             
+npm notice 11.0kB  esm2020/overlays/toast/toast.component.mjs                  
+npm notice 3.4kB   esm2020/overlays/toast/toast.module.mjs                     
+npm notice 8.3kB   esm2020/overlays/toast/toast.service.mjs                    
+npm notice 3.5kB   esm2020/overlays/tooltip/tooltip-styles.component.mjs       
+npm notice 5.9kB   esm2020/overlays/tooltip/tooltip.directive.mjs              
+npm notice 3.0kB   esm2020/overlays/tooltip/tooltip.module.mjs                 
+npm notice 2.4kB   esm2020/public-api.mjs                                      
+npm notice 1.9kB   feedback/error-summary/error-summary.component.d.ts         
+npm notice 552B    feedback/error-summary/error-summary.module.d.ts            
+npm notice 134B    feedback/index.d.ts                                         
+npm notice 1.2kB   feedback/progress/progress.component.d.ts                   
+npm notice 632B    feedback/progress/progress.module.d.ts                      
+npm notice 202B    feedback/public-api.d.ts                                    
+npm notice 9.1kB   fesm2015/northgate-canopy-ui-a11y.mjs                       
+npm notice 10.3kB  fesm2015/northgate-canopy-ui-a11y.mjs.map                   
+npm notice 29.7kB  fesm2015/northgate-canopy-ui-actions.mjs                    
+npm notice 24.1kB  fesm2015/northgate-canopy-ui-actions.mjs.map                
+npm notice 13.6kB  fesm2015/northgate-canopy-ui-content.mjs                    
+npm notice 12.4kB  fesm2015/northgate-canopy-ui-content.mjs.map                
+npm notice 10.5kB  fesm2015/northgate-canopy-ui-core.mjs                       
+npm notice 17.4kB  fesm2015/northgate-canopy-ui-core.mjs.map                   
+npm notice 123.8kB fesm2015/northgate-canopy-ui-data-display.mjs               
+npm notice 98.1kB  fesm2015/northgate-canopy-ui-data-display.mjs.map           
+npm notice 16.4kB  fesm2015/northgate-canopy-ui-feedback.mjs                   
+npm notice 15.1kB  fesm2015/northgate-canopy-ui-feedback.mjs.map               
+npm notice 104.0kB fesm2015/northgate-canopy-ui-forms.mjs                      
+npm notice 109.4kB fesm2015/northgate-canopy-ui-forms.mjs.map                  
+npm notice 4.4kB   fesm2015/northgate-canopy-ui-icons.mjs                      
+npm notice 5.3kB   fesm2015/northgate-canopy-ui-icons.mjs.map                  
+npm notice 37.1kB  fesm2015/northgate-canopy-ui-layout.mjs                     
+npm notice 20.4kB  fesm2015/northgate-canopy-ui-layout.mjs.map                 
+npm notice 23.4kB  fesm2015/northgate-canopy-ui-navigation.mjs                 
+npm notice 19.9kB  fesm2015/northgate-canopy-ui-navigation.mjs.map             
+npm notice 39.8kB  fesm2015/northgate-canopy-ui-overlays.mjs                   
+npm notice 35.4kB  fesm2015/northgate-canopy-ui-overlays.mjs.map               
+npm notice 852B    fesm2015/northgate-canopy-ui.mjs                            
+npm notice 1.1kB   fesm2015/northgate-canopy-ui.mjs.map                        
+npm notice 9.0kB   fesm2020/northgate-canopy-ui-a11y.mjs                       
+npm notice 10.2kB  fesm2020/northgate-canopy-ui-a11y.mjs.map                   
+npm notice 29.5kB  fesm2020/northgate-canopy-ui-actions.mjs                    
+npm notice 23.9kB  fesm2020/northgate-canopy-ui-actions.mjs.map                
+npm notice 13.4kB  fesm2020/northgate-canopy-ui-content.mjs                    
+npm notice 12.2kB  fesm2020/northgate-canopy-ui-content.mjs.map                
+npm notice 9.3kB   fesm2020/northgate-canopy-ui-core.mjs                       
+npm notice 15.9kB  fesm2020/northgate-canopy-ui-core.mjs.map                   
+npm notice 122.7kB fesm2020/northgate-canopy-ui-data-display.mjs               
+npm notice 96.6kB  fesm2020/northgate-canopy-ui-data-display.mjs.map           
+npm notice 16.3kB  fesm2020/northgate-canopy-ui-feedback.mjs                   
+npm notice 15.0kB  fesm2020/northgate-canopy-ui-feedback.mjs.map               
+npm notice 103.5kB fesm2020/northgate-canopy-ui-forms.mjs                      
+npm notice 108.6kB fesm2020/northgate-canopy-ui-forms.mjs.map                  
+npm notice 4.4kB   fesm2020/northgate-canopy-ui-icons.mjs                      
+npm notice 5.3kB   fesm2020/northgate-canopy-ui-icons.mjs.map                  
+npm notice 37.1kB  fesm2020/northgate-canopy-ui-layout.mjs                     
+npm notice 20.4kB  fesm2020/northgate-canopy-ui-layout.mjs.map                 
+npm notice 23.0kB  fesm2020/northgate-canopy-ui-navigation.mjs                 
+npm notice 19.3kB  fesm2020/northgate-canopy-ui-navigation.mjs.map             
+npm notice 39.5kB  fesm2020/northgate-canopy-ui-overlays.mjs                   
+npm notice 35.0kB  fesm2020/northgate-canopy-ui-overlays.mjs.map               
+npm notice 852B    fesm2020/northgate-canopy-ui.mjs                            
+npm notice 1.1kB   fesm2020/northgate-canopy-ui.mjs.map                        
+npm notice 2.3kB   forms/amount-slider/amount-slider.component.d.ts            
+npm notice 694B    forms/amount-slider/amount-slider.module.d.ts               
+npm notice 2.5kB   forms/autocomplete/autocomplete.component.d.ts              
+npm notice 885B    forms/autocomplete/autocomplete.module.d.ts                 
+npm notice 1.5kB   forms/checkbox/checkbox.component.d.ts                      
+npm notice 531B    forms/checkbox/checkbox.module.d.ts                         
+npm notice 4.0kB   forms/currency-input/currency-input.component.d.ts          
+npm notice 691B    forms/currency-input/currency-input.module.d.ts             
+npm notice 647B    forms/currency-input/currency.pipe.d.ts                     
+npm notice 258B    forms/date-range/date-formats.d.ts                          
+npm notice 2.6kB   forms/date-range/date-range.component.d.ts                  
+npm notice 927B    forms/date-range/date-range.module.d.ts                     
+npm notice 1.4kB   forms/forms.module.d.ts                                     
+npm notice 131B    forms/index.d.ts                                            
+npm notice 1.7kB   forms/masked-input/masked-input.component.d.ts              
+npm notice 750B    forms/masked-input/masked-input.module.d.ts                 
+npm notice 1.0kB   forms/public-api.d.ts                                       
+npm notice 1.6kB   forms/radio-group/radio-group.component.d.ts                
+npm notice 540B    forms/radio-group/radio-group.module.d.ts                   
+npm notice 2.4kB   forms/select/select.component.d.ts                          
+npm notice 595B    forms/select/select.module.d.ts                             
+npm notice 1.5kB   forms/toggle/toggle.component.d.ts                          
+npm notice 524B    forms/toggle/toggle.module.d.ts                             
+npm notice 5.5kB   icons/canopy-sprite.svg                                     
+npm notice 1.8kB   icons/icon-registry.d.ts                                    
+npm notice 630B    icons/icon.module.d.ts                                      
+npm notice 131B    icons/index.d.ts                                            
+npm notice 64B     icons/public-api.d.ts                                       
+npm notice 125B    index.d.ts                                                  
+npm notice 132B    layout/index.d.ts                                           
+npm notice 1.2kB   layout/page-header/page-header.component.d.ts               
+npm notice 601B    layout/page-header/page-header.module.d.ts                  
+npm notice 1.8kB   layout/page-shell/page-shell.component.d.ts                 
+npm notice 1.0kB   layout/page-shell/page-shell.module.d.ts                    
+npm notice 690B    layout/page-shell/theme-toggle.component.d.ts               
+npm notice 255B    layout/public-api.d.ts                                      
+npm notice 136B    navigation/index.d.ts                                       
+npm notice 272B    navigation/public-api.d.ts                                  
+npm notice 739B    navigation/stepper-shell/step.directive.d.ts                
+npm notice 1.8kB   navigation/stepper-shell/stepper-shell.component.d.ts       
+npm notice 727B    navigation/stepper-shell/stepper-shell.module.d.ts          
+npm notice 666B    navigation/tabs/tab.directive.d.ts                          
+npm notice 1.7kB   navigation/tabs/tabs.component.d.ts                         
+npm notice 657B    navigation/tabs/tabs.module.d.ts                            
+npm notice 944B    overlays/bottom-sheet/bottom-sheet.component.d.ts           
+npm notice 738B    overlays/bottom-sheet/bottom-sheet.module.d.ts              
+npm notice 685B    overlays/bottom-sheet/bottom-sheet.service.d.ts             
+npm notice 725B    overlays/dialog-shell/confirm-dialog.component.d.ts         
+npm notice 1.6kB   overlays/dialog-shell/dialog-shell.component.d.ts           
+npm notice 930B    overlays/dialog-shell/dialog-shell.module.d.ts              
+npm notice 1.2kB   overlays/dialog-shell/dialog.service.d.ts                   
+npm notice 134B    overlays/index.d.ts                                         
+npm notice 628B    overlays/public-api.d.ts                                    
+npm notice 724B    overlays/toast/toast.component.d.ts                         
+npm notice 686B    overlays/toast/toast.module.d.ts                            
+npm notice 1.7kB   overlays/toast/toast.service.d.ts                           
+npm notice 487B    overlays/tooltip/tooltip-styles.component.d.ts              
+npm notice 1.0kB   overlays/tooltip/tooltip.directive.d.ts                     
+npm notice 609B    overlays/tooltip/tooltip.module.d.ts                        
+npm notice 6.0kB   package.json                                                
+npm notice 505B    public-api.d.ts                                             
+npm notice 361B    schematics/collection.json                                  
+npm notice 450B    schematics/migrations.json                                  
+npm notice 595B    schematics/ng-add/index.d.ts                                
+npm notice 5.1kB   schematics/ng-add/index.js                                  
+npm notice 112B    schematics/ng-add/schema.d.ts                               
+npm notice 111B    schematics/ng-add/schema.js                                 
+npm notice 663B    schematics/ng-add/schema.json                               
+npm notice 1.4kB   schematics/ng-update/canopy-4-theme-mixin/index.d.ts        
+npm notice 7.8kB   schematics/ng-update/canopy-4-theme-mixin/index.js          
+npm notice 2.1kB   styles/_dense-typography.scss                               
+npm notice 246B    styles/_index.scss                                          
+npm notice 2.5kB   themes/_component-overrides.scss                            
+npm notice 2.4kB   themes/_density.scss                                        
+npm notice 290B    themes/_index.scss                                          
+npm notice 2.1kB   themes/_palettes.scss                                       
+npm notice 4.1kB   themes/_theme.scss                                          
+npm notice 3.0kB   themes/_typography.scss                                     
+npm notice 124B    themes/prebuilt/canopy-all.scss                             
+npm notice 199B    themes/prebuilt/canopy-light.scss                           
+npm notice 1.8kB   tokens/_colors.scss                                         
+npm notice 3.3kB   tokens/_css-vars.scss                                       
+npm notice 165B    tokens/_index.scss                                          
+npm notice 716B    tokens/_legacy-tokens.scss                                  
+npm notice 1.1kB   tokens/_spacing.scss                                        
+npm notice 734B    tokens/_typography.scss                                     
+npm notice === Tarball Details === 
+npm notice name:          @northgate/canopy-ui                    
+npm notice version:       4.0.0                                   
+npm notice filename:      @northgate/canopy-ui-4.0.0.tgz          
+npm notice package size:  494.6 kB                                
+npm notice unpacked size: 2.6 MB                                  
+npm notice shasum:        891cdaa734086fc60d27c676fda0b1db2b46b323
+npm notice integrity:     sha512-AwTtxLUyTv9Vt[...]K4n6Y5UiODrkw==
+npm notice total files:   303                                     
+npm notice 
+npm notice Publishing to http://localhost:4873
++ @northgate/canopy-ui@4.0.0
+published @northgate/canopy-ui@4.0.0 to http://localhost:4873
+exit=0

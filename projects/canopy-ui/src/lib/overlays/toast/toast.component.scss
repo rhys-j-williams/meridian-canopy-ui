@@ -1,37 +1,43 @@
 @use '../../tokens/spacing' as s;
 
-// The snackbar container lives in the overlay, outside any component host.
-.mat-snack-bar-container.cn-toast {
-  padding: s.$cn-space-2 s.$cn-space-3 s.$cn-space-2 s.$cn-space-4;
-  min-width: 320px;
-  max-width: 560px;
-  border-radius: var(--cn-radius-md, #{s.$cn-radius-md});
-  box-shadow: var(--cn-shadow-3);
-  background: #1f2a33;
-  color: #ffffff;
-  border-left: 4px solid var(--cn-color-info);
+// The snackbar container lives in the overlay, outside any component host. Colours,
+// shape and type go through the MDC snackbar tokens; the surface is reached with the structural
+// `> div` (the only child of the container, no `.mat-*` class) for the tone border, width and
+// shadow, which have no token (ADR-0005).
+.cn-toast.cn-toast {
+  --mdc-snackbar-container-color: #1f2a33;
+  --mdc-snackbar-supporting-text-color: #ffffff;
+  --mdc-snackbar-container-shape: var(--cn-radius-md, #{s.$cn-radius-md});
+  --mdc-snackbar-supporting-text-font: var(--cn-font-family);
+  --mdc-snackbar-supporting-text-size: 14px;
+  --mdc-snackbar-supporting-text-line-height: 20px;
+  --mat-mdc-snack-bar-button-color: var(--cn-color-accent);
+  --mdc-icon-button-icon-color: rgba(255, 255, 255, 0.7);
 
-  &.cn-toast--success { border-left-color: var(--cn-color-success); }
-  &.cn-toast--caution { border-left-color: var(--cn-color-caution); }
-  &.cn-toast--error { border-left-color: var(--cn-color-warn); }
-
-  // Plain text fallback (simple: true) still gets the brand font and action colour.
-  .mat-simple-snackbar {
-    font-family: var(--cn-font-family);
-    font-size: 14px;
+  > div {
+    min-width: 320px;
+    max-width: 560px;
+    box-shadow: var(--cn-shadow-3);
+    border-left: 4px solid var(--cn-color-info);
+    padding-right: s.$cn-space-3;
   }
 
-  .mat-simple-snackbar-action {
-    color: var(--cn-color-accent);
-  }
+  &.cn-toast--success > div { border-left-color: var(--cn-color-success); }
+  &.cn-toast--caution > div { border-left-color: var(--cn-color-caution); }
+  &.cn-toast--error > div { border-left-color: var(--cn-color-warn); }
 }
 
 .cn-toast__body {
   display: flex;
   align-items: center;
-  gap: s.$cn-space-3;
-  font-family: var(--cn-font-family);
-  font-size: 14px;
+  width: 100%;
+
+  .cn-toast__label {
+    display: flex;
+    align-items: center;
+    gap: s.$cn-space-3;
+    padding: s.$cn-space-2 s.$cn-space-2 s.$cn-space-2 s.$cn-space-4;
+  }
 
   .cn-toast__icon {
     flex: none;
@@ -48,12 +54,7 @@
     flex: 1 1 auto;
   }
 
-  .cn-toast__action.mat-button {
-    color: var(--cn-color-accent);
-    font-weight: 600;
-  }
-
-  .cn-toast__dismiss {
-    color: rgba(255, 255, 255, 0.7);
+  .cn-toast__actions {
+    gap: s.$cn-space-1;
   }
 }

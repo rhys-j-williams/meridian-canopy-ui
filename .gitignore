@@ -7,6 +7,8 @@ coverage/
 .nx/
 *.log
 npm-debug.log*
+# Upgrade evidence (LNTN-401 pattern): gate logs under docs/upgrade are deliberately versioned.
+!docs/upgrade/**/*.log
 .DS_Store
 Thumbs.db
 .idea/
@@ -29,3 +31,5 @@ Thumbs.db
 /projects/canopy-ui/schematics/**/*.js.map
 /projects/canopy-ui/schematics/**/*.d.ts
 .verdaccio-auth
+.sonar-reports/
+.xray-reports/

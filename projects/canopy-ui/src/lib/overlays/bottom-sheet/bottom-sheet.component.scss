@@ -1,6 +1,8 @@
 @use '../../tokens/spacing' as s;
 
-.cn-bottom-sheet-panel.mat-bottom-sheet-container {
+// The panel class sits on the CDK overlay pane; the Material container (not MDC based in Material 15,
+// no tokens) is its only child, so it is reached structurally rather than through `.mat-*` (ADR-0005).
+.cdk-overlay-pane.cn-bottom-sheet-panel > * {
   padding: 0;
   border-radius: var(--cn-radius-lg, #{s.$cn-radius-lg}) var(--cn-radius-lg, #{s.$cn-radius-lg}) 0 0;
   background: var(--cn-color-surface);

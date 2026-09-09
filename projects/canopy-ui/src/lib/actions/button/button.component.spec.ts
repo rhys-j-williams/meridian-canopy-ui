@@ -32,14 +32,14 @@ describe('CnButtonComponent', () => {
   }
 
   it('renders a flat primary button', () => {
-    expect(button().classList).toContain('mat-flat-button');
+    expect(button().classList).toContain('mat-mdc-unelevated-button');
     expect(button().classList).toContain('mat-primary');
   });
 
   it('renders a stroked button for the secondary variant', () => {
     host.variant = 'secondary';
     fixture.detectChanges();
-    expect(button().classList).toContain('mat-stroked-button');
+    expect(button().classList).toContain('mat-mdc-outlined-button');
   });
 
   it('emits pressed on click', () => {

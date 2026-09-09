@@ -23,6 +23,11 @@ import { CnTabDirective } from './tab.directive';
 })
 export class CnTabsComponent implements AfterContentChecked {
   @Input() selectedIndex = 0;
+  /**
+   * Adds the `cn-tabs--stretch` host class only. 3.x bound it to a legacy Material class that had no
+   * styles, so tabs never stretched; 4.0.0 keeps that rendering (Material 15 stretches by default and
+   * is switched off here). Honouring it is a visible change and is tracked separately.
+   */
   @Input() stretch = false;
   @Input() ariaLabel = 'Sections';
 

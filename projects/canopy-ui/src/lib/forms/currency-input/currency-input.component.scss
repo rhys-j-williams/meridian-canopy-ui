@@ -5,10 +5,17 @@
   align-items: baseline;
   width: 100%;
 
+  // The host always sits in a form field infix; centre the prefix on the input's baseline.
   &__prefix {
+    align-self: center;
+    line-height: 1.125;
     color: var(--cn-color-text-muted);
     padding-right: s.$cn-space-1;
     font-variant-numeric: tabular-nums;
+  }
+
+  &--focused &__prefix {
+    color: var(--cn-color-primary);
   }
 
   &__field {
@@ -28,18 +35,4 @@
     color: var(--cn-color-text-muted);
     opacity: 1;
   }
-}
-
-// Line the prefix up with the form field's own infix baseline and pull the underline flush to it.
-.mat-form-field-infix .cn-currency-input__prefix {
-  align-self: center;
-  line-height: 1.125;
-}
-
-.mat-form-field.cn-currency-input-field .mat-form-field-underline {
-  margin-left: 0;
-}
-
-.mat-form-field-appearance-outline .cn-currency-input--focused .cn-currency-input__prefix {
-  color: var(--cn-color-primary);
 }

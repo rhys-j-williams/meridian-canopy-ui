@@ -1,0 +1,10 @@
+{
+  "$schema": "../../../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "canopy-4-theme-mixin": {
+      "version": "4.0.0",
+      "description": "Canopy 4.0.0 (CNPY-2140): rewrites 3.x Material 2014 typography level names ($display-4 ... $input) in consumer canopy.theme() typography overrides to the Material 15 names.",
+      "factory": "./ng-update/canopy-4-theme-mixin/index#canopy4ThemeMixin"
+    }
+  }
+}

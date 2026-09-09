@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, forwardRef, Inject, Input, Output, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { MatSliderChange } from '@angular/material/slider';
+import { MatLegacySliderChange as MatSliderChange } from '@angular/material/legacy-slider';
 import { CN_CONFIG, CnConfig, CnCurrencyFormatService } from '@northgate/canopy-ui/core';
 
 /**
@@ -9,6 +9,11 @@ import { CN_CONFIG, CnConfig, CnCurrencyFormatService } from '@northgate/canopy-
  * cn-currency-input bound to the same control for people who prefer to type.
  *
  *   <cn-amount-slider formControlName="amount" [min]="500" [max]="25000" [step]="100"></cn-amount-slider>
+ *
+ * @deprecated Renders on the Material 15 legacy (pre-MDC) `mat-slider`, which Material 16 removes.
+ * The MDC slider has no `thumbLabel`, `displayWith` or `tickInterval`; the replacement design is
+ * a human decision tracked in KAN-27 (CNPY-2140) and must land before the next Angular hop. The
+ * public API of this component is frozen until then.
  */
 @Component({
   selector: 'cn-amount-slider',

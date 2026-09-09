@@ -8,26 +8,13 @@ import {
   platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
 
-declare const require: {
-  context(path: string, deep?: boolean, filter?: RegExp): {
-    <T>(id: string): T;
-    keys(): string[];
-  };
-};
-
 // First, initialize the Angular testing environment.
 getTestBed().initTestEnvironment(
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting(),
 );
 
-// Load every source file, not just the ones a spec happens to import. The package is
-// sideEffects: false so a plain barrel import gets shaken out, and files without a spec would
-// silently drop out of the coverage denominator (CNPY-1402).
-const sources = require.context('./lib', true, /^(?!.*\.spec\.ts$).*\.ts$/);
-sources.keys().forEach(sources);
-
-// Then we find all the tests.
-const context = require.context('./', true, /\.spec\.ts$/);
-// And load the modules.
-context.keys().forEach(context);
+// Spec discovery and the coverage denominator are both driven by the `include` option of the
+// karma target in angular.json (`**/*.spec.ts` plus `lib/**/*.ts`). The Angular 15 Karma builder
+// disables webpack's `require.context`, so every source file is added as an entry point instead of
+// being required from here; files without a spec still count towards coverage (CNPY-1402).

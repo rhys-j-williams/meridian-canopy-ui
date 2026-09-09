@@ -2,29 +2,37 @@
 
 .cn-menu {
   display: inline-block;
+
+  // The trigger keeps the 40px footprint of the 3.x (pre-MDC) icon button; Material's density
+  // styles fix the MDC icon button at 48px on the host, so the repeated class outranks them.
+  > button.cn-menu__trigger#{&}__trigger {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+  }
 }
 
 // The panel is rendered in the CDK overlay container, outside the host, so this has to be global.
-.mat-menu-panel.cn-menu__panel {
-  border-radius: var(--cn-radius-md, #{s.$cn-radius-md});
+// The panel / item / icon / label elements all carry Canopy classes from the template;
+// MDC surface shape and typography come from its custom properties (ADR-0005).
+.cn-menu__panel.cn-menu__panel {
+  --mdc-shape-medium: var(--cn-radius-md, #{s.$cn-radius-md});
   box-shadow: var(--cn-shadow-3);
   background: var(--cn-color-surface);
   min-width: 200px;
 
-  .mat-menu-item {
-    font-family: var(--cn-font-family);
+  .cn-menu__item {
     color: var(--cn-color-text);
-    height: var(--cn-control-height, #{s.$cn-control-height});
-    line-height: var(--cn-control-height, #{s.$cn-control-height});
+    min-height: var(--cn-control-height, #{s.$cn-control-height});
   }
 
-  .mat-menu-item .mat-icon {
+  .cn-menu__item .cn-menu__item-icon {
     color: var(--cn-color-text-muted);
     margin-right: s.$cn-space-3;
   }
 
-  .cn-menu__item--destructive,
-  .cn-menu__item--destructive .mat-icon {
+  .cn-menu__item--destructive .cn-menu__item-label,
+  .cn-menu__item--destructive .cn-menu__item-icon {
     color: var(--cn-color-warn);
   }
 }

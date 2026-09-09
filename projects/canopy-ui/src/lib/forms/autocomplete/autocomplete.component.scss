@@ -8,21 +8,23 @@
   }
 }
 
-.mat-autocomplete-panel.cn-autocomplete__panel {
+// Rendered in the overlay. Options carry `.cn-autocomplete__option` from the template;
+// the MDC surface shape comes from its custom property (ADR-0005). No `.mat-*` selectors.
+.cn-autocomplete__panel.cn-autocomplete__panel {
+  --mdc-shape-medium: var(--cn-radius-md, #{s.$cn-radius-md});
   border-radius: var(--cn-radius-md, #{s.$cn-radius-md});
   box-shadow: var(--cn-shadow-3);
 
-  .mat-option {
-    height: auto;
+  .cn-autocomplete__option {
     min-height: var(--cn-control-height, #{s.$cn-control-height});
     line-height: 1.3;
     padding-top: s.$cn-space-2;
     padding-bottom: s.$cn-space-2;
   }
 
-  .mat-option-text {
-    display: flex;
-    flex-direction: column;
+  .cn-autocomplete__label,
+  .cn-autocomplete__description {
+    display: block;
   }
 
   .cn-autocomplete__description {

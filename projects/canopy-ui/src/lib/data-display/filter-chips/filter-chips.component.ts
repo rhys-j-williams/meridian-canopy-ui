@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, forwardRef, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { MatChipList, MatChipSelectionChange } from '@angular/material/chips';
+import { MatLegacyChipList as MatChipList, MatLegacyChipSelectionChange as MatChipSelectionChange } from '@angular/material/legacy-chips';
 
 export interface CnFilterChip<T = string> {
   value: T;
@@ -16,6 +16,11 @@ export interface CnFilterChip<T = string> {
  * anything is selected.
  *
  *   <cn-filter-chips [chips]="typeChips" multiple formControlName="types" (selectionChange)="reload()"></cn-filter-chips>
+ *
+ * @deprecated Renders on the Material 15 legacy (pre-MDC) `mat-chip-list`, which Material 16
+ * removes. The MDC replacement (`mat-chip-listbox` / `mat-chip-grid`) has different selection
+ * semantics; the rewrite is a human decision tracked in KAN-28 (CNPY-2140) and must land before
+ * the next Angular hop. The public API of this component is frozen until then.
  */
 @Component({
   selector: 'cn-filter-chips',

@@ -1,0 +1,22 @@
+
+> @northgate/canopy-ui-workspace@3.7.2 build:showcase
+> ng build canopy-showcase
+
+- Generating browser application bundles (phase: setup)...
+✔ Browser application bundle generation complete.
+✔ Browser application bundle generation complete.
+- Copying assets...
+✔ Copying assets complete.
+- Generating index html...
+✔ Index html generation complete.
+
+Initial Chunk Files           | Names         |  Raw Size | Estimated Transfer Size
+main.9fc2c1176eaeba7c.js      | main          |   1.67 MB |               327.42 kB
+styles.782c0b97107e3e04.css   | styles        | 237.31 kB |                15.97 kB
+polyfills.0bad418f900b8d3b.js | polyfills     |  33.08 kB |                10.66 kB
+runtime.add678545405ce3f.js   | runtime       |   1.72 kB |               884 bytes
+
+| Initial Total |   1.94 MB |               354.91 kB
+
+Build at: 2026-09-09T11:21:36.408Z - Hash: c3d10a45d01a3018 - Time: 27417ms
+exit=0

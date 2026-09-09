@@ -1,0 +1,11 @@
+Xray 3.9.4-northgate (Northgate offline mirror 2024-11-18)
+Project @northgate/canopy-ui-workspace [npm] watch northgate-cswt-prod
+Scanned 1082 components from package-lock.json; runtime node 16.20.2 in 17 ms
+
+  Critical 0  High 1  Medium 7  Low 4   (lifecycle 5, dev only 8)
+
+  [High    ] ws@8.13.0                                    XRAY-124400 CVE-2024-37890  fix: 8.17.1
+
+Reports written to .xray-reports
+Policy gate FAILED: 1 violation(s) at or above high (ws@8.13.0)
+exit=1

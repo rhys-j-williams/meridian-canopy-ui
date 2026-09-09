@@ -10,26 +10,33 @@
     margin-bottom: s.$cn-space-3;
   }
 
-  &__preset.mat-stroked-button {
-    min-height: 32px;
-    line-height: 32px;
-    padding: 0 s.$cn-space-3;
-    border-radius: var(--cn-radius-lg, #{s.$cn-radius-lg});
-    font-size: 13px;
-    border-color: var(--cn-color-border);
+  // The preset pills are MDC outlined buttons sized through their tokens (ADR-0005).
+  &__presets {
+    --mdc-outlined-button-container-shape: var(--cn-radius-lg, #{s.$cn-radius-lg});
+    --mdc-typography-button-font-size: 13px;
+    --mdc-typography-button-letter-spacing: normal;
   }
 
-  &__preset--active.mat-stroked-button {
+  // Height, outline and label colour tokens are emitted by the theme on the button host itself,
+  // so they are set there.
+  &__presets &__preset {
+    --mdc-outlined-button-container-height: 32px;
+    --mdc-outlined-button-outline-color: var(--cn-color-border);
+    --mdc-outlined-button-label-text-color: var(--cn-color-text);
+    padding: 0 s.$cn-space-3;
+  }
+
+  &__presets &__preset--active {
+    --mdc-outlined-button-label-text-color: var(--cn-color-primary-contrast);
+    --mdc-outlined-button-outline-color: var(--cn-color-primary);
     background: var(--cn-color-primary);
-    color: var(--cn-color-primary-contrast);
-    border-color: var(--cn-color-primary);
   }
 
   &__field {
     width: 100%;
   }
 
-  .mat-date-range-input-inner {
+  &__input {
     font-variant-numeric: tabular-nums;
   }
 }

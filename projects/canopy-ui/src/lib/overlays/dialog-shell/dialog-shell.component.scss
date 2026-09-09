@@ -1,14 +1,20 @@
 @use '../../tokens/spacing' as s;
 
-// Material gives the container 24px all round; the shell owns its own spacing so the header can
-// bleed to the edges and the progress bar can sit flush under it.
-.cn-dialog-panel .mat-dialog-container {
-  padding: 0;
-  border-radius: var(--cn-radius-lg, #{s.$cn-radius-lg});
-  background: var(--cn-color-surface);
-  color: var(--cn-color-text);
-  box-shadow: var(--cn-shadow-3);
-  overflow: hidden;
+// The MDC dialog surface has no padding of its own (the title / content / actions carry
+// it, and the shell resets those below), so the panel only needs the container tokens (ADR-0005).
+// Material 15 emits the dialog tokens on the `mat-dialog-container` element inside the overlay
+// pane, so they are set on that element (the pane's only child) rather than on the pane.
+.cn-dialog-panel.cn-dialog-panel > mat-dialog-container {
+  --mdc-dialog-container-shape: var(--cn-radius-lg, #{s.$cn-radius-lg});
+  --mdc-dialog-container-color: var(--cn-color-surface);
+  --mdc-dialog-container-elevation: var(--cn-shadow-3);
+  --mdc-dialog-subhead-color: var(--cn-color-text);
+  --mdc-dialog-supporting-text-color: var(--cn-color-text);
+  --mdc-dialog-supporting-text-font: var(--cn-font-family);
+  --mdc-dialog-supporting-text-size: 14px;
+  --mdc-dialog-supporting-text-line-height: 20px;
+  --mdc-dialog-supporting-text-weight: 400;
+  --mdc-dialog-supporting-text-tracking: normal;
 }
 
 .cn-dialog-panel--sm { max-width: 420px !important; width: 100%; }
@@ -33,12 +39,17 @@
     min-width: 0;
   }
 
-  &__title.mat-dialog-title {
+  // MDC sizes the title with a 40px `::before` strut and 24px side padding; the shell header owns both.
+  & &__title {
     margin: 0;
+    padding: 0;
     font-size: 20px;
     font-weight: 600;
     line-height: 1.3;
+    letter-spacing: normal;
     font-family: var(--cn-font-family);
+
+    &::before { display: none; }
 
     &--destructive { color: var(--cn-color-warn); }
   }
@@ -53,14 +64,14 @@
     margin: -#{s.$cn-space-2} -#{s.$cn-space-2} 0 0;
   }
 
-  &__content.mat-dialog-content {
+  & &__content {
     padding: s.$cn-space-5 s.$cn-space-6;
     margin: 0;
     max-height: none;
     flex: 1 1 auto;
   }
 
-  &__actions.mat-dialog-actions {
+  & &__actions {
     padding: s.$cn-space-3 s.$cn-space-6 s.$cn-space-5;
     margin: 0;
     min-height: 0;

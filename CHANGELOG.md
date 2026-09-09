@@ -8,10 +8,87 @@ Entries reference CNPY tickets. Entries raised by other teams carry their own ke
 
 ## [Unreleased]
 
+## [4.0.0] - 2026-09-09
+
+Canopy 4 is the Angular 14 -> 15 / Material MDC hop deferred by ADR-0004 and recorded in
+ADR-0005 (CNPY-2140, estate epic KAN-23). One major only: Angular 15.2.x, Material 15.2.x; the
+next hop (16) is a separate release. Consumer guide: `docs/MIGRATION-4.0.md`; evidence bundle:
+`docs/upgrade/CNPY-2140/14-to-15/`.
+
+**Support for 3.x.** Canopy 3.7.x remains in security support until the last consumer has moved
+to 4.x or for 90 days from the 4.0.0 release, whichever is later (GIS-STD-022 s3). 3.x receives
+security fixes only; feature work is 4.x. Consumer pin bumps are each consumer's own change
+(retail-web MOL-4471, iris-widget IRIS-0900, business-web MBZ-2140, keystone-web KEY-2210).
+
+### BREAKING CHANGES
+- Peer ranges are `@angular/* ^15.0.0`, `@angular/material` / `cdk` /
+  `material-moment-adapter` `^15.0.0`, `ngx-mask ^15.0.0`. Angular 14 applications cannot
+  install 4.0.0 (`ERESOLVE`); this is the expected result for retail-web, iris-widget and
+  business-web until their own upgrades land.
+- `@angular/flex-layout` is no longer a peer dependency. `cn-page-header` and `cn-page-shell`
+  lay out with plain CSS flex/grid and render identically; applications that used `fxLayout*` /
+  `fxFlex` in their own templates must keep installing flex-layout themselves (it is end of life
+  at Angular 15) or replace it.
+- Every wrapped component except `cn-amount-slider` and `cn-filter-chips` renders the Material 15
+  MDC implementation. The Material DOM and class names under a Canopy component changed
+  (`.mat-mdc-*` / `.mdc-*`). Consumer stylesheets or tests that reached into `.mat-button-wrapper`,
+  `.mat-form-field-underline`, `.mat-select-panel`, `.mat-slide-toggle-bar`, `.mat-header-cell`,
+  `.mat-tab-label`, `.mat-ink-bar`, `.mat-dialog-container`, `.mat-simple-snackbar`,
+  `.mat-tooltip`, `.mat-progress-bar-fill`, `.mat-checkbox-*` or `.mat-radio-*` no longer match.
+  Style through the Canopy tokens, the `cn-*` classes, or the Material 15 theming/density APIs.
+- Typography levels use the Material 15 names. `$cn-typography` is built with
+  `mat.define-typography-config($headline-1 .. $headline-6, $subtitle-1, $subtitle-2, $body-1,
+  $body-2, $caption, $button, $overline)`; the 2014 names (`$display-4 .. $display-1`,
+  `$headline`, `$title`, `$subheading-2`, `$subheading-1`, `$input`) are gone and `$input` has
+  no replacement (MDC fields take the body typography). `ng update @northgate/canopy-ui` runs
+  the `canopy-4-theme-mixin` migration, which rewrites consumer typography overrides.
+- Form fields: MDC form fields have no underline; the Canopy default remains `outline`. Fields
+  follow the theme density (56px outlined field at scale 0, within 2px of the 3.x override) and
+  the MDC defaults for the outline, floating-label and hint colours (Material 15 exposes no
+  tokens for them; the 3.x `.mat-form-field-label` / `.mat-hint` muted colours are a pending
+  design decision, see `docs/upgrade/CNPY-2140/14-to-15/REPORT.md`).
+- `cn-checkbox` and `cn-radio-group` no longer show the Material ripple (the 3.x override
+  suppressed it by class; 4.x uses `disableRipple`). No API change.
+- Dropped `.mat-*` overrides mean 3.x consumer workarounds that piggy-backed on Canopy's
+  overrides (the Ledgerline patches in LDG-3104 in particular) must be re-validated.
+
+### Deprecated
+- `cn-amount-slider` (`CnAmountSliderComponent`, `CnAmountSliderModule`): still renders the
+  Material 15 **legacy** slider (`MatLegacySliderModule`), which Material 16 removes. The MDC
+  slider has no `thumbLabel` / `displayWith` / `tickInterval`; redesign is a design-team decision
+  in KAN-27 and must land before the next Angular hop.
+- `cn-filter-chips` (`CnFilterChipsComponent`, `CnFilterChipsModule`): still renders the
+  Material 15 **legacy** chip list (`MatLegacyChipsModule`), removed in Material 16. The MDC
+  `mat-chip-listbox` / `mat-chip-grid` selection semantics differ; rewrite is owned by KAN-28.
+
+### Added
+- Density API (`themes/_density.scss`): `canopy.theme($density: 0 | -1 | -2)`, the
+  `.cn-density-default` / `.cn-density-compact` / `.cn-density-dense` classes emitted by the
+  theme mixin, and `canopy.density($scale)` for custom containers. `CnThemeService.setDensity()`
+  applies `cn-density-compact` on `<html>` when `CnConfig.density` is `'compact'` (3.x only
+  applied the config to the data table). Replaces the 3.x reliance on Canopy's `.mat-*` size
+  overrides (`--cn-control-height`, `--cn-row-height`).
+- `ng update` migration collection (`projects/canopy-ui/schematics/migrations.json`) with
+  `canopy-4-theme-mixin`; `npm run test:schematics` runs its specs with the schematic test
+  runner.
+- `docs/MIGRATION-4.0.md`, `docs/adr/0005-canopy-4-material-15-mdc.md`,
+  `docs/upgrade/CNPY-2140/COMPATIBILITY_MATRIX.md`.
+
 ### Changed
+- Angular 15.2.10, CLI / devkit 15.2.11, Material / CDK / material-moment-adapter 15.2.9,
+  TypeScript 4.9.5, zone.js 0.12.0, ng-packagr 15.2.2, `@angular-eslint` 15.2.1,
+  `@schematics/angular` 15.2.11, ngx-mask 15.2.3. RxJS stays 7.5.7, Node 16.20.2, npm 8.19.4.
+- `cn-masked-input` uses ngx-mask 15's standalone `NgxMaskDirective` + `provideNgxMask()`
+  (`NgxMaskModule` no longer exists).
+- Library specs are discovered by the Angular 15 Karma builder (`include` in `angular.json`)
+  rather than `require.context` in `test.ts`.
 - Coverage gate now counts every library source file, not only files a spec imports. The
   reported figure dropped accordingly; nothing else changed (CNPY-1402, finally).
-- Lint moved from the deprecated TSLint builder to `@angular-eslint` 14 (CNPY-2102).
+- Lint moved from the deprecated TSLint builder to `@angular-eslint` (CNPY-2102), now on 15.
+
+### Removed
+- `@angular/flex-layout` from the library, its peer dependencies and the showcase.
+- `NgxMaskModule` import path (see Changed).
 
 ## [3.7.2] - 2024-11-14
 

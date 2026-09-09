@@ -1,0 +1,109 @@
+# CNPY-2140 Angular 14 -> 15 / Material 15 MDC deprecation log (northgate-canopy-ui, Canopy 3.7.2 -> 4.0.0)
+# Source: 01-ng-update/ng-update-core-cli.log, 01-ng-update/ng-update-material.log, build.log, build-showcase.log,
+#         test.log, npm-ci.log, npm-audit.json, scanner-xray-violations.txt in this directory; REPORT.md sections 3, 5-8.
+#
+# ng update @angular/core@15 @angular/cli@15 @angular-eslint/schematics@15 migrations applied:
+#   - @angular-eslint/schematics "Updates @angular-eslint to v15"
+#       -> .eslintrc.json (root + projects/canopy-showcase): 2 files modified; @angular-eslint/* re-pinned exact 15.2.1
+#          (save-exact=true, floating versions are forbidden)
+#   - @angular/cli "Remove Browserslist configuration files that match the CLI default"
+#       -> projects/canopy-showcase/.browserslistrc deleted (CLI 15 default is identical)
+#   - @angular/cli "Remove no longer needed require calls in Karma builder main file"
+#       -> projects/canopy-ui/src/test.ts, projects/canopy-showcase/src/test.ts: `require.context` spec discovery removed;
+#          specs are discovered from `include` in angular.json ("**/*.spec.ts", "lib/**/*.ts" so coverage counts every
+#          library source file, CNPY-1402)
+#   - @angular/cli "Update TypeScript compiler `target` and set `useDefineForClassFields`"
+#       -> tsconfig.json: target ES2022, useDefineForClassFields: false
+#   - @angular/cli "Remove exported `@angular/platform-server` `renderModule`" -> no change (no SSR)
+#   - @angular/cli "Remove options from 'angular.json' that are no longer supported by the official builders" -> no change
+#   - @angular/core "relativeLinkResolution removed from Router config" -> no change (no usages)
+#   - @angular/core "RouterLinkWithHref -> RouterLink" -> no change (no usages)
+#
+# ng update @angular/material@15 (after removing @angular/flex-layout; two earlier runs refused on its `@angular/cdk ^14` peer):
+#   - @angular/cdk "Updates the Angular CDK to v15" -> no change
+#   - @angular/material "Updates the Angular Material to v15" -> 51 files modified: every Mat*Module import rewritten to
+#     MatLegacy*Module and every mat.*-theme mixin to mat.legacy-*. REVERTED by hand for every component except the two
+#     below; the MDC modules and Material 15 theming/density APIs were restored in commit ff7c469 (REPORT.md section 3).
+#
+# Deprecated in the Canopy 4.0.0 public API (marked @deprecated in source, listed in CHANGELOG.md "Deprecated"):
+#   - cn-amount-slider: CnAmountSliderComponent, CnAmountSliderModule (projects/canopy-ui/src/lib/forms/amount-slider)
+#       -> still renders the Material 15 LEGACY (pre-MDC) mat-slider via MatLegacySliderModule; mat.legacy-slider-theme /
+#          -color are included from themes/_theme.scss (_legacy-component-themes). The MDC mat-slider removes thumbLabel,
+#          displayWith and tickInterval, which the amount-slider design relies on.
+#          BLOCKED - awaiting human design decision KAN-27 (Highest, parent KAN-23). Not decided in this hop.
+#          HARD DEADLINE: @angular/material/legacy-slider is DELETED in Material 16. KAN-27 must be implemented before
+#          the Canopy 15 -> 16 hop can start.
+#   - cn-filter-chips: CnFilterChipsComponent, CnFilterChipsModule (projects/canopy-ui/src/lib/data-display/filter-chips)
+#       -> still renders the Material 15 LEGACY mat-chip-list via MatLegacyChipsModule; mat.legacy-chips-theme / -color
+#          included from themes/_theme.scss. MDC mat-chip-listbox / mat-chip-grid selection semantics differ from the
+#          3.x mat-chip-list selection model; the owner must define the new behaviour.
+#          BLOCKED - awaiting human decision KAN-28 (Highest, parent KAN-23). Not decided in this hop.
+#          HARD DEADLINE: @angular/material/legacy-chips is DELETED in Material 16; same constraint as KAN-27.
+#   - Both components keep their 3.7.2 DOM (.mat-slider-*, .mat-chip-*), so their showcase pages render pixel-identical
+#     (showcase-visual/SUMMARY.md). Their stylesheets are 2 of the 3 files with active .mat-* selectors (REPORT.md s7).
+#     ADR-0002 secondary entry points were considered and not used: moving them would be a second import-path break in
+#     the same major (REPORT.md section 6).
+#
+# Removed from the public surface in this hop (BREAKING, CHANGELOG.md 4.0.0):
+#   - @angular/flex-layout peer dependency (14.0.0-beta.41): EOL at Angular 15, CDK peer ^14 blocked the Material update.
+#     cn-page-header / cn-page-shell use CSS flex/grid; removed from the showcase too. Consumers using fxLayout* in their
+#     own templates must self-install or replace it (docs/MIGRATION-4.0.md section 2).
+#   - Material 2014 typography level names in $cn-typography / $cn-typography-dense / canopy.theme($typography):
+#     $display-4..1, $headline, $title, $subheading-2, $subheading-1 renamed to the Material 15 names; $input REMOVED with
+#     no replacement (MDC form fields take the body level). Rewritten in consumer stylesheets by the ng update migration
+#     canopy-4-theme-mixin (projects/canopy-ui/schematics/migrations.json).
+#     The $body-2 / $subheading-1 rows of the table are Canopy's metric-preserving mapping, not Material's
+#     private-typography-to-2018-config table: design decision KAN-33 (Highest, parent KAN-23), NOT decided here, the
+#     implemented table is unchanged (REPORT.md s8 item 2 / s10 item 5, docs/MIGRATION-4.0.md section 3).
+#   - Canopy's internal .mat-* overrides (ADR-0004 list: .mat-button-wrapper, .mat-form-field-underline, .mat-select-panel,
+#     .mat-slide-toggle-bar, .mat-header-cell, .mat-tab-label, .mat-ink-bar, .mat-dialog-container, .mat-simple-snackbar,
+#     .mat-tooltip, .mat-progress-bar-fill, .mat-checkbox-*/.mat-radio-* ripples): gone; consumer CSS / specs that matched
+#     them no longer match (docs/MIGRATION-4.0.md section 5). Ledgerline's LDG-3104 patches target these names.
+#   - NgxMaskModule import in cn-masked-input (ngx-mask 15 removed it): replaced by NgxMaskDirective + provideNgxMask().
+#     No public API change.
+#
+# API notes recorded, not decided (REPORT.md section 10):
+#   - CnDensity runtime type stays 'default' | 'compact' while the Sass API exposes $cn-density-dense (-2) and the theme
+#     mixin emits .cn-density-dense; whether 'dense' joins the runtime type is an API decision for the design-system team.
+#   - MDC form-field geometry / hint and floating-label colour, 18 px checkbox glyph, 56 px paginator: left at MDC
+#     defaults pending design (substance of KAN-31).
+#
+# Deprecations outstanding after the hop (none block the build; build.log and build-showcase.log 0 warnings; 47/47 specs test.log):
+#   - none reported by @angular/compiler-cli 15.2.10 or ng-packagr 15.2.2 for this source tree
+#   - @angular/material/legacy-* usage: 2 modules (above), removed in Material 16
+#   - Angular 15.2.10 is end of life (LTS ended 2024-05-18; XRAY-127401 Medium replaces XRAY-127400 High for Angular 14).
+#     Intermediate wave position by design: one major at a time, Canopy 5 (15 -> 16) is the next hop and cannot start
+#     before KAN-27 / KAN-28 are implemented
+#   - TypeScript 4.9.5 unsupported by vendor; bounded by the Angular 15 range (>=4.8.2 <5.0.0)
+#   - Node 16.20.2 end of life (2023-09-11; XRAY-127200 / XRAY-127310 Medium, carried): inside the Angular 15 range
+#     (^14.20.0 || ^16.13.0 || ^18.10.0); stays until the estate Node move (FRAMEWORK_SUPPORT_STANDARD.md)
+#   - karma 6.4.x EOL (XRAY-134600 Low, carried) and moment 2.29.4 maintenance mode (XRAY-127700 Low, carried)
+#   - ws@8.13.0 CVE-2024-37890 (XRAY-124400 High, dev only: karma / socket.io / webpack-dev-server): carried from baseline
+#     unchanged; fix 8.17.1 needs npm `overrides` or a GIS exception - same decision shape as KAN-32, listed in
+#     CAB_RECORD.md s6 for GIS
+#   - npm audit NEW dev-only ids on the Angular 15 CLI tree: GHSA-52v5-jr5w-gjxr (sigstore via @angular/cli pacote),
+#     GHSA-73wf-gq98-2v4g and GHSA-c83g-rgw3-j3cx (browserslist via @angular-devkit/build-angular). Not in the published
+#     package (npm-audit-production id-identical to baseline). overrides vs GIS exception is KAN-32 - NOT decided here,
+#     package.json has no `overrides`
+#   - GHSA-c2qf-rxjj-qqgw (semver via ngx-mask 14, Jenkinsfile dependencyAudit allowlist, GIS-RA-2023-118): no longer
+#     present in either audit (ngx-mask 15.2.3); allowlist entry left in Jenkinsfile (security-policy file, GIS AppSec
+#     owns its edits) and flagged for removal in REPORT.md
+#   - transitive npm WARN deprecated on `npm ci` (dev tree only, pulled in by @angular-devkit/build-angular 15.2.11 /
+#     karma / eslint 8 / puppeteer 19): @babel/plugin-proposal-* (15 packages, merged into ECMAScript), glob@7.2.3 / 8.1.0 /
+#     10.5.0, rimraf@3.0.2, inflight@1.0.6, uuid@8.3.2, tar@6.2.1, npmlog@6.0.2, gauge@4.0.4, are-we-there-yet@3.0.1,
+#     read-package-json@6.0.4, @npmcli/move-file@2.0.1, @humanwhocodes/config-array@0.11.14 / object-schema@2.0.3,
+#     abab@2.0.6, acorn-import-assertions@1.9.0, eslint@8.28.0, puppeteer@19.11.1; none is in the published package
+#     (dist/canopy-ui has no dependencies beyond tslib)
+#
+# Removed from the repository in this hop:
+#   - projects/canopy-showcase/.browserslistrc (CLI 15 migration, above)
+#   - `require.context` spec discovery in both test.ts files (above)
+#   - @angular/flex-layout from package.json, projects/canopy-ui/package.json peerDependencies and every template
+#
+# Not changed in this hop (deliberately):
+#   - RxJS stays 7.5.7 (Angular 15 accepts ^6.5.3 || ^7.4.0; ng update did not require 7.8)
+#   - Node stays 16.20.2 (.nvmrc, engines); npm 8.19.4
+#   - moment 2.29.4 / @angular/material-moment-adapter 15.2.9 for cn-date-range (Date adapter swap is out of scope)
+#   - compilationMode "partial" (projects/canopy-ui/tsconfig.lib.prod.json)
+#   - Coverage gate 45% lines (Jenkinsfile), Checkmarx suppressions (checkmarx.yml), .npmrc, SECURITY.md: untouched
+#   - Angular 16+ (ADR-0004 "skip straight to 16"): explicitly NOT taken, one major at a time (ADR-0005)

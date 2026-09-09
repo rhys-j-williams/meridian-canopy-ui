@@ -3,20 +3,20 @@
 .cn-account-card {
   display: block;
 
-  &__card.mat-card {
+  & &__card {
+    --mdc-elevated-card-container-shape: var(--cn-radius-lg, #{s.$cn-radius-lg});
+    --mdc-elevated-card-container-color: var(--cn-color-surface);
     padding: s.$cn-space-4 s.$cn-space-5;
-    border-radius: var(--cn-radius-lg, #{s.$cn-radius-lg});
     box-shadow: var(--cn-shadow-1);
-    background: var(--cn-color-surface);
     border-left: 4px solid var(--cn-color-primary);
   }
 
-  &[data-cn-kind='credit'] &__card.mat-card,
-  &[data-cn-kind='loan'] &__card.mat-card {
+  &[data-cn-kind='credit'] &__card,
+  &[data-cn-kind='loan'] &__card {
     border-left-color: var(--cn-color-accent);
   }
 
-  &--clickable &__card.mat-card {
+  &--clickable &__card {
     cursor: pointer;
     transition: box-shadow 120ms ease;
 
@@ -115,6 +115,12 @@
     border-radius: 2px;
   }
 
+  & &__trend-icon {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+  }
+
   &__trend {
     display: inline-flex;
     align-items: center;
@@ -122,7 +128,6 @@
     font-size: 12px;
     color: var(--cn-color-text-muted);
 
-    .mat-icon { width: 16px; height: 16px; font-size: 16px; }
     &[data-cn-trend='up'] { color: var(--cn-color-success); }
     &[data-cn-trend='down'] { color: var(--cn-color-warn); }
   }

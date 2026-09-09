@@ -1,0 +1,154 @@
+consumer: @northgate/keystone-web @ dc44b4e
+node v16.20.2 npm 8.19.4
+pin before: @northgate/canopy-ui 3.6.1
+angular/core: 15.2.10  rxjs: 7.8.0
+
+### step 0: refresh lockfile integrity for @northgate/domain-fixtures@1.6.0 (the local Verdaccio rebuilt the tarball, so the committed sha512 differs; local-registry artefact, not a Canopy change)
+npm WARN EBADENGINE }
+
+up to date in 639ms
+exit=0
+
+### step 1: npm install @northgate/canopy-ui@4.0.0 --save-exact --registry http://localhost:4873 (strict peer resolution, no legacy-peer-deps)
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'node-releases@2.0.54',
+npm WARN EBADENGINE   required: { node: '>=18' },
+npm WARN EBADENGINE   current: { node: 'v16.20.2', npm: '8.19.4' }
+npm WARN EBADENGINE }
+
+removed 1 package, and changed 4 packages in 3s
+exit=0
+pin after: @northgate/canopy-ui 4.0.0
+
+### step 2: npx ng update @northgate/canopy-ui --migrate-only --from=3.6.1 --to=4.0.0 --allow-dirty
+Repository is not clean. Update changes will be mixed with pre-existing changes.
+The installed Angular CLI version is outdated.
+Installing a temporary Angular CLI versioned 15.2.11 to perform the update.
+- Installing packages...
+✔ Packages successfully installed.
+Repository is not clean. Update changes will be mixed with pre-existing changes.
+Using package manager: npm
+Collecting installed dependencies...
+Found 37 dependencies.
+** Executing migrations of package '@northgate/canopy-ui' **
+
+▸ Canopy 4.0.0 (CNPY-2140): rewrites 3.x Material 2014 typography level names ($display-4 ..
+  $input) in consumer canopy.theme() typography overrides to the Material 15 names.
+    canopy-4-theme-mixin: no Canopy typography overrides found, nothing to do.
+  Migration completed (No changes made).
+
+exit=0
+
+### step 2b: git diff after migration
+ package-lock.json | 179 +++++++++++++++++++++++++++++++++++++-----------------
+ package.json      |   2 +-
+ 2 files changed, 125 insertions(+), 56 deletions(-)
+
+### step 3: npm run lint
+
+> @northgate/keystone-web@4.11.3 lint
+> ng lint
+
+
+Linting "keystone-web"...
+
+All files pass linting.
+
+exit=0
+
+### step 4: npm run build
+
+> @northgate/keystone-web@4.11.3 build
+> ng build
+
+- Generating browser application bundles (phase: setup)...
+✔ Browser application bundle generation complete.
+✔ Browser application bundle generation complete.
+- Copying assets...
+✔ Copying assets complete.
+- Generating index html...
+✔ Index html generation complete.
+
+Initial Chunk Files           | Names                                                               |  Raw Size | Estimated Transfer Size
+main.5b6ee04cf684b109.js      | main                                                                | 535.71 kB |               131.97 kB
+styles.bf5247fe81c90df5.css   | styles                                                              | 171.32 kB |                14.40 kB
+polyfills.34a8e4b20f81b98e.js | polyfills                                                           |  33.10 kB |                10.65 kB
+runtime.d1ec9a0aef85cc89.js   | runtime                                                             |   3.58 kB |                 1.88 kB
+
+| Initial Total                                                       | 743.70 kB |               158.90 kB
+
+Lazy Chunk Files              | Names                                                               |  Raw Size | Estimated Transfer Size
+284.9c71b36ee6b80984.js       | features-login-login-module                                         |  98.15 kB |                18.14 kB
+230.2c79eb2f1cab455a.js       | features-login-login-module                                         |  76.20 kB |                13.26 kB
+308.59147972962b8946.js       | features-mfa-mfa-module                                             |  15.25 kB |                 3.84 kB
+869.7452366279178df9.js       | features-login-login-module                                         |  11.92 kB |                 3.61 kB
+common.e7ce18e2a2c6be21.js    | common                                                              |   9.57 kB |                 3.31 kB
+417.227bcacfccb100d4.js       | features-recovery-recovery-routes                                   |   8.08 kB |                 2.55 kB
+838.657942fdb2e37882.js       | features-device-trust-device-trust-page-device-trust-page-component |   6.96 kB |                 2.60 kB
+162.af74e19636157655.js       | features-step-up-step-up-module                                     |   3.57 kB |                 1.43 kB
+
+Build at: 2026-09-09T18:26:05.587Z - Hash: 1bbd99724564b8b8 - Time: 10236ms
+exit=0
+
+### step 5: npm test -- --watch=false (Jenkinsfile testCommand; package.json "test" watches)
+    at ConsumerObserver.error (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subscriber.js:102:33)
+    at SafeSubscriber._error (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subscriber.js:64:30)
+    at SafeSubscriber.error (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subscriber.js:40:18)
+    at OperatorSubscriber._error (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subscriber.js:64:30)
+    at OperatorSubscriber.error (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subscriber.js:40:18)
+    at Observable._subscribe (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/observable/throwError.js:5:45)
+    at Observable._trySubscribe (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Observable.js:37:25)
+    at cb (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Observable.js:31:30)
+    at errorContext (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/util/errorContext.js:19:9)
+Chrome Headless 133.0.0.0 (Linux 0.0.0): Executed 49 of 77 SUCCESS (0 secs / 0.324 secs)
+ERROR: 'ERROR', Error: Error retrieving icon cn:lock! Unable to find icon with the name "cn:lock"
+Error: Error retrieving icon cn:lock! Unable to find icon with the name "cn:lock"
+    at Object.error (http://localhost:9877/_karma_webpack_/webpack:/node_modules/@angular/material/fesm2020/icon.mjs:967:48)
+    at ConsumerObserver.error (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subscriber.js:102:33)
+    at SafeSubscriber._error (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subscriber.js:64:30)
+    at SafeSubscriber.error (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subscriber.js:40:18)
+    at OperatorSubscriber._error (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subscriber.js:64:30)
+    at OperatorSubscriber.error (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subscriber.js:40:18)
+    at Observable._subscribe (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/observable/throwError.js:5:45)
+    at Observable._trySubscribe (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Observable.js:37:25)
+    at cb (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Observable.js:31:30)
+    at errorContext (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/util/errorContext.js:19:9)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 50 of 77 SUCCESS (0 secs / 0.326 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 51 of 77 SUCCESS (0 secs / 0.327 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 52 of 77 SUCCESS (0 secs / 0.328 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 53 of 77 SUCCESS (0 secs / 0.329 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 54 of 77 SUCCESS (0 secs / 0.33 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 55 of 77 SUCCESS (0 secs / 0.33 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 56 of 77 SUCCESS (0 secs / 0.33 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 57 of 77 SUCCESS (0 secs / 0.33 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 58 of 77 SUCCESS (0 secs / 0.33 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 59 of 77 SUCCESS (0 secs / 0.33 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 60 of 77 SUCCESS (0 secs / 0.364 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 61 of 77 SUCCESS (0 secs / 0.383 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 62 of 77 SUCCESS (0 secs / 0.397 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 63 of 77 SUCCESS (0 secs / 0.409 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 64 of 77 SUCCESS (0 secs / 0.422 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 65 of 77 SUCCESS (0 secs / 0.434 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 66 of 77 SUCCESS (0 secs / 0.441 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 67 of 77 SUCCESS (0 secs / 0.458 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 68 of 77 SUCCESS (0 secs / 0.465 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 69 of 77 SUCCESS (0 secs / 0.476 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 70 of 77 SUCCESS (0 secs / 0.494 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 71 of 77 SUCCESS (0 secs / 0.503 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 72 of 77 SUCCESS (0 secs / 0.511 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 73 of 77 SUCCESS (0 secs / 0.518 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 74 of 77 SUCCESS (0 secs / 0.526 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 75 of 77 SUCCESS (0 secs / 0.535 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 76 of 77 SUCCESS (0 secs / 0.544 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 77 of 77 SUCCESS (0 secs / 0.551 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 77 of 77 SUCCESS (0.331 secs / 0.551 secs)
+TOTAL: 77 SUCCESS
+✔ Browser application bundle generation complete.
+=============================== Coverage summary ===============================
+Statements   : 43.37% ( 344/793 )
+Branches     : 42.12% ( 123/292 )
+Functions    : 43.66% ( 93/213 )
+Lines        : 42.21% ( 320/758 )
+================================================================================
+✔ Browser application bundle generation complete.
+exit=0

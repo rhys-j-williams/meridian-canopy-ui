@@ -1,0 +1,17 @@
+
+@northgate/canopy-ui@4.0.0 | UNLICENSED | deps: 1 | versions: 1
+Canopy, the Northgate Trust Bank design system. Angular Material wrapped in the bank's tokens, components and accessibility behaviours.
+
+dist
+.tarball: http://localhost:4873/@northgate/canopy-ui/-/canopy-ui-4.0.0.tgz
+.shasum: 891cdaa734086fc60d27c676fda0b1db2b46b323
+.integrity: sha512-AwTtxLUyTv9VtF7dZYZoY0hCEBgHNglAiScsHyk029qCuZZLnLhY4FDdXgFdK9cEpPPgk8CVDK4n6Y5UiODrkw==
+
+dependencies:
+tslib: ^2.3.0
+
+dist-tags:
+latest: 4.0.0
+
+published just now
+exit=0

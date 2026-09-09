@@ -36,7 +36,8 @@
           "options": {
             "main": "projects/canopy-ui/src/test.ts",
             "tsConfig": "projects/canopy-ui/tsconfig.spec.json",
-            "karmaConfig": "projects/canopy-ui/karma.conf.js"
+            "karmaConfig": "projects/canopy-ui/karma.conf.js",
+            "include": ["**/*.spec.ts", "lib/**/*.ts"]
           }
         },
         "lint": {
@@ -172,6 +173,14 @@
           }
         }
       }
+    }
+  },
+  "schematics": {
+    "@angular-eslint/schematics:application": {
+      "setParserOptionsProject": true
+    },
+    "@angular-eslint/schematics:library": {
+      "setParserOptionsProject": true
     }
   }
 }

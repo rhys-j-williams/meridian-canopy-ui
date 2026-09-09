@@ -5,11 +5,11 @@
   <mat-spinner *ngIf="searching" matSuffix diameter="18" strokeWidth="2" aria-hidden="true"></mat-spinner>
   <mat-autocomplete #auto="matAutocomplete" class="cn-autocomplete__panel" [displayWith]="displayWith"
                     (optionSelected)="onOptionSelected($event)">
-    <mat-option *ngFor="let option of options" [value]="option">
+    <mat-option *ngFor="let option of options" class="cn-autocomplete__option" [value]="option">
       <span class="cn-autocomplete__label">{{ option.label }}</span>
       <span class="cn-autocomplete__description" *ngIf="option.description">{{ option.description }}</span>
     </mat-option>
-    <mat-option *ngIf="searched && !searching && options.length === 0" disabled class="cn-autocomplete__empty">
+    <mat-option *ngIf="searched && !searching && options.length === 0" disabled class="cn-autocomplete__option cn-autocomplete__empty">
       {{ noResultsText }}
     </mat-option>
   </mat-autocomplete>

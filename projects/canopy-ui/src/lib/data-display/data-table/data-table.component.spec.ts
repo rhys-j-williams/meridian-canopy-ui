@@ -103,14 +103,15 @@ describe('CnDataTableComponent', () => {
   });
 
   it('emits rowClick from keyboard Enter', () => {
-    const row: HTMLElement = fixture.nativeElement.querySelector('tr.mat-row');
+    const row: HTMLElement = fixture.nativeElement.querySelector('tbody tr');
     row.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }));
     expect(host.clicked?.id).toBe('txn-1');
   });
 
   it('applies the header cell class the density styles rely on', () => {
     const header = fixture.nativeElement.querySelector('th');
-    expect(header.classList.contains('mat-header-cell')).toBeTrue();
-    expect(fixture.nativeElement.querySelector('td.mat-cell')).toBeTruthy();
+    expect(header.classList.contains('cn-cell')).toBeTrue();
+    expect(header.classList.contains('mat-mdc-header-cell')).toBeTrue();
+    expect(fixture.nativeElement.querySelector('td.cn-cell.mat-mdc-cell')).toBeTruthy();
   });
 });

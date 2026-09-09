@@ -5,10 +5,11 @@
 <mat-menu #menu="matMenu" class="cn-menu__panel" [xPosition]="xPosition">
   <ng-container *ngFor="let item of items">
     <mat-divider *ngIf="item.dividerBefore"></mat-divider>
-    <button mat-menu-item type="button" [disabled]="item.disabled" [class.cn-menu__item--destructive]="item.destructive"
-            [attr.data-cn-menu-item]="item.id" (click)="select(item)">
-      <mat-icon *ngIf="item.icon" [svgIcon]="isSvgIcon(item.icon) ? item.icon : ''" aria-hidden="true">{{ isSvgIcon(item.icon) ? '' : item.icon }}</mat-icon>
-      <span>{{ item.label }}</span>
+    <button mat-menu-item type="button" class="cn-menu__item" [disabled]="item.disabled"
+            [class.cn-menu__item--destructive]="item.destructive" [attr.data-cn-menu-item]="item.id" (click)="select(item)">
+      <mat-icon *ngIf="item.icon" class="cn-menu__item-icon" [svgIcon]="isSvgIcon(item.icon) ? item.icon : ''"
+                aria-hidden="true">{{ isSvgIcon(item.icon) ? '' : item.icon }}</mat-icon>
+      <span class="cn-menu__item-label">{{ item.label }}</span>
     </button>
   </ng-container>
 </mat-menu>

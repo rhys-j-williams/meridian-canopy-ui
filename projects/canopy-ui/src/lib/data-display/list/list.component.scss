@@ -1,24 +1,68 @@
 @use '../../tokens/spacing' as s;
 
+// Material 15 list (MDC). Row height, colours and fonts come from the MDC list tokens, set on the
+// list element because the Material theme emits them there; the item content is addressed
+// through the Canopy classes on the projected title/meta/icon elements. The 3.x row is kept:
+// a single 16px line with the primary and secondary copy inline, a 24px leading icon and the
+// bold meta on the right. Selectors are nested one level deeper than Material's own item styles
+// (`.mat-mdc-list-item.mdc-list-item--with-leading-icon .mdc-list-item__start`) so they win.
 .cn-list {
   display: block;
 
-  &__list.mat-list-base {
-    padding-top: 0;
+  // 3.x declared `--cn-row-height` (52px) / `$cn-row-height-compact` (40px) on the item but Material 14
+  // clamped both to its 48px default; the rendered 48px row is kept here for every list, including
+  // `dense` (moving the list onto the tokens is a visible change, see MIGRATION-4.0.md).
+  &__list {
+    --mdc-list-list-item-one-line-container-height: 48px;
+    --mdc-list-list-item-label-text-color: var(--cn-color-text);
+    --mdc-list-list-item-label-text-font: var(--cn-font-family);
+    --mdc-list-list-item-label-text-size: 16px;
+    --mdc-list-list-item-label-text-line-height: 24px;
+    --mdc-list-list-item-label-text-weight: 400;
+    --mdc-list-list-item-label-text-tracking: normal;
+    --mdc-list-list-item-leading-icon-color: var(--cn-color-text-muted);
+    --mdc-list-list-item-hover-leading-icon-color: var(--cn-color-text-muted);
+    --mdc-list-list-item-leading-icon-size: 24px;
+    --mdc-list-list-item-trailing-supporting-text-color: var(--cn-color-text);
+    --mdc-list-list-item-trailing-supporting-text-font: var(--cn-font-family);
+    --mdc-list-list-item-trailing-supporting-text-size: 16px;
+    --mdc-list-list-item-trailing-supporting-text-line-height: 24px;
+    --mdc-list-list-item-trailing-supporting-text-weight: 600;
+    --mdc-list-list-item-trailing-supporting-text-tracking: normal;
   }
 
-  .mat-list-item {
-    height: var(--cn-row-height, #{s.$cn-row-height-default});
-    color: var(--cn-color-text);
-    font-family: var(--cn-font-family);
+  & &__list {
+    padding: 0;
   }
 
-  &--dense .mat-list-item {
-    height: s.$cn-row-height-compact;
+  // MDC hard-codes a 56px height for one-line items with a leading icon; the doubled item class
+  // outranks that rule (and the `.cn-density-*` copies of it) so the container-height token wins.
+  & &__list &__item#{&}__item {
+    height: var(--mdc-list-list-item-one-line-container-height);
+    padding: 0 s.$cn-space-4;
   }
 
-  &__icon.mat-list-icon {
-    color: var(--cn-color-text-muted);
+  & &__list &__item &__icon {
+    margin: 0 s.$cn-space-1;
+  }
+
+  & &__list &__item &__text {
+    display: flex;
+    min-width: 0;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  &__primary,
+  &__secondary {
+    flex: 0 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   &__primary {
@@ -26,15 +70,13 @@
   }
 
   &__secondary {
-    font-size: 12px;
     color: var(--cn-color-text-muted);
   }
 
-  &__meta {
-    margin-left: auto;
+  & &__list &__item &__meta {
+    margin: 0;
     padding-left: s.$cn-space-3;
     font-variant-numeric: tabular-nums;
-    font-weight: 600;
     white-space: nowrap;
   }
 

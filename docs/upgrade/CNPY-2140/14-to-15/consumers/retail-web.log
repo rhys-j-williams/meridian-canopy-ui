@@ -1,0 +1,36 @@
+consumer: @northgate/retail-web @ cdde0d2
+node v16.20.2 npm 8.19.4
+pin before: @northgate/canopy-ui 3.7.2
+angular/core: 14.3.0  rxjs: 7.5.7
+
+### step 0: refresh lockfile integrity for @northgate/domain-fixtures@1.6.0 (the local Verdaccio rebuilt the tarball, so the committed sha512 differs; local-registry artefact, not a Canopy change)
+npm WARN EBADENGINE }
+
+up to date in 684ms
+exit=0
+
+### step 1: npm install @northgate/canopy-ui@4.0.0 --save-exact --registry http://localhost:4873 (strict peer resolution, no legacy-peer-deps)
+npm ERR! code ERESOLVE
+npm ERR! ERESOLVE unable to resolve dependency tree
+npm ERR! 
+npm ERR! While resolving: @northgate/retail-web@14.31.2
+npm ERR! Found: @angular/animations@14.3.0
+npm ERR! node_modules/@angular/animations
+npm ERR!   @angular/animations@"14.3.0" from the root project
+npm ERR! 
+npm ERR! Could not resolve dependency:
+npm ERR! peer @angular/animations@"^15.0.0" from @northgate/canopy-ui@4.0.0
+npm ERR! node_modules/@northgate/canopy-ui
+npm ERR!   @northgate/canopy-ui@"4.0.0" from the root project
+npm ERR! 
+npm ERR! Fix the upstream dependency conflict, or retry
+npm ERR! this command with --force, or --legacy-peer-deps
+npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
+npm ERR! 
+npm ERR! See /home/ubuntu/.npm/eresolve-report.txt for a full report.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/ubuntu/.npm/_logs/2026-09-09T18_24_32_820Z-debug-0.log
+exit=1
+
+RESULT: FAIL at install (see error above)

@@ -1,0 +1,90 @@
+Repository is not clean. Update changes will be mixed with pre-existing changes.
+Using package manager: npm
+Collecting installed dependencies...
+Found 45 dependencies.
+Fetching dependency metadata from registry...
+                  Package "@angular/flex-layout" has an incompatible peer dependency to "@angular/cdk" (requires "^14.0.0", would install "15.2.9").
+✖ Migration failed: Incompatible peer dependencies found.
+Peer dependency warnings when installing dependencies means that those dependencies might not work correctly together.
+You can use the '--force' option to ignore incompatible peer dependencies and instead address these warnings later.
+  See "/tmp/ng-LeI2IE/angular-errors.log" for further details.
+
+Repository is not clean. Update changes will be mixed with pre-existing changes.
+Using package manager: npm
+Collecting installed dependencies...
+Found 45 dependencies.
+Fetching dependency metadata from registry...
+                  Package "@angular/flex-layout" has an incompatible peer dependency to "@angular/cdk" (requires "^14.0.0", would install "15.2.9").
+    Updating package.json with dependency @angular/cdk @ "15.2.9" (was "14.2.7")...
+    Updating package.json with dependency @angular/material @ "15.2.9" (was "14.2.7")...
+    Updating package.json with dependency @angular/material-moment-adapter @ "15.2.9" (was "14.2.7")...
+UPDATE package.json (2980 bytes)
+- Installing packages...
+✔ Packages successfully installed.
+** Executing migrations of package '@angular/cdk' **
+
+▸ Updates the Angular CDK to v15.
+    
+      ✓  Updated Angular CDK to version 15
+    
+  Migration completed (No changes made).
+
+** Executing migrations of package '@angular/material' **
+
+▸ Updates the Angular Material to v15.
+    
+      ✓  Updated Angular Material to version 15
+    
+UPDATE projects/canopy-ui/src/lib/themes/_theme.scss (3258 bytes)
+UPDATE projects/canopy-ui/src/lib/data-display/data-table/data-table.component.ts (9271 bytes)
+UPDATE projects/canopy-ui/src/styles/_dense-typography.scss (1836 bytes)
+UPDATE projects/canopy-ui/src/lib/data-display/data-table/data-table.component.spec.ts (4719 bytes)
+UPDATE projects/canopy-ui/src/lib/forms/currency-input/currency-input.component.ts (7790 bytes)
+UPDATE projects/canopy-ui/src/lib/forms/date-range/date-range.module.ts (1249 bytes)
+UPDATE projects/canopy-ui/src/lib/forms/autocomplete/autocomplete.module.ts (899 bytes)
+UPDATE projects/canopy-ui/src/lib/data-display/data-table/data-table.module.ts (955 bytes)
+UPDATE projects/canopy-ui/src/lib/themes/_typography.scss (1753 bytes)
+UPDATE projects/canopy-ui/src/lib/overlays/dialog-shell/dialog-shell.module.ts (873 bytes)
+UPDATE projects/canopy-ui/src/lib/data-display/account-card/account-card.module.ts (725 bytes)
+UPDATE projects/canopy-ui/src/lib/actions/menu/menu.module.ts (654 bytes)
+UPDATE projects/canopy-ui/src/lib/actions/icon-button/icon-button.module.ts (676 bytes)
+UPDATE projects/canopy-ui/src/lib/layout/page-shell/page-shell.module.ts (991 bytes)
+UPDATE projects/canopy-ui/src/lib/data-display/filter-chips/filter-chips.component.ts (3396 bytes)
+UPDATE projects/canopy-ui/src/lib/forms/autocomplete/autocomplete.component.ts (4643 bytes)
+UPDATE projects/canopy-ui/src/lib/actions/button/button.module.ts (614 bytes)
+UPDATE projects/canopy-ui/src/lib/forms/amount-slider/amount-slider.component.ts (2742 bytes)
+UPDATE projects/canopy-ui/src/lib/overlays/toast/toast.module.ts (600 bytes)
+UPDATE projects/canopy-ui/src/lib/forms/toggle/toggle.component.ts (2151 bytes)
+UPDATE projects/canopy-ui/src/lib/data-display/list/list.module.ts (530 bytes)
+UPDATE projects/canopy-ui/src/lib/forms/checkbox/checkbox.component.ts (2024 bytes)
+UPDATE projects/canopy-ui/src/lib/forms/masked-input/masked-input.module.ts (667 bytes)
+UPDATE projects/canopy-ui/src/lib/forms/radio-group/radio-group.component.ts (2178 bytes)
+UPDATE projects/canopy-ui/src/lib/forms/currency-input/currency-input.component.spec.ts (2613 bytes)
+UPDATE projects/canopy-ui/src/lib/forms/select/select.component.ts (3391 bytes)
+UPDATE projects/canopy-ui/src/lib/navigation/tabs/tabs.component.ts (1730 bytes)
+UPDATE projects/canopy-ui/src/lib/feedback/progress/progress.module.ts (574 bytes)
+UPDATE projects/canopy-ui/src/lib/overlays/bottom-sheet/bottom-sheet.module.ts (609 bytes)
+UPDATE projects/canopy-ui/src/lib/forms/select/select.module.ts (519 bytes)
+UPDATE projects/canopy-ui/src/lib/data-display/filter-chips/filter-chips.module.ts (599 bytes)
+UPDATE projects/canopy-ui/src/lib/navigation/tabs/tabs.module.ts (532 bytes)
+UPDATE projects/canopy-ui/src/lib/overlays/dialog-shell/dialog.service.ts (1806 bytes)
+UPDATE projects/canopy-ui/src/lib/actions/menu/menu.component.ts (1785 bytes)
+UPDATE projects/canopy-ui/src/lib/overlays/dialog-shell/dialog-shell.component.ts (1786 bytes)
+UPDATE projects/canopy-ui/src/lib/overlays/toast/toast.component.ts (1206 bytes)
+UPDATE projects/canopy-ui/src/lib/overlays/tooltip/tooltip.directive.spec.ts (1072 bytes)
+UPDATE projects/canopy-ui/src/lib/forms/toggle/toggle.module.ts (418 bytes)
+UPDATE projects/canopy-ui/src/lib/forms/currency-input/currency-input.module.ts (548 bytes)
+UPDATE projects/canopy-ui/src/lib/forms/checkbox/checkbox.module.ts (415 bytes)
+UPDATE projects/canopy-ui/src/lib/forms/amount-slider/amount-slider.module.ts (428 bytes)
+UPDATE projects/canopy-ui/src/lib/navigation/stepper-shell/stepper-shell.module.ts (594 bytes)
+UPDATE projects/canopy-ui/src/lib/overlays/dialog-shell/confirm-dialog.component.ts (1284 bytes)
+UPDATE projects/canopy-ui/src/lib/forms/radio-group/radio-group.module.ts (414 bytes)
+UPDATE projects/canopy-ui/src/lib/data-display/card/card.module.ts (373 bytes)
+UPDATE projects/canopy-ui/src/lib/overlays/tooltip/tooltip.directive.ts (1320 bytes)
+UPDATE projects/canopy-ui/src/lib/overlays/toast/toast.service.ts (2597 bytes)
+UPDATE projects/canopy-ui/src/lib/overlays/tooltip/tooltip.module.ts (485 bytes)
+UPDATE projects/canopy-showcase/src/app/shared/shared.module.ts (2268 bytes)
+UPDATE projects/canopy-showcase/src/app/pages/dashboard/dashboard-page.component.ts (8680 bytes)
+UPDATE projects/canopy-showcase/src/app/pages/components/dialog-shell-page.component.ts (3806 bytes)
+  Migration completed (51 files modified).
+

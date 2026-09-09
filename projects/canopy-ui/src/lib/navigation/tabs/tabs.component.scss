@@ -1,40 +1,49 @@
 @use '../../tokens/spacing' as s;
 
+// Material 15 tabs (MDC). The tab element carries the Canopy class through `labelClass`; the
+// label content is wrapped in `.cn-tabs__label`. Material 15.2 exposes no tokens for the tab
+// header, so the header border uses the `mat-tab-header` element selector and the ink bar is
+// reached as the last child of the tab (the indicator Material appends to each tab).
 .cn-tabs {
   display: block;
 
-  .mat-tab-header {
+  &__group > mat-tab-header {
     border-bottom: 1px solid var(--cn-color-border);
   }
 
-  .mat-tab-label {
+  & &__tab#{&}__tab {
     height: var(--cn-control-height, #{s.$cn-control-height});
     min-width: 96px;
     padding: 0 s.$cn-space-4;
     opacity: 1;
-    color: var(--cn-color-text-muted);
-    font-family: var(--cn-font-family);
-    font-weight: 600;
-    letter-spacing: 0.01em;
-
-    &.mat-tab-label-active {
-      color: var(--cn-color-primary);
-    }
 
     &.cdk-keyboard-focused {
       outline: var(--cn-focus-ring, #{s.$cn-focus-ring-width} solid #2f7bd1);
       outline-offset: -3px;
       background: transparent;
     }
+
+    > span:last-child > span {
+      border-top-width: 3px;
+      border-top-color: var(--cn-color-primary);
+      border-radius: 3px 3px 0 0;
+    }
   }
 
-  .mat-ink-bar {
-    height: 3px;
-    border-radius: 3px 3px 0 0;
-    background-color: var(--cn-color-primary);
+  &__label {
+    display: inline-flex;
+    align-items: center;
+    color: var(--cn-color-text-muted);
+    font-family: var(--cn-font-family);
+    font-weight: 600;
+    letter-spacing: 0.01em;
   }
 
-  &__icon.mat-icon {
+  &__tab[aria-selected='true'] &__label {
+    color: var(--cn-color-primary);
+  }
+
+  & &__icon {
     width: 18px;
     height: 18px;
     font-size: 18px;
@@ -51,7 +60,7 @@
     line-height: 18px;
   }
 
-  .mat-tab-label-active &__badge {
+  &__tab[aria-selected='true'] &__badge {
     background: var(--cn-color-primary);
     color: var(--cn-color-primary-contrast);
   }

@@ -1,14 +1,17 @@
 import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable, OnDestroy, Optional } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { CN_CONFIG, CnConfig, CnThemeName } from './canopy-config';
+import { CN_CONFIG, CnConfig, CnDensity, CnThemeName } from './canopy-config';
 
 const THEME_CLASS_PREFIX = 'cn-theme-';
+const DENSITY_CLASS_PREFIX = 'cn-density-';
 const ALL_THEMES: CnThemeName[] = ['light', 'dark', 'high-contrast'];
+const ALL_DENSITIES: CnDensity[] = ['default', 'compact'];
 
 /**
  * Switches the active Canopy theme by toggling `cn-theme-*` classes on `<html>`. The theme mixin
- * emits every variant, so no stylesheet is loaded at runtime.
+ * emits every variant, so no stylesheet is loaded at runtime. `CnConfig.density` is applied the
+ * same way, as a `cn-density-*` class the theme mixin emits (see themes/_density.scss).
  *
  * Respects `prefers-color-scheme` and `forced-colors` on first load when nothing is persisted.
  */
@@ -25,6 +28,7 @@ export class CnThemeService implements OnDestroy {
     this.mediaDark = win && typeof win.matchMedia === 'function' ? win.matchMedia('(prefers-color-scheme: dark)') : null;
     this.mediaForced = win && typeof win.matchMedia === 'function' ? win.matchMedia('(forced-colors: active)') : null;
 
+    this.setDensity(this.config?.density ?? 'default');
     const persisted = this.readPersisted();
     if (persisted) {
       this.setTheme(persisted, false);
@@ -55,6 +59,18 @@ export class CnThemeService implements OnDestroy {
 
   toggleDark(): void {
     this.setTheme(this.theme === 'dark' ? 'light' : 'dark');
+  }
+
+  /**
+   * Applies a `cn-density-*` class to `<html>`; components read the resulting sizing tokens. The
+   * theme mixin already emits the default density on `:root`, so `default` only clears the class.
+   */
+  setDensity(density: CnDensity): void {
+    const root = this.document.documentElement;
+    ALL_DENSITIES.forEach(d => root.classList.remove(DENSITY_CLASS_PREFIX + d));
+    if (density !== 'default') {
+      root.classList.add(DENSITY_CLASS_PREFIX + density);
+    }
   }
 
   ngOnDestroy(): void {

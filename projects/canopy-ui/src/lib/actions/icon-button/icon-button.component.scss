@@ -1,23 +1,25 @@
 @use '../../tokens/spacing' as s;
 
+// MDC icon button tokens size the control; the badge font goes through the badge theme
+// (typography level `caption`). No `.mat-*` selectors (ADR-0005).
 .cn-icon-button {
   display: inline-block;
 
-  .mat-icon-button {
+  --mdc-icon-button-icon-size: 24px;
+  --mdc-icon-button-icon-color: var(--cn-color-text);
+
+  // Material's density styles (`.cn-density-* .mat-mdc-icon-button.mat-mdc-button-base`) fix the
+  // MDC icon button at 48px with 12px padding; the repeated Canopy class outranks them so the
+  // control follows `--cn-control-height` (44px at density 0, as in 3.x).
+  > button.cn-icon-button__native#{&}__native {
     width: var(--cn-control-height, #{s.$cn-control-height});
     height: var(--cn-control-height, #{s.$cn-control-height});
-    line-height: var(--cn-control-height, #{s.$cn-control-height});
+    padding: calc((var(--cn-control-height, #{s.$cn-control-height}) - var(--mdc-icon-button-icon-size)) / 2);
     border-radius: var(--cn-radius-sm, #{s.$cn-radius-sm});
-    color: var(--cn-color-text);
   }
 
-  .mat-icon-button:focus-visible {
+  > button:focus-visible {
     outline: var(--cn-focus-ring, #{s.$cn-focus-ring-width} solid #2f7bd1);
     outline-offset: s.$cn-focus-ring-offset;
-  }
-
-  .mat-badge-content {
-    font-family: var(--cn-font-family);
-    font-weight: 600;
   }
 }

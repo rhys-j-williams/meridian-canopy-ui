@@ -45,7 +45,7 @@ describe('CnCurrencyInputComponent', () => {
       .componentInstance as CnCurrencyInputComponent;
     expect(component.controlType).toBe('cn-currency-input');
     expect(component.empty).toBeTrue();
-    expect(fixture.nativeElement.querySelector('.mat-form-field-infix')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('.mat-mdc-form-field-infix')).toBeTruthy();
   });
 
   it('parses typed text into a number on the form control', () => {

@@ -3,12 +3,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { NgxMaskModule } from 'ngx-mask';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { CnMaskedInputComponent } from './masked-input.component';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, MatFormFieldModule, MatInputModule, NgxMaskModule.forRoot()],
+  imports: [CommonModule, FormsModule, MatFormFieldModule, MatInputModule, NgxMaskDirective],
   declarations: [CnMaskedInputComponent],
-  exports: [CnMaskedInputComponent]
+  exports: [CnMaskedInputComponent],
+  providers: [provideNgxMask()]
 })
 export class CnMaskedInputModule {}
