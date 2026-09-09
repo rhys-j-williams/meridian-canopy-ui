@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ContentChildren, EventEmitter, Input, Output, QueryList, ViewEncapsulation, AfterContentChecked, ChangeDetectorRef } from '@angular/core';
-import { MatTabChangeEvent } from '@angular/material/tabs';
+import { MatLegacyTabChangeEvent as MatTabChangeEvent } from '@angular/material/legacy-tabs';
 import { CnTabDirective } from './tab.directive';
 
 /**

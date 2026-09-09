@@ -6,7 +6,7 @@
 // with a single `typography:` key in a consumer's theme map. CNPY-1188.
 //
 // Keep in step with the default scale when tokens change; there is no test for this.
-$cn-typography-dense: mat.define-typography-config(
+$cn-typography-dense: mat.define-legacy-typography-config(
   $font-family: t.$cn-font-family,
   $display-4: mat.define-typography-level(t.$cn-font-size-3xl, 44px, t.$cn-font-weight-regular, $letter-spacing: -0.02em),
   $display-3: mat.define-typography-level(t.$cn-font-size-2xl, 36px, t.$cn-font-weight-regular, $letter-spacing: -0.01em),

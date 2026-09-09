@@ -1,6 +1,6 @@
 import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatLegacyDialogRef as MatDialogRef } from '@angular/material/legacy-dialog';
 import { CnA11yAnnouncerService } from '@northgate/canopy-ui/a11y';
 import { CnMenuItem } from '@northgate/canopy-ui/actions';
 import { CnAccountSummary, CnColumn, CnFilterChip, CnRowSelection } from '@northgate/canopy-ui/data-display';

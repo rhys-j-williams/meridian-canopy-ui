@@ -4,9 +4,9 @@ import {
   AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ContentChildren, EventEmitter, Inject, Input, OnChanges,
   OnDestroy, Output, QueryList, SimpleChanges, TemplateRef, TrackByFunction, ViewChild, ViewEncapsulation
 } from '@angular/core';
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { MatLegacyPaginator as MatPaginator, LegacyPageEvent as PageEvent } from '@angular/material/legacy-paginator';
 import { MatSort, Sort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CN_CONFIG, CnConfig, CnDensity } from '@northgate/canopy-ui/core';

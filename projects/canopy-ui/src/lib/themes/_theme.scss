@@ -46,8 +46,17 @@ $cn-high-contrast-theme: mat.define-light-theme((
 ///
 /// Pass $include-dark: false when an application has no dark mode (business-web) to save ~40kb.
 @mixin theme($include-dark: true, $include-high-contrast: true) {
-  @include mat.core(ty.$cn-typography);
-  @include mat.all-component-themes($cn-light-theme);
+  // TODO(v15): As of v15 mat.legacy-core no longer includes default typography styles.
+//  The following line adds:
+//    1. Default typography styles for all components
+//    2. Styles for typography hierarchy classes (e.g. .mat-headline-1)
+//  If you specify typography styles for the components you use elsewhere, you should delete this line.
+//  If you don't need the default component typographies but still want the hierarchy styles,
+//  you can delete this line and instead use:
+//    `@include mat.legacy-typography-hierarchy(ty.$cn-typography);`
+@include mat.all-legacy-component-typographies(ty.$cn-typography);
+@include mat.legacy-core();
+  @include mat.all-legacy-component-themes($cn-light-theme);
   @include overrides.component-overrides($cn-light-theme);
 
   :root,
@@ -58,7 +67,7 @@ $cn-high-contrast-theme: mat.define-light-theme((
 
   @if $include-dark {
     html.cn-theme-dark {
-      @include mat.all-component-colors($cn-dark-theme);
+      @include mat.all-legacy-component-colors($cn-dark-theme);
       @include overrides.component-colors($cn-dark-theme);
       @include vars.emit-dark;
       color-scheme: dark;
@@ -67,7 +76,7 @@ $cn-high-contrast-theme: mat.define-light-theme((
 
   @if $include-high-contrast {
     html.cn-theme-high-contrast {
-      @include mat.all-component-colors($cn-high-contrast-theme);
+      @include mat.all-legacy-component-colors($cn-high-contrast-theme);
       @include overrides.component-colors($cn-high-contrast-theme);
       @include vars.emit-high-contrast;
 

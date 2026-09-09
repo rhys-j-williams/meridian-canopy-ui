@@ -4,7 +4,7 @@
 // Brand type scale mapped onto the Material typography levels. Level names follow the Material
 // spec as exposed by @angular/material 14; the design team's Figma styles are named to match
 // (Display 4 ... Caption) so a designer and an engineer are talking about the same thing.
-$cn-typography: mat.define-typography-config(
+$cn-typography: mat.define-legacy-typography-config(
   $font-family: t.$cn-font-family,
   $display-4: mat.define-typography-level(t.$cn-font-size-4xl, 56px, t.$cn-font-weight-regular, $letter-spacing: -0.02em),
   $display-3: mat.define-typography-level(t.$cn-font-size-3xl, 44px, t.$cn-font-weight-regular, $letter-spacing: -0.01em),

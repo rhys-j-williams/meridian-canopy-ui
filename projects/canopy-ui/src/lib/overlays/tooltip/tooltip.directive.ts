@@ -1,5 +1,5 @@
 import { Directive, Input } from '@angular/core';
-import { MatTooltip, TooltipPosition } from '@angular/material/tooltip';
+import { MatLegacyTooltip as MatTooltip, LegacyTooltipPosition as TooltipPosition } from '@angular/material/legacy-tooltip';
 
 /**
  * Canopy tooltip. Wraps matTooltip with the house panel class, a sensible show delay and touch

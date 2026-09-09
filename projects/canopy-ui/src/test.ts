@@ -8,6 +8,12 @@ import {
   platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
 
+// First, initialize the Angular testing environment.
+getTestBed().initTestEnvironment(
+  BrowserDynamicTestingModule,
+  platformBrowserDynamicTesting(),
+);
+
 declare const require: {
   context(path: string, deep?: boolean, filter?: RegExp): {
     <T>(id: string): T;
@@ -15,19 +21,9 @@ declare const require: {
   };
 };
 
-// First, initialize the Angular testing environment.
-getTestBed().initTestEnvironment(
-  BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting(),
-);
-
 // Load every source file, not just the ones a spec happens to import. The package is
 // sideEffects: false so a plain barrel import gets shaken out, and files without a spec would
-// silently drop out of the coverage denominator (CNPY-1402).
+// silently drop out of the coverage denominator (CNPY-1402). Spec discovery itself is done by the
+// Angular 15 Karma builder.
 const sources = require.context('./lib', true, /^(?!.*\.spec\.ts$).*\.ts$/);
 sources.keys().forEach(sources);
-
-// Then we find all the tests.
-const context = require.context('./', true, /\.spec\.ts$/);
-// And load the modules.
-context.keys().forEach(context);

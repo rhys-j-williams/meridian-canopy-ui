@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, forwardRef, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { MatChipList, MatChipSelectionChange } from '@angular/material/chips';
+import { MatLegacyChipList as MatChipList, MatLegacyChipSelectionChange as MatChipSelectionChange } from '@angular/material/legacy-chips';
 
 export interface CnFilterChip<T = string> {
   value: T;

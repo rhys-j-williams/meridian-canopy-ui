@@ -4,7 +4,7 @@ import {
   Component, DoCheck, ElementRef, HostBinding, Inject, Input, OnDestroy, OnInit, Optional, Self, ViewChild, ViewEncapsulation
 } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl, NgForm } from '@angular/forms';
-import { MatFormFieldControl } from '@angular/material/form-field';
+import { MatLegacyFormFieldControl as MatFormFieldControl } from '@angular/material/legacy-form-field';
 import { Subject } from 'rxjs';
 import { CN_CONFIG, CnConfig } from '@northgate/canopy-ui/core';
 import { CnCurrencyFormatService } from '@northgate/canopy-ui/core';
