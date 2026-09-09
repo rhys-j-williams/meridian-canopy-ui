@@ -4,16 +4,16 @@ pin before: @northgate/canopy-ui 3.5.0
 angular/core: 14.2.12  rxjs: 6.6.7
 
 ### step 0: refresh lockfile integrity for @northgate/domain-fixtures@1.6.0 (the local Verdaccio rebuilt the tarball, so the committed sha512 differs; local-registry artefact, not a Canopy change)
+
 + @northgate/domain-fixtures@1.6.0
-added 980 packages in 2.172s
+added 21 packages, removed 1 package and updated 2 packages in 2.218s
 exit=0
 
 ### step 1: npm install @northgate/canopy-ui@4.0.0 --save-exact --registry http://localhost:4873 (strict peer resolution, no legacy-peer-deps)
-
-
-> esbuild@0.15.5 postinstall /home/ubuntu/scratch/consumers/northgate-business-web/node_modules/esbuild
-> node install.js
-
+npm WARN @csstools/selector-specificity@2.2.0 requires a peer of postcss-selector-parser@^6.0.10 but none is installed. You must install peer dependencies yourself.
+npm WARN ajv-keywords@3.5.2 requires a peer of ajv@^6.9.1 but none is installed. You must install peer dependencies yourself.
+npm WARN codelyzer@6.0.2 requires a peer of @angular/compiler@>=2.3.1 <13.0.0 || ^12.0.0-next || ^12.1.0-next || ^12.2.0-next but none is installed. You must install peer dependencies yourself.
+npm WARN codelyzer@6.0.2 requires a peer of @angular/core@>=2.3.1 <13.0.0 || ^12.0.0-next || ^12.1.0-next || ^12.2.0-next but none is installed. You must install peer dependencies yourself.
 npm WARN @northgate/canopy-ui@4.0.0 requires a peer of @angular/animations@^15.0.0 but none is installed. You must install peer dependencies yourself.
 npm WARN @northgate/canopy-ui@4.0.0 requires a peer of @angular/cdk@^15.0.0 but none is installed. You must install peer dependencies yourself.
 npm WARN @northgate/canopy-ui@4.0.0 requires a peer of @angular/common@^15.0.0 but none is installed. You must install peer dependencies yourself.
@@ -24,51 +24,51 @@ npm WARN @northgate/canopy-ui@4.0.0 requires a peer of @angular/material-moment-
 npm WARN @northgate/canopy-ui@4.0.0 requires a peer of @angular/router@^15.0.0 but none is installed. You must install peer dependencies yourself.
 npm WARN @northgate/canopy-ui@4.0.0 requires a peer of ngx-mask@^15.0.0 but none is installed. You must install peer dependencies yourself.
 npm WARN @northgate/canopy-ui@4.0.0 requires a peer of rxjs@^7.5.0 but none is installed. You must install peer dependencies yourself.
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@2.3.3 (node_modules/fsevents):
-npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.3.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-windows-arm64@0.15.5 (node_modules/esbuild-windows-arm64):
-npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-windows-arm64@0.15.5: wanted {"os":"win32","arch":"arm64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: @esbuild/linux-loong64@0.15.5 (node_modules/@esbuild/linux-loong64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for @esbuild/linux-loong64@0.15.5: wanted {"os":"linux","arch":"loong64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-android-64@0.15.5 (node_modules/esbuild-android-64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-android-64@0.15.5: wanted {"os":"android","arch":"x64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-android-arm64@0.15.5 (node_modules/esbuild-android-arm64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-android-arm64@0.15.5: wanted {"os":"android","arch":"arm64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-darwin-64@0.15.5 (node_modules/esbuild-darwin-64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-darwin-64@0.15.5: wanted {"os":"darwin","arch":"x64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-darwin-arm64@0.15.5 (node_modules/esbuild-darwin-arm64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-darwin-arm64@0.15.5: wanted {"os":"darwin","arch":"arm64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-freebsd-64@0.15.5 (node_modules/esbuild-freebsd-64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-freebsd-64@0.15.5: wanted {"os":"freebsd","arch":"x64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-freebsd-arm64@0.15.5 (node_modules/esbuild-freebsd-arm64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-freebsd-arm64@0.15.5: wanted {"os":"freebsd","arch":"arm64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-linux-32@0.15.5 (node_modules/esbuild-linux-32):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-linux-32@0.15.5: wanted {"os":"linux","arch":"ia32"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-linux-arm@0.15.5 (node_modules/esbuild-linux-arm):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-linux-arm@0.15.5: wanted {"os":"linux","arch":"arm"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-linux-arm64@0.15.5 (node_modules/esbuild-linux-arm64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-linux-arm64@0.15.5: wanted {"os":"linux","arch":"arm64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-linux-mips64le@0.15.5 (node_modules/esbuild-linux-mips64le):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-linux-mips64le@0.15.5: wanted {"os":"linux","arch":"mips64el"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-linux-ppc64le@0.15.5 (node_modules/esbuild-linux-ppc64le):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-linux-ppc64le@0.15.5: wanted {"os":"linux","arch":"ppc64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-linux-riscv64@0.15.5 (node_modules/esbuild-linux-riscv64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-linux-riscv64@0.15.5: wanted {"os":"linux","arch":"riscv64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-linux-s390x@0.15.5 (node_modules/esbuild-linux-s390x):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-linux-s390x@0.15.5: wanted {"os":"linux","arch":"s390x"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-netbsd-64@0.15.5 (node_modules/esbuild-netbsd-64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-netbsd-64@0.15.5: wanted {"os":"netbsd","arch":"x64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-openbsd-64@0.15.5 (node_modules/esbuild-openbsd-64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-openbsd-64@0.15.5: wanted {"os":"openbsd","arch":"x64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-sunos-64@0.15.5 (node_modules/esbuild-sunos-64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-sunos-64@0.15.5: wanted {"os":"sunos","arch":"x64"} (current: {"os":"linux","arch":"x64"})
 npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-windows-32@0.15.5 (node_modules/esbuild-windows-32):
 npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-windows-32@0.15.5: wanted {"os":"win32","arch":"ia32"} (current: {"os":"linux","arch":"x64"})
 npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-windows-64@0.15.5 (node_modules/esbuild-windows-64):
 npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-windows-64@0.15.5: wanted {"os":"win32","arch":"x64"} (current: {"os":"linux","arch":"x64"})
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-sunos-64@0.15.5 (node_modules/esbuild-sunos-64):
-npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-sunos-64@0.15.5: wanted {"os":"sunos","arch":"x64"} (current: {"os":"linux","arch":"x64"})
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-openbsd-64@0.15.5 (node_modules/esbuild-openbsd-64):
-npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-openbsd-64@0.15.5: wanted {"os":"openbsd","arch":"x64"} (current: {"os":"linux","arch":"x64"})
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-netbsd-64@0.15.5 (node_modules/esbuild-netbsd-64):
-npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-netbsd-64@0.15.5: wanted {"os":"netbsd","arch":"x64"} (current: {"os":"linux","arch":"x64"})
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-linux-s390x@0.15.5 (node_modules/esbuild-linux-s390x):
-npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-linux-s390x@0.15.5: wanted {"os":"linux","arch":"s390x"} (current: {"os":"linux","arch":"x64"})
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-linux-riscv64@0.15.5 (node_modules/esbuild-linux-riscv64):
-npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-linux-riscv64@0.15.5: wanted {"os":"linux","arch":"riscv64"} (current: {"os":"linux","arch":"x64"})
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-linux-ppc64le@0.15.5 (node_modules/esbuild-linux-ppc64le):
-npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-linux-ppc64le@0.15.5: wanted {"os":"linux","arch":"ppc64"} (current: {"os":"linux","arch":"x64"})
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-linux-mips64le@0.15.5 (node_modules/esbuild-linux-mips64le):
-npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-linux-mips64le@0.15.5: wanted {"os":"linux","arch":"mips64el"} (current: {"os":"linux","arch":"x64"})
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-linux-arm64@0.15.5 (node_modules/esbuild-linux-arm64):
-npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-linux-arm64@0.15.5: wanted {"os":"linux","arch":"arm64"} (current: {"os":"linux","arch":"x64"})
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-linux-arm@0.15.5 (node_modules/esbuild-linux-arm):
-npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-linux-arm@0.15.5: wanted {"os":"linux","arch":"arm"} (current: {"os":"linux","arch":"x64"})
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-linux-32@0.15.5 (node_modules/esbuild-linux-32):
-npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-linux-32@0.15.5: wanted {"os":"linux","arch":"ia32"} (current: {"os":"linux","arch":"x64"})
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-freebsd-arm64@0.15.5 (node_modules/esbuild-freebsd-arm64):
-npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-freebsd-arm64@0.15.5: wanted {"os":"freebsd","arch":"arm64"} (current: {"os":"linux","arch":"x64"})
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-freebsd-64@0.15.5 (node_modules/esbuild-freebsd-64):
-npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-freebsd-64@0.15.5: wanted {"os":"freebsd","arch":"x64"} (current: {"os":"linux","arch":"x64"})
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-darwin-arm64@0.15.5 (node_modules/esbuild-darwin-arm64):
-npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-darwin-arm64@0.15.5: wanted {"os":"darwin","arch":"arm64"} (current: {"os":"linux","arch":"x64"})
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-darwin-64@0.15.5 (node_modules/esbuild-darwin-64):
-npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-darwin-64@0.15.5: wanted {"os":"darwin","arch":"x64"} (current: {"os":"linux","arch":"x64"})
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-android-arm64@0.15.5 (node_modules/esbuild-android-arm64):
-npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-android-arm64@0.15.5: wanted {"os":"android","arch":"arm64"} (current: {"os":"linux","arch":"x64"})
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-android-64@0.15.5 (node_modules/esbuild-android-64):
-npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-android-64@0.15.5: wanted {"os":"android","arch":"x64"} (current: {"os":"linux","arch":"x64"})
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: @esbuild/linux-loong64@0.15.5 (node_modules/@esbuild/linux-loong64):
-npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for @esbuild/linux-loong64@0.15.5: wanted {"os":"linux","arch":"loong64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: esbuild-windows-arm64@0.15.5 (node_modules/esbuild-windows-arm64):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for esbuild-windows-arm64@0.15.5: wanted {"os":"win32","arch":"arm64"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@2.3.3 (node_modules/fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.3.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
 
 + @northgate/canopy-ui@4.0.0
-added 959 packages from 1291 contributors in 19.394s
+removed 1 package and updated 1 package in 3.534s
 exit=0
 pin after: @northgate/canopy-ui 4.0.0
 
@@ -191,10 +191,10 @@ npm ERR! Failed at the northgate-business@2026.9.0 build script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/ubuntu/.npm/_logs/2026-09-09T17_06_52_111Z-debug.log
+npm ERR!     /home/ubuntu/.npm/_logs/2026-09-09T18_25_25_716Z-debug.log
 exit=1
 
-### step 5: npm test
+### step 5: npm test -- --watch=false (Jenkinsfile testCommand; package.json "test" watches)
                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Error: node_modules/@northgate/canopy-ui/forms/toggle/toggle.component.d.ts:30:18 - error TS2707: Generic type 'ɵɵComponentDeclaration' requires between 7 and 8 type arguments.
 30     static ɵcmp: i0.ɵɵComponentDeclaration<CnToggleComponent, "cn-toggle", never, { "hint": "hint"; "onText": "onText"; "offText": "offText"; "ariaLabel": "ariaLabel"; "labelPosition": "labelPosition"; }, { "changed": "changed"; }, never, ["*"], false, never>;
@@ -238,13 +238,13 @@ Error: node_modules/@northgate/canopy-ui/overlays/tooltip/tooltip-styles.compone
 Error: node_modules/@northgate/canopy-ui/overlays/tooltip/tooltip.directive.d.ts:20:18 - error TS2707: Generic type 'ɵɵDirectiveDeclaration' requires between 6 and 8 type arguments.
 20     static ɵdir: i0.ɵɵDirectiveDeclaration<CnTooltipDirective, "[cnTooltip]", ["cnTooltip"], { "message": "cnTooltip"; "position": "cnTooltipPosition"; "disabled": "cnTooltipDisabled"; }, {}, never, never, false, never>;
                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-09 09 2026 17:07:23.393:INFO [karma-server]: Karma v6.4.1 server started at http://localhost:9877/
-09 09 2026 17:07:23.394:INFO [launcher]: Launching browsers ChromeHeadlessCI with concurrency unlimited
-09 09 2026 17:07:23.401:INFO [launcher]: Starting browser ChromeHeadless
-09 09 2026 17:07:23.738:INFO [Chrome Headless 133.0.0.0 (Linux 0.0.0)]: Connected on socket 3vjUbF7omxPzVJiVAAAA with id 93186886
-09 09 2026 17:07:23.770:WARN [web-server]: 404: /_karma_webpack_/main.js
+09 09 2026 18:25:36.452:INFO [karma-server]: Karma v6.4.1 server started at http://localhost:9877/
+09 09 2026 18:25:36.452:INFO [launcher]: Launching browsers ChromeHeadlessCI with concurrency unlimited
+09 09 2026 18:25:36.457:INFO [launcher]: Starting browser ChromeHeadless
+09 09 2026 18:25:36.690:INFO [Chrome Headless 133.0.0.0 (Linux 0.0.0)]: Connected on socket 94RIq_slqKmjCsyBAAAA with id 44754811
+09 09 2026 18:25:36.716:WARN [web-server]: 404: /_karma_webpack_/main.js
 Chrome Headless 133.0.0.0 (Linux 0.0.0): Executed 0 of 0 SUCCESS (0 secs / 0 secs)
-[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 0 of 0 SUCCESS (0.006 secs / 0 secs)
+[1A[2KChrome Headless 133.0.0.0 (Linux 0.0.0): Executed 0 of 0 SUCCESS (0.005 secs / 0 secs)
 TOTAL: 0 SUCCESS
 =============================== Coverage summary ===============================
 Statements   : Unknown% ( 0/0 )

@@ -17,6 +17,13 @@ keystone-web (Angular 15.2.10) is inside 4.0.0's peer range and is verified form
 `~/scratch/consumers/` only, cloned from each repository's `main` at the commit shown; the pin bump
 is each consumer's own change under its own ticket, not this PR.
 
+The four logs under [`consumers/`](consumers/) are the final re-run against the tarball published by
+the final gate run (`publish.log` shasum `891cdaa7`), from clean scratch working trees (`git stash`
+of the earlier attempt), driven by `~/scratch/consumers/verify-consumer.sh`. Results are unchanged
+from the first run. The business-web `ng update` step passes `--from=3.6.1` (the script's keystone
+value; business-web pins 3.5.0) - the migration is a pure 4.0.0 typography rename, so the `--from`
+value does not change what it does or finds.
+
 ## Result table
 
 | Consumer | Angular / Node / RxJS | Canopy pin today | Result | Notes |
