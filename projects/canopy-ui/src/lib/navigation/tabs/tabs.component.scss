@@ -11,7 +11,7 @@
     border-bottom: 1px solid var(--cn-color-border);
   }
 
-  & &__tab {
+  & &__tab#{&}__tab {
     height: var(--cn-control-height, #{s.$cn-control-height});
     min-width: 96px;
     padding: 0 s.$cn-space-4;

@@ -96,7 +96,7 @@
   &__user {
     font-size: 14px;
     opacity: 0.9;
-    margin: 0 s.$cn-space-2;
+    margin: 0 0 0 s.$cn-space-2;
   }
 
   // The menu button is rendered at every width (as 3.x did); on desktop it toggles the rail.
@@ -186,6 +186,11 @@
     margin: 0;
     padding: 0 s.$cn-space-4;
     overflow: hidden;
+  }
+
+  // Icon-only (collapsed) button: the 3.x legacy button was exactly 36px without a text label.
+  &--nav-collapsed &__nav &__collapse {
+    min-height: 36px;
   }
 
   & &__collapse &__collapse-icon {

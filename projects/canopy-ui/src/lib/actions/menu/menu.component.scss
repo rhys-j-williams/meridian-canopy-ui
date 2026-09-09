@@ -3,10 +3,11 @@
 .cn-menu {
   display: inline-block;
 
-  // The trigger keeps the 40px footprint of the 3.x (pre-MDC) icon button; MDC defaults to 48px.
-  --mdc-icon-button-state-layer-size: 40px;
-
-  &__trigger {
+  // The trigger keeps the 40px footprint of the 3.x (pre-MDC) icon button; Material's density
+  // styles fix the MDC icon button at 48px on the host, so the repeated class outranks them.
+  > button.cn-menu__trigger#{&}__trigger {
+    width: 40px;
+    height: 40px;
     padding: 8px;
   }
 }

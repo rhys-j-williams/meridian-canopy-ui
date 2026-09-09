@@ -26,9 +26,17 @@
   // Density. Material 15 (MDC) sizes header/data rows at 56px/52px via its density mixin; the
   // design spec is 52/40 with tighter horizontal padding on compact tables. Rows and cells are
   // reached through the native table structure Material renders (thead/tbody, th/td).
+  // MDC cells are border-box; 3.x cells were content-box, so a consumer `width` on a column is
+  // the content width and the cell padding is added to it.
+  & &__table th,
+  & &__table td {
+    box-sizing: content-box;
+  }
+
   & &__table th {
     font-size: 12px;
     font-weight: 600;
+    line-height: 24px;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: var(--cn-color-text-muted);
@@ -67,6 +75,17 @@
     font-size: 13px;
   }
 
+  // Material gives the outer cells 24px of edge padding (3.x inherited it from `.mat-cell`).
+  & &__table th:first-of-type,
+  & &__table td:first-of-type {
+    padding-left: s.$cn-space-6;
+  }
+
+  & &__table th:last-of-type,
+  & &__table td:last-of-type {
+    padding-right: s.$cn-space-6;
+  }
+
   &--striped &__table > tbody > tr:nth-child(even) {
     background: color-mix(in srgb, var(--cn-color-surface-alt) 50%, transparent);
   }
@@ -85,7 +104,13 @@
     th.cn-cell--negative, td.cn-cell--negative { color: var(--cn-color-warn); }
     th.cn-cell--strong, td.cn-cell--strong { font-weight: 600; }
     th.cn-cell--muted, td.cn-cell--muted { color: var(--cn-color-text-muted); }
-    th.cn-cell--select, td.cn-cell--select { width: 48px; padding-right: 0; }
+    th.cn-cell--select, td.cn-cell--select {
+      width: 48px;
+      padding-right: 0;
+      // Collapse the MDC 40px state layer to the box (as cn-checkbox does) so the box sits where
+      // the 16px legacy checkbox did.
+      --mdc-checkbox-state-layer-size: 18px;
+    }
   }
 
   // `mat-sort-header` renders its flex container as the first child of the header cell.

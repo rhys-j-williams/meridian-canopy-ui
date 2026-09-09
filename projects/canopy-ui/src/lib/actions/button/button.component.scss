@@ -28,9 +28,9 @@
     outline-offset: s.$cn-focus-ring-offset;
   }
 
-  // MDC sizes leading/trailing icons at 18px with an 8px margin (`.mat-mdc-button > .mat-icon`);
-  // the button gap replaces the margin and the icon keeps the 3.x 20px.
-  > button > .cn-button__icon {
+  // MDC sizes leading/trailing icons at 18px with 8px / -4px margins (label + icon selectors of
+  // specificity 0,3,0); the button gap replaces the margins and the icon keeps the 3.x 20px.
+  &#{&} > button > .cn-button__icon#{&}__icon {
     margin: 0;
     width: 20px;
     height: 20px;
