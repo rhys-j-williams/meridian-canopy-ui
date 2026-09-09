@@ -1,64 +1,62 @@
 @use '../../tokens/spacing' as s;
 
+// Shape and small-size typography go through the MDC button tokens (weight and tracking come from
+// the theme's `button` typography level); layout hooks are the Canopy owned `> button` and
+// `.cn-button__*` elements (ADR-0005). No `.mat-*` selectors.
 .cn-button {
   display: inline-block;
 
-  .mat-button-base {
+  --mdc-text-button-container-shape: var(--cn-radius-sm, #{s.$cn-radius-sm});
+  --mdc-filled-button-container-shape: var(--cn-radius-sm, #{s.$cn-radius-sm});
+  --mdc-outlined-button-container-shape: var(--cn-radius-sm, #{s.$cn-radius-sm});
+
+  // Tertiary / secondary buttons take the theme primary through `color="primary"` (Material puts
+  // the label colour token on the button host, so a token inherited from here would lose). The
+  // outline colour has no theme hook; the selector outranks Material's `.mat-mdc-outlined-button`
+  // and the dark-theme variant.
+  > button.cn-button__native {
+    // Material's density styles fix the MDC button at 36px; the Canopy control height is a
+    // minimum, which the 3.x styles also used.
     min-height: var(--cn-control-height, #{s.$cn-control-height});
-    border-radius: var(--cn-radius-sm, #{s.$cn-radius-sm});
     padding: 0 s.$cn-space-5;
-    font-weight: 600;
-    letter-spacing: 0.01em;
-  }
-
-  // Material puts the projected content inside .mat-button-wrapper; flex it so the icon and label
-  // sit on one line with a consistent gap regardless of what the consumer projects.
-  .mat-button-wrapper {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
     gap: s.$cn-space-2;
-    line-height: 1;
+    --mdc-outlined-button-outline-color: var(--cn-color-border-strong);
   }
 
-  .mat-button-wrapper .mat-icon {
+  > button:focus-visible {
+    outline: var(--cn-focus-ring, #{s.$cn-focus-ring-width} solid #2f7bd1);
+    outline-offset: s.$cn-focus-ring-offset;
+  }
+
+  // MDC sizes leading/trailing icons at 18px with an 8px margin (`.mat-mdc-button > .mat-icon`);
+  // the button gap replaces the margin and the icon keeps the 3.x 20px.
+  > button > .cn-button__icon {
+    margin: 0;
     width: 20px;
     height: 20px;
     font-size: 20px;
     line-height: 20px;
   }
 
-  .mat-stroked-button {
-    border-color: var(--cn-color-border-strong);
-    color: var(--cn-color-primary);
+  &__spinner {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: s.$cn-space-2;
   }
 
-  .mat-button {
-    color: var(--cn-color-primary);
-  }
-
-  .mat-button-base:focus-visible {
-    outline: var(--cn-focus-ring, #{s.$cn-focus-ring-width} solid #2f7bd1);
-    outline-offset: s.$cn-focus-ring-offset;
-  }
-
-  &--small .mat-button-base {
+  &--small > button.cn-button__native {
+    --mdc-typography-button-font-size: 13px;
     min-height: 36px;
     padding: 0 s.$cn-space-3;
-    font-size: 13px;
   }
 
   &--block,
-  &--block .mat-button-base {
+  &--block > button {
     display: block;
     width: 100%;
   }
 
-  &__spinner {
-    display: inline-block;
-  }
-
-  &--loading .mat-button-wrapper .cn-button__label {
+  &--loading .cn-button__label {
     opacity: 0.7;
   }
 }

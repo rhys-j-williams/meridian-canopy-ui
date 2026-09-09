@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/material/legacy-form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { CnCoreModule } from '@northgate/canopy-ui/core';
 import { CnCurrencyInputComponent } from './currency-input.component';
@@ -45,7 +45,7 @@ describe('CnCurrencyInputComponent', () => {
       .componentInstance as CnCurrencyInputComponent;
     expect(component.controlType).toBe('cn-currency-input');
     expect(component.empty).toBeTrue();
-    expect(fixture.nativeElement.querySelector('.mat-form-field-infix')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('.mat-mdc-form-field-infix')).toBeTruthy();
   });
 
   it('parses typed text into a number on the form control', () => {

@@ -14,16 +14,7 @@ getTestBed().initTestEnvironment(
   platformBrowserDynamicTesting(),
 );
 
-declare const require: {
-  context(path: string, deep?: boolean, filter?: RegExp): {
-    <T>(id: string): T;
-    keys(): string[];
-  };
-};
-
-// Load every source file, not just the ones a spec happens to import. The package is
-// sideEffects: false so a plain barrel import gets shaken out, and files without a spec would
-// silently drop out of the coverage denominator (CNPY-1402). Spec discovery itself is done by the
-// Angular 15 Karma builder.
-const sources = require.context('./lib', true, /^(?!.*\.spec\.ts$).*\.ts$/);
-sources.keys().forEach(sources);
+// Spec discovery and the coverage denominator are both driven by the `include` option of the
+// karma target in angular.json (`**/*.spec.ts` plus `lib/**/*.ts`). The Angular 15 Karma builder
+// disables webpack's `require.context`, so every source file is added as an entry point instead of
+// being required from here; files without a spec still count towards coverage (CNPY-1402).

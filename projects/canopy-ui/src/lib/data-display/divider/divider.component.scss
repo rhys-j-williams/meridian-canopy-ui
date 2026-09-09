@@ -13,7 +13,7 @@
     margin: 0 s.$cn-space-3;
   }
 
-  .mat-divider {
+  > mat-divider {
     border-top-color: var(--cn-color-border);
     border-right-color: var(--cn-color-border);
   }

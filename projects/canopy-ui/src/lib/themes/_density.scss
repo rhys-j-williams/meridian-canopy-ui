@@ -1,0 +1,65 @@
+@use 'sass:math';
+@use '@angular/material' as mat;
+@use '../tokens/spacing' as s;
+
+// Canopy density API (Canopy 4, CNPY-2140).
+//
+// 3.x consumers relied on Canopy overriding Material's internal sizes (`.mat-form-field-infix`,
+// `.mat-list-item`, `.mat-menu-item` ...) and on `CnConfig.density` for the data table only. With
+// the MDC components those internals are gone; density is now expressed through Material's own
+// density system plus the `--cn-control-height` / `--cn-row-height` tokens that every Canopy
+// component already reads.
+//
+//   * `@include canopy.theme($density: -1)` sets the default for the whole application.
+//   * `.cn-density-default` / `.cn-density-compact` / `.cn-density-dense` are emitted by the theme
+//     mixin and can be put on <html>, a page or a single container. CnThemeService applies
+//     `cn-density-compact` on <html> when `CnConfig.density` is 'compact'.
+//   * `@include canopy.density(-2)` inside a selector for anything custom.
+//
+// Scale: 0 = 44px controls / 52px rows (WCAG 2.5.5 target size, CNPY-611), -1 = 40px / 44px
+// (Business, Ledgerline "compact"), -2 = 36px / 36px (dense grids only; below the AA target size,
+// so only where the row itself is not the touch target).
+$cn-density-default: 0;
+$cn-density-compact: -1;
+$cn-density-dense: -2;
+
+$_step: 4px;
+
+@function control-height($scale) {
+  @return s.$cn-control-height + $scale * $_step;
+}
+
+@function row-height($scale) {
+  @if $scale >= 0 {
+    @return s.$cn-row-height-default;
+  }
+  @return math.max(s.$cn-row-height-compact + ($scale + 1) * $_step, 36px);
+}
+
+/// Emits only the Canopy sizing tokens for a density scale (the theme mixin uses this on :root,
+/// where Material's own densities are already part of the theme).
+@mixin density-tokens($scale) {
+  --cn-control-height: #{control-height($scale)};
+  --cn-row-height: #{row-height($scale)};
+}
+
+/// Applies a Material density scale and the Canopy sizing tokens to the current selector.
+@mixin density($scale) {
+  @include density-tokens($scale);
+  @include mat.all-component-densities($scale);
+}
+
+/// Emits the `.cn-density-*` utility classes.
+@mixin density-classes {
+  .cn-density-default {
+    @include density($cn-density-default);
+  }
+
+  .cn-density-compact {
+    @include density($cn-density-compact);
+  }
+
+  .cn-density-dense {
+    @include density($cn-density-dense);
+  }
+}

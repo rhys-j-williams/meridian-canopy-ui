@@ -15,7 +15,7 @@ describe('CnToastService', () => {
 
   it('shows a success toast in the Canopy snackbar container', () => {
     toast.success('Transfer scheduled');
-    const container = document.querySelector('.mat-snack-bar-container.cn-toast--success') as HTMLElement;
+    const container = document.querySelector('.mat-mdc-snack-bar-container.cn-toast--success') as HTMLElement;
     expect(container).toBeTruthy();
     expect(container.textContent).toContain('Transfer scheduled');
   });
@@ -28,6 +28,6 @@ describe('CnToastService', () => {
 
   it('falls back to the simple snackbar when asked', () => {
     toast.show('Saved', { simple: true });
-    expect(document.querySelector('.cn-toast .mat-simple-snackbar')).toBeTruthy();
+    expect(document.querySelector('.cn-toast .mat-mdc-simple-snack-bar')).toBeTruthy();
   });
 });

@@ -1,0 +1,6 @@
+
+> @northgate/canopy-ui-workspace@4.0.0 changelog:check
+> node scripts/check-changelog.js
+
+CHANGELOG has 4.0.0
+exit=0

@@ -25,7 +25,7 @@ function copyTree(from, to) {
     if (entry.isDirectory()) {
       fs.mkdirSync(t, { recursive: true });
       copyTree(f, t);
-    } else if (/\.(js|json|d\.ts)$/.test(entry.name) && !entry.name.endsWith('.spec.js')) {
+    } else if (/\.(js|json|d\.ts)$/.test(entry.name) && !/\.spec\.(js|d\.ts)$/.test(entry.name) && !/^tsconfig\..*\.json$/.test(entry.name)) {
       fs.mkdirSync(path.dirname(t), { recursive: true });
       fs.copyFileSync(f, t);
     }

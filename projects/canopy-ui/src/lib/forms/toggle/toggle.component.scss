@@ -1,52 +1,74 @@
 @use '../../tokens/spacing' as s;
 
+// The 24px pill track / 20px handle from the spec and the Canopy colours are expressed through the
+// MDC switch tokens. Material emits its own token values on the `mat-slide-toggle` element itself
+// (`.mat-mdc-slide-toggle.mat-primary { --mdc-switch-... }`), so the Canopy values sit on the doubled
+// control class to outrank them. The structural `> div` is the MDC form-field wrapper (no `.mat-*`
+// class) and lays the label out; the `button svg` pair are the MDC on/off glyphs that 3.x never had
+// (Material 15.2 has no input to hide them) (ADR-0005).
 .cn-toggle {
   display: flex;
   align-items: center;
   gap: s.$cn-space-3;
 
-  .mat-slide-toggle-content {
+  & &__control#{&}__control {
+    --mdc-switch-track-width: 44px;
+    --mdc-switch-track-height: 24px;
+    --mdc-switch-track-shape: 12px;
+    --mdc-switch-handle-width: 20px;
+    --mdc-switch-handle-height: 20px;
+    --mdc-switch-handle-shape: 10px;
+    --mdc-switch-handle-elevation: var(--cn-shadow-1);
+    --mdc-switch-disabled-handle-elevation: var(--cn-shadow-1);
+    --mdc-switch-state-layer-size: 24px;
+    --mdc-switch-unselected-track-color: var(--cn-color-border-strong);
+    --mdc-switch-unselected-hover-track-color: var(--cn-color-border-strong);
+    --mdc-switch-unselected-focus-track-color: var(--cn-color-border-strong);
+    --mdc-switch-unselected-pressed-track-color: var(--cn-color-border-strong);
+    --mdc-switch-disabled-unselected-track-color: var(--cn-color-border-strong);
+    --mdc-switch-unselected-handle-color: var(--cn-color-surface);
+    --mdc-switch-unselected-hover-handle-color: var(--cn-color-surface);
+    --mdc-switch-unselected-focus-handle-color: var(--cn-color-surface);
+    --mdc-switch-unselected-pressed-handle-color: var(--cn-color-surface);
+    --mdc-switch-disabled-unselected-handle-color: var(--cn-color-surface);
+    --mdc-switch-selected-track-color: var(--cn-color-primary);
+    --mdc-switch-selected-hover-track-color: var(--cn-color-primary);
+    --mdc-switch-selected-focus-track-color: var(--cn-color-primary);
+    --mdc-switch-selected-pressed-track-color: var(--cn-color-primary);
+    --mdc-switch-disabled-selected-track-color: var(--cn-color-primary);
+    --mdc-switch-selected-handle-color: var(--cn-color-primary-contrast);
+    --mdc-switch-selected-hover-handle-color: var(--cn-color-primary-contrast);
+    --mdc-switch-selected-focus-handle-color: var(--cn-color-primary-contrast);
+    --mdc-switch-selected-pressed-handle-color: var(--cn-color-primary-contrast);
+    --mdc-switch-disabled-selected-handle-color: var(--cn-color-primary-contrast);
+    // 3.x faded the whole disabled control to 38%.
+    --mdc-switch-disabled-track-opacity: 0.38;
+    --mdc-switch-disabled-handle-opacity: 1;
+
+    height: 24px;
+  }
+
+  // 3.x kept the control 24px tall and let a label + hint (48px) overflow it vertically, centred on
+  // the track; the same layout is reproduced here.
+  & &__control > div {
+    justify-content: space-between;
+    align-items: center;
+    gap: s.$cn-space-2;
+    width: 100%;
+    height: 24px;
+    color: var(--cn-color-text);
+  }
+
+  & &__control > div > label {
     display: flex;
     flex-direction: column;
+    margin: 0;
+    padding: 0;
     white-space: normal;
   }
 
-  .mat-slide-toggle-label {
-    justify-content: space-between;
-    width: 100%;
-  }
-
-  // Bring the track up to the 24px height in the spec; Material's default is 14px and gets lost
-  // against the account card background.
-  .mat-slide-toggle-bar {
-    width: 44px;
-    height: 24px;
-    border-radius: 12px;
-    background-color: var(--cn-color-border-strong);
-  }
-
-  .mat-slide-toggle-thumb-container {
-    top: 2px;
-    left: 2px;
-  }
-
-  .mat-slide-toggle-thumb {
-    width: 20px;
-    height: 20px;
-    box-shadow: var(--cn-shadow-1);
-    background-color: var(--cn-color-surface);
-  }
-
-  .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
-    background-color: var(--cn-color-primary);
-  }
-
-  .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
-    background-color: var(--cn-color-primary-contrast);
-  }
-
-  .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb-container {
-    transform: translate3d(20px, 0, 0);
+  & &__control button svg {
+    display: none;
   }
 
   &__hint {

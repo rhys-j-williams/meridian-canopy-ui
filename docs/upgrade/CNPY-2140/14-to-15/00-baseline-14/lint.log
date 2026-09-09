@@ -1,0 +1,15 @@
+
+> @northgate/canopy-ui-workspace@3.7.2 lint
+> ng lint
+
+
+Linting "canopy-ui"...
+
+All files pass linting.
+
+
+Linting "canopy-showcase"...
+
+All files pass linting.
+
+exit=0

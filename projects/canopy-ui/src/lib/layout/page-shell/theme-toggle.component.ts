@@ -5,7 +5,7 @@ import { CnThemeName, CnThemeService } from '@northgate/canopy-ui/core';
 @Component({
   selector: 'cn-theme-toggle',
   template: `
-    <button mat-icon-button type="button" [matMenuTriggerFor]="menu" aria-label="Choose theme">
+    <button mat-icon-button type="button" class="cn-page-shell__theme-button" [matMenuTriggerFor]="menu" aria-label="Choose theme">
       <mat-icon svgIcon="cn:settings" aria-hidden="true"></mat-icon>
     </button>
     <mat-menu #menu="matMenu">

@@ -28,6 +28,8 @@
     "./schematics/collection.json",
     "./schematics/ng-add/schema.json",
     "./schematics/ng-add/index.js",
+    "./schematics/migrations.json",
+    "./schematics/ng-update/canopy-4-theme-mixin/index.js",
     "./README.md"
   ],
   "allowedNonPeerDependencies": [

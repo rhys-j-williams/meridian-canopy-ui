@@ -1,0 +1,14 @@
+consumer: northgate-business @ e61bb54
+node v14.21.3 npm 6.14.18
+pin before: @northgate/canopy-ui 3.5.0
+angular/core: 14.2.12  rxjs: 6.6.7
+
+### step 1: npm install @northgate/canopy-ui@4.0.0 --save-exact --registry http://localhost:4873 (strict peer resolution, no legacy-peer-deps)
+npm ERR! code EINTEGRITY
+npm ERR! sha512-gKBHGfj8Idy61MyEhKeYks4gPEFVYPw+QW6X//movHaFJRBqac/lB4LGh0CnasrVyM19K99IJuzWb3Ji0q0k0g== integrity checksum failed when using sha512: wanted sha512-gKBHGfj8Idy61MyEhKeYks4gPEFVYPw+QW6X//movHaFJRBqac/lB4LGh0CnasrVyM19K99IJuzWb3Ji0q0k0g== but got sha512-MVYFSNvvVCP0G/npVZcZ+KpCPN7/hwObB4LSoCa9PSJ5eaC0t6+IP6tsxKEPZzRpTjSS2wtcQL38FQaPDd892A==. (13985 bytes)
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/ubuntu/.npm/_logs/2026-09-09T13_32_44_358Z-debug.log
+exit=1
+
+RESULT: FAIL (peer range) - expected for an Angular 14 consumer; upgrade is the consumer's own ticket

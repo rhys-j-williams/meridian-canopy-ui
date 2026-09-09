@@ -5,14 +5,14 @@ import { COMPONENT_PAGES } from '../components/component-pages';
 @Component({
   selector: 'cs-home-page',
   template: `
-    <cn-page-header title="Canopy design system" eyebrow="@northgate/canopy-ui 3.7.2"
+    <cn-page-header title="Canopy design system" eyebrow="@northgate/canopy-ui 4.0.0"
                     lede="The component library behind Northgate Online, Northgate Business, Keystone, Ledgerline and Lantern. This site is the living style guide; it builds from the same source as the package.">
       <cn-button cnPageAction variant="primary" icon="cn:arrow-right" iconPosition="end" routerLink="/dashboard">Open the banking demo</cn-button>
     </cn-page-header>
 
     <div class="cs-grid" style="margin-top: 24px">
       <cn-card title="Install" subtitle="ng add wires the theme and the sprite">
-        <pre class="cs-code">npm install @northgate/canopy-ui@3.7.2
+        <pre class="cs-code">npm install @northgate/canopy-ui@4.0.0
 ng add @northgate/canopy-ui</pre>
         <p class="cs-muted">Registry is the internal Artifactory virtual repo; locally the estate runs Verdaccio on 4873. See the README.</p>
       </cn-card>

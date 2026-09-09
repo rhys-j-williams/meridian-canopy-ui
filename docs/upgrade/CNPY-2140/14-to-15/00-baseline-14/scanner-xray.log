@@ -1,0 +1,13 @@
+Xray 3.9.4-northgate (Northgate offline mirror 2024-11-18)
+Project @northgate/canopy-ui-workspace [npm] watch northgate-cswt-prod
+Scanned 1020 components from package-lock.json; runtime node 16.20.2 in 27 ms
+
+  Critical 0  High 3  Medium 6  Low 5   (lifecycle 6, dev only 10)
+
+  [High    ] @angular/core@14.3.0                         XRAY-127400 NORTHGATE-EOL-ANGULAR  fix: 18.2.13
+  [High    ] webpack-dev-middleware@5.3.3                 XRAY-124800 CVE-2024-4068  fix: 5.3.4
+  [High    ] ws@8.13.0                                    XRAY-124400 CVE-2024-37890  fix: 8.17.1
+
+Reports written to .xray-reports
+Policy gate FAILED: 3 violation(s) at or above high (@angular/core@14.3.0, webpack-dev-middleware@5.3.3, ws@8.13.0)
+exit=1

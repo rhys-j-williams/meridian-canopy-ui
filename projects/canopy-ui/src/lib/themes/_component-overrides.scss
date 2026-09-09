@@ -1,30 +1,42 @@
 @use 'sass:map';
 @use '@angular/material' as mat;
-@use '../tokens/spacing' as s;
 
 // Cross cutting adjustments to Material that do not belong to one Canopy component. Component
 // specific overrides live next to the component.
+//
+// Canopy 4 (CNPY-2140): everything here goes through Material's public theming / density mixins or
+// the CSS custom properties the MDC components expose. Nothing targets a `.mat-*` / `.mdc-*`
+// internal class name any more (ADR-0005); the pre-MDC overrides for the outline colour, the form
+// field infix padding, the card elevation and the checkbox/radio ripple were replaced as follows:
+//   * form field height   -> the theme density (MDC outlined field: 56px at scale 0). The 3.x
+//                            `.mat-form-field-infix { padding: .85em 0 }` override produced a 58px
+//                            outline, so the MDC default is the closest public equivalent.
+//   * outline / floating label / hint colours -> not exposed by Material 15 (no tokens); MDC
+//                            defaults are used. Raised for a design decision, see REPORT.md
+//                            "new Jira items".
+//   * card radius/shadow  -> --mdc-elevated-card-container-shape on the card element (cn-card scss)
+//   * ripple              -> `disableRipple` on the Canopy checkbox / radio wrappers
 @mixin component-overrides($theme) {
   @include component-colors($theme);
 
-  .mat-form-field-appearance-outline .mat-form-field-outline {
-    color: var(--cn-color-border-strong);
-  }
+  // Badges (cn-icon-button) are semibold in Canopy; the badge is not MDC based and has no token, so
+  // re-emit its typography from a caption level at weight 600 (3.x used `.mat-badge-content`).
+  $typography: mat.get-typography-config($theme);
+  $caption: map.get($typography, caption);
+  @include mat.badge-typography(
+    mat.define-typography-config(
+      $font-family: map.get($typography, font-family),
+      $caption: mat.define-typography-level(
+        map.get($caption, font-size),
+        map.get($caption, line-height),
+        600,
+        map.get($typography, font-family)
+      )
+    )
+  );
 
-  .mat-form-field-appearance-outline .mat-form-field-infix {
-    padding: 0.85em 0;
-  }
-
-  .mat-card {
-    border-radius: s.$cn-radius-md;
-    box-shadow: var(--cn-shadow-1) !important;
-  }
-
-  // Material's ripple reads as lag on the VDI estate; keep it on the touch targets only.
-  .mat-checkbox .mat-ripple,
-  .mat-radio-button .mat-ripple {
-    display: none;
-  }
+  // Angular Material's dialog / bottom sheet containers keep the theme surface; Canopy shells
+  // own the padding so nothing else is needed here.
 }
 
 @mixin component-colors($theme) {
@@ -32,17 +44,9 @@
   $foreground: map.get($color, foreground);
   $background: map.get($color, background);
 
-  .mat-toolbar.cn-app-toolbar {
+  .cn-app-toolbar {
     background: var(--cn-color-surface);
     color: var(--cn-color-text);
     border-bottom: 1px solid var(--cn-color-border);
-  }
-
-  .mat-form-field-label {
-    color: var(--cn-color-text-muted);
-  }
-
-  .mat-hint {
-    color: var(--cn-color-text-muted);
   }
 }

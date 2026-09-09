@@ -23,6 +23,12 @@
   }
 
   &__topbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: s.$cn-space-3;
+    box-sizing: border-box;
     height: 60px;
     padding: 0 s.$cn-space-4;
     background: var(--cn-color-primary);
@@ -31,8 +37,43 @@
     position: sticky;
     top: 0;
     z-index: 20;
+  }
 
-    .mat-icon-button, .mat-button { color: inherit; }
+  // Material 15 emits the MDC tokens on the button host itself (`.mat-mdc-button.mat-unthemed`),
+  // so the topbar colour is handed over on the buttons, at a higher specificity, rather than
+  // inherited from the bar. The buttons keep the 3.x (legacy Material) box: a 40px icon button
+  // and a 16px-padded text button with normal letter-spacing. Material's density styles fix the
+  // icon button at 48px with a three-class selector, hence the repeated class.
+  & &__topbar &__menu-button#{&}__menu-button,
+  & &__topbar &__theme-button#{&}__theme-button {
+    --mdc-icon-button-icon-color: currentColor;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+  }
+
+  & &__topbar &__signout {
+    --mdc-text-button-label-text-color: currentColor;
+    --mdc-typography-button-letter-spacing: normal;
+    padding: 0 s.$cn-space-4;
+  }
+
+  &__topbar-start,
+  &__topbar-end {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  &__topbar-start {
+    justify-content: flex-start;
+    gap: s.$cn-space-2;
+  }
+
+  &__topbar-end {
+    justify-content: flex-end;
+    gap: s.$cn-space-1;
   }
 
   &__brand {
@@ -58,16 +99,22 @@
     margin: 0 s.$cn-space-2;
   }
 
+  // The menu button is rendered at every width (as 3.x did); on desktop it toggles the rail.
   &__menu-button {
-    display: none;
+    flex: none;
   }
 
   &__body {
+    display: flex;
+    flex-direction: row;
     flex: 1 1 auto;
     min-height: 0;
+    box-sizing: border-box;
   }
 
   &__nav {
+    flex: 0 0 auto;
+    box-sizing: border-box;
     width: 240px;
     background: var(--cn-color-surface);
     border-right: 1px solid var(--cn-color-border);
@@ -104,7 +151,7 @@
     border-left: 3px solid transparent;
     cursor: pointer;
 
-    .mat-icon { color: var(--cn-color-text-muted); flex: none; }
+    .cn-page-shell__nav-icon { color: var(--cn-color-text-muted); flex: none; }
 
     &:hover { background: var(--cn-color-surface-alt); }
     &:focus-visible { outline: var(--cn-focus-ring, #{s.$cn-focus-ring-width} solid #2f7bd1); outline-offset: -3px; }
@@ -112,7 +159,7 @@
       border-left-color: var(--cn-color-primary);
       color: var(--cn-color-primary);
       background: rgba(47, 123, 209, 0.06);
-      .mat-icon { color: var(--cn-color-primary); }
+      .cn-page-shell__nav-icon { color: var(--cn-color-primary); }
     }
     &--child { height: 36px; padding-left: s.$cn-space-12; font-size: 13px; font-weight: 400; }
     &[aria-disabled='true'] { opacity: 0.5; pointer-events: none; }
@@ -129,10 +176,24 @@
     line-height: 18px;
   }
 
-  &__collapse {
-    margin: s.$cn-space-2;
-    justify-content: flex-start;
-    color: var(--cn-color-text-muted);
+  // Same box as the 3.x legacy text button: full width, 16px padding, 24px inline icon.
+  // `overflow: hidden` keeps the MDC 48px touch target inside the 37px button so it does not add
+  // to the page height; the button itself is the 3.x hit area.
+  & &__nav &__collapse {
+    --mdc-text-button-label-text-color: var(--cn-color-text-muted);
+    --mdc-typography-button-letter-spacing: normal;
+    min-height: 37px;
+    margin: 0;
+    padding: 0 s.$cn-space-4;
+    overflow: hidden;
+  }
+
+  & &__collapse &__collapse-icon {
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+    margin: 0;
+    flex: none;
   }
 
   &__collapse-icon--open {
@@ -142,6 +203,8 @@
   &__scrim { display: none; }
 
   &__main {
+    flex: 1 1 auto;
+    box-sizing: border-box;
     min-width: 0;
     overflow: auto;
     outline: none;
@@ -153,7 +216,6 @@
   }
 
   @media (max-width: 959px) {
-    &__menu-button { display: inline-flex; }
     &__nav {
       position: fixed;
       top: 60px;

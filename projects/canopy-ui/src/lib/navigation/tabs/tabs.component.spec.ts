@@ -24,11 +24,11 @@ describe('CnTabsComponent', () => {
   });
 
   it('renders a Material tab label per cnTab with the ink bar', () => {
-    const labels = fixture.nativeElement.querySelectorAll('.mat-tab-label');
+    const labels = fixture.nativeElement.querySelectorAll('.mat-mdc-tab');
     expect(labels.length).toBe(2);
     expect(labels[0].textContent).toContain('Activity');
     expect(labels[0].querySelector('.cn-tabs__badge').textContent.trim()).toBe('3');
-    expect(fixture.nativeElement.querySelector('.mat-ink-bar')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('.mdc-tab-indicator')).toBeTruthy();
   });
 
   it('renders bodies lazily', () => {

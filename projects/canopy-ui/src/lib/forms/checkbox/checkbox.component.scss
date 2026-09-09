@@ -1,15 +1,29 @@
 @use '../../tokens/spacing' as s;
 
+// The MDC checkbox renders `<mat-checkbox><div (form field)>box + label</div>`. The only
+// reach into Material's DOM is the structural `> div` (no `.mat-*` / `.mdc-*` class), used to
+// top-align the box against multi-line labels as 3.x did (ADR-0005). The ripple is disabled via
+// the `disableRipple` input instead of a style override.
 .cn-checkbox {
   display: block;
 
-  .mat-checkbox-layout {
+  // MDC pads the box to a 40px state layer; collapsing it to the box keeps the 3.x geometry
+  // (box 2px down, label 8px to the right of a 16px box) while the label stays the click target.
+  // The MDC box itself is 18px, 2px larger than the legacy one.
+  --mdc-checkbox-state-layer-size: 18px;
+
+  &__control > div {
     align-items: flex-start;
     white-space: normal;
-  }
 
-  .mat-checkbox-inner-container {
-    margin-top: 3px;
+    > * {
+      margin-top: 2px;
+    }
+
+    > label {
+      margin-top: 0;
+      padding-left: 6px;
+    }
   }
 
   &__label {

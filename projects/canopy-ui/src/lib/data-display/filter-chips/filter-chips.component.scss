@@ -54,12 +54,17 @@
     font-variant-numeric: tabular-nums;
   }
 
-  &__clear.mat-button {
+  & &__list &__clear {
+    --mdc-text-button-container-height: 32px;
+    font-size: 13px;
+    --mdc-text-button-label-text-color: var(--cn-color-text-muted);
     min-height: 32px;
     line-height: 32px;
-    font-size: 13px;
-    color: var(--cn-color-text-muted);
+  }
 
-    .mat-icon { width: 16px; height: 16px; font-size: 16px; }
+  & &__clear-icon {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
   }
 }

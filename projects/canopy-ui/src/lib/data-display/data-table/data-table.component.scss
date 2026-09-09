@@ -23,9 +23,10 @@
     font-family: var(--cn-font-family);
   }
 
-  // Density. Material sizes header/data rows at 56px/48px; the design spec is 52/40 with tighter
-  // horizontal padding on compact tables.
-  .mat-header-cell {
+  // Density. Material 15 (MDC) sizes header/data rows at 56px/52px via its density mixin; the
+  // design spec is 52/40 with tighter horizontal padding on compact tables. Rows and cells are
+  // reached through the native table structure Material renders (thead/tbody, th/td).
+  & &__table th {
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.04em;
@@ -36,18 +37,18 @@
     padding: 0 s.$cn-space-4;
   }
 
-  .mat-header-row {
+  & &__table > thead > tr {
     height: var(--cn-row-height, #{s.$cn-row-height-default});
   }
 
-  .mat-cell {
+  & &__table td {
     padding: 0 s.$cn-space-4;
     border-bottom-color: var(--cn-color-border);
     color: var(--cn-color-text);
     font-size: 14px;
   }
 
-  .mat-row {
+  & &__table > tbody > tr {
     height: var(--cn-row-height, #{s.$cn-row-height-default});
     transition: background-color 80ms ease;
 
@@ -55,40 +56,43 @@
     &:focus-visible { outline: 2px solid var(--cn-color-focus); outline-offset: -2px; }
   }
 
-  &--compact {
-    .mat-header-row,
-    .mat-row {
-      height: s.$cn-row-height-compact;
-    }
-    .mat-header-cell,
-    .mat-cell {
-      padding: 0 s.$cn-space-3;
-      font-size: 13px;
-    }
+  &--compact &__table > thead > tr,
+  &--compact &__table > tbody > tr {
+    height: s.$cn-row-height-compact;
   }
 
-  &--striped .mat-row:nth-child(even) {
+  &--compact &__table th,
+  &--compact &__table td {
+    padding: 0 s.$cn-space-3;
+    font-size: 13px;
+  }
+
+  &--striped &__table > tbody > tr:nth-child(even) {
     background: color-mix(in srgb, var(--cn-color-surface-alt) 50%, transparent);
   }
 
-  .cn-row--selected,
-  .cn-row--selected:hover {
+  & &__table > tbody > tr.cn-row--selected,
+  & &__table > tbody > tr.cn-row--selected:hover {
     background: rgba(47, 123, 209, 0.08);
   }
 
-  .cn-cell--align-end { text-align: right; }
-  .cn-cell--align-center { text-align: center; }
-  .cn-cell--currency,
-  .cn-cell--number { font-variant-numeric: tabular-nums; }
-  .cn-cell--negative { color: var(--cn-color-warn); }
-  .cn-cell--strong { font-weight: 600; }
-  .cn-cell--muted { color: var(--cn-color-text-muted); }
-  .cn-cell--select { width: 48px; padding-right: 0; }
+  // Cell modifiers must outrank the th/td rules above (they used to share `.mat-cell` specificity).
+  & &__table {
+    th.cn-cell--align-end, td.cn-cell--align-end { text-align: right; }
+    th.cn-cell--align-center, td.cn-cell--align-center { text-align: center; }
+    th.cn-cell--currency, td.cn-cell--currency,
+    th.cn-cell--number, td.cn-cell--number { font-variant-numeric: tabular-nums; }
+    th.cn-cell--negative, td.cn-cell--negative { color: var(--cn-color-warn); }
+    th.cn-cell--strong, td.cn-cell--strong { font-weight: 600; }
+    th.cn-cell--muted, td.cn-cell--muted { color: var(--cn-color-text-muted); }
+    th.cn-cell--select, td.cn-cell--select { width: 48px; padding-right: 0; }
+  }
 
-  .mat-sort-header-container {
+  // `mat-sort-header` renders its flex container as the first child of the header cell.
+  .cn-cell--header > div:first-child {
     justify-content: inherit;
   }
-  .cn-cell--align-end .mat-sort-header-container {
+  .cn-cell--align-end.cn-cell--header > div:first-child {
     justify-content: flex-end;
   }
 
@@ -106,7 +110,7 @@
     &--declined, &--failed, &--returned, &--reversed { background: rgba(178, 44, 44, 0.12); color: var(--cn-color-warn); }
   }
 
-  &__empty .mat-cell {
+  & &__table &__empty-cell {
     text-align: center;
     padding: s.$cn-space-8;
     color: var(--cn-color-text-muted);
@@ -124,7 +128,7 @@
     opacity: 0.6;
   }
 
-  &__paginator.mat-paginator {
+  & &__paginator {
     border-top: 1px solid var(--cn-color-border);
     background: var(--cn-color-surface);
   }

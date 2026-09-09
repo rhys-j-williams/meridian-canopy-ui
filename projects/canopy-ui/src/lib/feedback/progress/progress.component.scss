@@ -22,23 +22,24 @@
   &__label { color: var(--cn-color-text); }
   &__value { color: var(--cn-color-text-muted); font-variant-numeric: tabular-nums; }
 
-  &__bar.mat-progress-bar {
-    height: 8px;
+  // Material 15 linear progress (MDC): track height and indicator colour are tokens. The track
+  // (buffer) colour has no token in 15.2, so it is reached structurally: the first aria-hidden
+  // child is the buffer wrapper and its first child is the buffer bar.
+  &__bar {
+    --mdc-linear-progress-track-height: 8px;
+    --mdc-linear-progress-active-indicator-color: var(--cn-progress-color);
     border-radius: 4px;
+
+    > [aria-hidden]:first-child > :first-child {
+      background-color: var(--cn-color-surface-alt);
+    }
+
+    > [aria-hidden] > span {
+      border-radius: 4px;
+    }
   }
 
-  .mat-progress-bar-buffer {
-    background-color: var(--cn-color-surface-alt);
-  }
-
-  // The fill is drawn by the ::after pseudo element; Material's theme colours it by palette so we
-  // have to override it here for the tone variants.
-  .mat-progress-bar-fill::after {
-    background-color: var(--cn-progress-color);
-    border-radius: 4px;
-  }
-
-  .mat-progress-spinner circle {
-    stroke: var(--cn-progress-color);
+  &__spinner {
+    --mdc-circular-progress-active-indicator-color: var(--cn-progress-color);
   }
 }

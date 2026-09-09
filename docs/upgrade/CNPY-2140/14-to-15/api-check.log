@@ -1,0 +1,6 @@
+
+> @northgate/canopy-ui-workspace@4.0.0 api:check
+> node scripts/api-report.js --check
+
+API reports up to date
+exit=0

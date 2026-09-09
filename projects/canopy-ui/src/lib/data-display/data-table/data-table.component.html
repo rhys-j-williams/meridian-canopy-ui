@@ -41,8 +41,8 @@
         [attr.aria-selected]="selectable ? selection.isSelected(row) : null"
         (click)="onRowClick(row)" (keydown)="onRowKeydown($event, row)"></tr>
 
-    <tr class="mat-row cn-data-table__empty" *matNoDataRow>
-      <td class="mat-cell" [attr.colspan]="displayedColumns.length">
+    <tr class="cn-data-table__empty" *matNoDataRow>
+      <td class="cn-data-table__empty-cell" [attr.colspan]="displayedColumns.length">
         <ng-container *ngIf="loading; else emptyMsg">Loading…</ng-container>
         <ng-template #emptyMsg>{{ emptyText }}</ng-template>
       </td>

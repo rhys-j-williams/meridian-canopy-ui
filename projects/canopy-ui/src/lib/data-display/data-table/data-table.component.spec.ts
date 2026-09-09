@@ -2,9 +2,9 @@ import { HarnessLoader } from '@angular/cdk/testing';
 import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatLegacyPaginatorHarness as MatPaginatorHarness } from '@angular/material/legacy-paginator/testing';
+import { MatPaginatorHarness } from '@angular/material/paginator/testing';
 import { MatSortHarness } from '@angular/material/sort/testing';
-import { MatLegacyTableHarness as MatTableHarness } from '@angular/material/legacy-table/testing';
+import { MatTableHarness } from '@angular/material/table/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { CnColumn, CnDataTableComponent, CnRowSelection } from './data-table.component';
 import { CnDataTableModule } from './data-table.module';
@@ -103,14 +103,15 @@ describe('CnDataTableComponent', () => {
   });
 
   it('emits rowClick from keyboard Enter', () => {
-    const row: HTMLElement = fixture.nativeElement.querySelector('tr.mat-row');
+    const row: HTMLElement = fixture.nativeElement.querySelector('tbody tr');
     row.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }));
     expect(host.clicked?.id).toBe('txn-1');
   });
 
   it('applies the header cell class the density styles rely on', () => {
     const header = fixture.nativeElement.querySelector('th');
-    expect(header.classList.contains('mat-header-cell')).toBeTrue();
-    expect(fixture.nativeElement.querySelector('td.mat-cell')).toBeTruthy();
+    expect(header.classList.contains('cn-cell')).toBeTrue();
+    expect(header.classList.contains('mat-mdc-header-cell')).toBeTrue();
+    expect(fixture.nativeElement.querySelector('td.cn-cell.mat-mdc-cell')).toBeTruthy();
   });
 });

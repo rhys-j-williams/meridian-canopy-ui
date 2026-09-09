@@ -1,0 +1,11 @@
+Checkmarx CLI 2.3.7-northgate (Northgate build)
+Project: northgate-canopy-ui  Preset: Northgate-High-And-Medium rev 41
+Scanned 372 files, 24134 lines in 54 ms
+Scan id: cx-928fca1714e7
+
+  Critical 0  High 0  Medium 0  Low 0  Info 0  Suppressed 11
+
+
+Reports written to .cx-reports
+Quality gate PASSED
+exit=0

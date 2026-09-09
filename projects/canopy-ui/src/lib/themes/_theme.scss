@@ -2,6 +2,7 @@
 @use '@angular/material' as mat;
 @use 'palettes' as p;
 @use 'typography' as ty;
+@use 'density' as d;
 @use '../tokens/css-vars' as vars;
 @use 'component-overrides' as overrides;
 
@@ -37,6 +38,25 @@ $cn-high-contrast-theme: mat.define-light-theme((
   density: 0
 ));
 
+/// Returns a copy of `$theme` with the typography and density replaced.
+@function _configure($theme, $typography, $density) {
+  @return map.merge($theme, (typography: $typography, density: $density));
+}
+
+/// Themes for the two components still on the Material 15 legacy (pre-MDC) implementations. The
+/// legacy modules are removed in Material 16, so both must be resolved before the next hop:
+///   * cn-amount-slider  - KAN-27 (MDC mat-slider drops thumbLabel/displayWith/tickInterval)
+///   * cn-filter-chips   - KAN-28 (MDC chip listbox/grid selection semantics)
+@mixin _legacy-component-themes($theme) {
+  @include mat.legacy-slider-theme($theme);
+  @include mat.legacy-chips-theme($theme);
+}
+
+@mixin _legacy-component-colors($theme) {
+  @include mat.legacy-slider-color($theme);
+  @include mat.legacy-chips-color($theme);
+}
+
 /// The one mixin consumers include. Emits Material core styles, the light theme on :root and the
 /// dark and high contrast variants behind html.cn-theme-dark / html.cn-theme-high-contrast so
 /// CnThemeService can switch at runtime without a rebuild.
@@ -45,30 +65,37 @@ $cn-high-contrast-theme: mat.define-light-theme((
 ///   @include canopy.theme();
 ///
 /// Pass $include-dark: false when an application has no dark mode (business-web) to save ~40kb.
-@mixin theme($include-dark: true, $include-high-contrast: true) {
-  // TODO(v15): As of v15 mat.legacy-core no longer includes default typography styles.
-//  The following line adds:
-//    1. Default typography styles for all components
-//    2. Styles for typography hierarchy classes (e.g. .mat-headline-1)
-//  If you specify typography styles for the components you use elsewhere, you should delete this line.
-//  If you don't need the default component typographies but still want the hierarchy styles,
-//  you can delete this line and instead use:
-//    `@include mat.legacy-typography-hierarchy(ty.$cn-typography);`
-@include mat.all-legacy-component-typographies(ty.$cn-typography);
-@include mat.legacy-core();
-  @include mat.all-legacy-component-themes($cn-light-theme);
-  @include overrides.component-overrides($cn-light-theme);
+/// Pass $typography to swap the type scale (e.g. canopy.$cn-typography-dense from the styles
+/// entry) and $density (0, -1, -2) to change the default control density; see themes/_density.
+@mixin theme(
+  $include-dark: true,
+  $include-high-contrast: true,
+  $typography: ty.$cn-typography,
+  $density: d.$cn-density-default
+) {
+  $light: _configure($cn-light-theme, $typography, $density);
+  $dark: _configure($cn-dark-theme, $typography, $density);
+  $high-contrast: _configure($cn-high-contrast-theme, $typography, $density);
+
+  @include mat.core();
+  @include mat.typography-hierarchy($typography);
+  @include mat.all-component-themes($light);
+  @include _legacy-component-themes($light);
+  @include overrides.component-overrides($light);
+  @include d.density-classes;
 
   :root,
   html.cn-theme-light {
     @include vars.emit-light;
+    @include d.density-tokens($density);
     color-scheme: light;
   }
 
   @if $include-dark {
     html.cn-theme-dark {
-      @include mat.all-legacy-component-colors($cn-dark-theme);
-      @include overrides.component-colors($cn-dark-theme);
+      @include mat.all-component-colors($dark);
+      @include _legacy-component-colors($dark);
+      @include overrides.component-colors($dark);
       @include vars.emit-dark;
       color-scheme: dark;
     }
@@ -76,8 +103,9 @@ $cn-high-contrast-theme: mat.define-light-theme((
 
   @if $include-high-contrast {
     html.cn-theme-high-contrast {
-      @include mat.all-legacy-component-colors($cn-high-contrast-theme);
-      @include overrides.component-colors($cn-high-contrast-theme);
+      @include mat.all-component-colors($high-contrast);
+      @include _legacy-component-colors($high-contrast);
+      @include overrides.component-colors($high-contrast);
       @include vars.emit-high-contrast;
 
       // Windows High Contrast and our own forced mode both want visible outlines everywhere.

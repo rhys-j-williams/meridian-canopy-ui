@@ -6,8 +6,8 @@
 <mat-form-field [appearance]="appearance" class="cn-date-range__field">
   <mat-label>{{ label }}</mat-label>
   <mat-date-range-input [formGroup]="form" [rangePicker]="picker" [min]="min" [max]="max" [disabled]="disabled">
-    <input matStartDate formControlName="start" placeholder="Start date" aria-label="Start date" />
-    <input matEndDate formControlName="end" placeholder="End date" aria-label="End date" />
+    <input matStartDate class="cn-date-range__input" formControlName="start" placeholder="Start date" aria-label="Start date" />
+    <input matEndDate class="cn-date-range__input" formControlName="end" placeholder="End date" aria-label="End date" />
   </mat-date-range-input>
   <button *ngIf="value.start || value.end" matSuffix mat-icon-button type="button" aria-label="Clear dates" (click)="clear()">
     <mat-icon>close</mat-icon>

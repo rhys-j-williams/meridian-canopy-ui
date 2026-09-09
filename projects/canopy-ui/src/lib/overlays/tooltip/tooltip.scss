@@ -1,14 +1,20 @@
 @use '../../tokens/spacing' as s;
 
-// Global: the tooltip is rendered in the overlay container.
-.mat-tooltip.cn-tooltip {
-  font-family: var(--cn-font-family);
-  font-size: 12px;
-  line-height: 1.4;
-  padding: s.$cn-space-2 s.$cn-space-3;
-  border-radius: var(--cn-radius-sm, #{s.$cn-radius-sm});
-  background: #1f2a33;
-  color: #ffffff;
-  max-width: 280px;
-  box-shadow: var(--cn-shadow-2);
+// Global: the tooltip is rendered in the overlay container. Canopy 4: `matTooltipClass` lands on
+// the MDC tooltip element; colours, shape and type go through its tokens and the surface is the
+// structural `> div` (no `.mat-*` class) for padding, width and shadow (ADR-0005).
+.cn-tooltip.cn-tooltip {
+  --mdc-plain-tooltip-container-color: #1f2a33;
+  --mdc-plain-tooltip-supporting-text-color: #ffffff;
+  --mdc-plain-tooltip-container-shape: var(--cn-radius-sm, #{s.$cn-radius-sm});
+  --mdc-plain-tooltip-supporting-text-font: var(--cn-font-family);
+  --mdc-plain-tooltip-supporting-text-size: 12px;
+  --mdc-plain-tooltip-supporting-text-weight: 400;
+
+  > div {
+    line-height: 1.4;
+    padding: s.$cn-space-2 s.$cn-space-3;
+    max-width: 280px;
+    box-shadow: var(--cn-shadow-2);
+  }
 }

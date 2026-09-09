@@ -1,0 +1,142 @@
+
+> @northgate/canopy-ui-workspace@4.0.0 build
+> ng build canopy-ui
+
+Building Angular Package
+
+------------------------------------------------------------------------------
+Building entry point '@northgate/canopy-ui/core'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in Ivy partial compilation mode.
+✔ Compiling with Angular sources in Ivy partial compilation mode.
+- Generating FESM2020
+✔ Generating FESM2020
+- Generating FESM2015
+✔ Generating FESM2015
+✔ Built @northgate/canopy-ui/core
+
+------------------------------------------------------------------------------
+Building entry point '@northgate/canopy-ui/icons'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in Ivy partial compilation mode.
+✔ Compiling with Angular sources in Ivy partial compilation mode.
+- Writing FESM bundles
+✔ Writing FESM bundles
+✔ Built @northgate/canopy-ui/icons
+
+------------------------------------------------------------------------------
+Building entry point '@northgate/canopy-ui/a11y'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in Ivy partial compilation mode.
+✔ Compiling with Angular sources in Ivy partial compilation mode.
+- Writing FESM bundles
+✔ Writing FESM bundles
+✔ Built @northgate/canopy-ui/a11y
+
+------------------------------------------------------------------------------
+Building entry point '@northgate/canopy-ui/actions'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in Ivy partial compilation mode.
+✔ Compiling with Angular sources in Ivy partial compilation mode.
+- Writing FESM bundles
+✔ Writing FESM bundles
+✔ Built @northgate/canopy-ui/actions
+
+------------------------------------------------------------------------------
+Building entry point '@northgate/canopy-ui/forms'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in Ivy partial compilation mode.
+✔ Compiling with Angular sources in Ivy partial compilation mode.
+- Generating FESM2020
+✔ Generating FESM2020
+- Generating FESM2015
+✔ Generating FESM2015
+✔ Built @northgate/canopy-ui/forms
+
+------------------------------------------------------------------------------
+Building entry point '@northgate/canopy-ui/data-display'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in Ivy partial compilation mode.
+✔ Compiling with Angular sources in Ivy partial compilation mode.
+- Generating FESM2020
+✔ Generating FESM2020
+- Generating FESM2015
+✔ Generating FESM2015
+✔ Built @northgate/canopy-ui/data-display
+
+------------------------------------------------------------------------------
+Building entry point '@northgate/canopy-ui/navigation'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in Ivy partial compilation mode.
+✔ Compiling with Angular sources in Ivy partial compilation mode.
+- Writing FESM bundles
+✔ Writing FESM bundles
+✔ Built @northgate/canopy-ui/navigation
+
+------------------------------------------------------------------------------
+Building entry point '@northgate/canopy-ui/overlays'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in Ivy partial compilation mode.
+✔ Compiling with Angular sources in Ivy partial compilation mode.
+- Writing FESM bundles
+✔ Writing FESM bundles
+✔ Built @northgate/canopy-ui/overlays
+
+------------------------------------------------------------------------------
+Building entry point '@northgate/canopy-ui/feedback'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in Ivy partial compilation mode.
+✔ Compiling with Angular sources in Ivy partial compilation mode.
+- Writing FESM bundles
+✔ Writing FESM bundles
+✔ Built @northgate/canopy-ui/feedback
+
+------------------------------------------------------------------------------
+Building entry point '@northgate/canopy-ui/layout'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in Ivy partial compilation mode.
+✔ Compiling with Angular sources in Ivy partial compilation mode.
+- Writing FESM bundles
+✔ Writing FESM bundles
+✔ Built @northgate/canopy-ui/layout
+
+------------------------------------------------------------------------------
+Building entry point '@northgate/canopy-ui/content'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in Ivy partial compilation mode.
+✔ Compiling with Angular sources in Ivy partial compilation mode.
+- Writing FESM bundles
+✔ Writing FESM bundles
+✔ Built @northgate/canopy-ui/content
+
+------------------------------------------------------------------------------
+Building entry point '@northgate/canopy-ui'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in Ivy partial compilation mode.
+✔ Compiling with Angular sources in Ivy partial compilation mode.
+- Writing FESM bundles
+✔ Writing FESM bundles
+- Copying assets
+✔ Copying assets
+- Writing package manifest
+✔ Writing package manifest
+✔ Built @northgate/canopy-ui
+
+------------------------------------------------------------------------------
+Built Angular Package
+ - from: /home/ubuntu/repos/northgate-canopy-ui/projects/canopy-ui
+ - to:   /home/ubuntu/repos/northgate-canopy-ui/dist/canopy-ui
+------------------------------------------------------------------------------
+
+Build at: 2026-09-09T13:23:44.608Z - Time: 37435ms
+
+
+> @northgate/canopy-ui-workspace@4.0.0 postbuild
+> npm run build:schematics && node scripts/copy-lib-assets.js
+
+
+> @northgate/canopy-ui-workspace@4.0.0 build:schematics
+> tsc -p projects/canopy-ui/schematics/tsconfig.schematics.json
+
+copied schematics into dist, stamped 4.0.0@11f977d
+exit=0

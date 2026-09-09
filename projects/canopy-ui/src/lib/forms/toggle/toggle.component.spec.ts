@@ -22,8 +22,8 @@ describe('CnToggleComponent', () => {
 
   it('renders the Material track and thumb the styles target', () => {
     const el: HTMLElement = fixture.nativeElement;
-    expect(el.querySelector('.mat-slide-toggle-bar')).toBeTruthy();
-    expect(el.querySelector('.mat-slide-toggle-thumb')).toBeTruthy();
+    expect(el.querySelector('.mdc-switch__track')).toBeTruthy();
+    expect(el.querySelector('.mdc-switch__handle')).toBeTruthy();
   });
 
   it('shows the off text until checked', () => {

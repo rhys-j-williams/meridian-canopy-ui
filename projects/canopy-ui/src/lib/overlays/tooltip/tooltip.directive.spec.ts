@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatLegacyTooltip as MatTooltip } from '@angular/material/legacy-tooltip';
+import { MatTooltip } from '@angular/material/tooltip';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { CnTooltipModule } from './tooltip.module';
 

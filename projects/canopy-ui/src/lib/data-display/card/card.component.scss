@@ -3,20 +3,20 @@
 .cn-card {
   display: block;
 
-  &__surface.mat-card {
+  & &__surface {
+    --mdc-elevated-card-container-shape: var(--cn-radius-lg, #{s.$cn-radius-lg});
+    --mdc-elevated-card-container-color: var(--cn-color-surface);
     padding: 0;
-    border-radius: var(--cn-radius-lg, #{s.$cn-radius-lg});
     box-shadow: var(--cn-shadow-1);
-    background: var(--cn-color-surface);
     color: var(--cn-color-text);
   }
 
-  &--flat &__surface.mat-card {
+  &--flat &__surface {
     box-shadow: none;
     border: 1px solid var(--cn-color-border);
   }
 
-  &--highlight &__surface.mat-card {
+  &--highlight &__surface {
     border-top: 4px solid var(--cn-color-accent);
   }
 

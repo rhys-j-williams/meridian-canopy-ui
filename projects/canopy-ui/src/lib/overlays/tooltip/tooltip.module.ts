@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { MatLegacyTooltipModule as MatTooltipModule } from '@angular/material/legacy-tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { CnTooltipDirective } from './tooltip.directive';
 import { CnTooltipStylesComponent } from './tooltip-styles.component';
 

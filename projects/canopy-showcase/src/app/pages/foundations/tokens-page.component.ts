@@ -33,11 +33,11 @@ interface TokenRow {
           </tbody>
         </table>
       </cn-card>
-      <cn-card title="Typography" subtitle="Material typography config built from the type tokens; the mixin applies it through mat.core().">
-        <p class="mat-display-1" style="margin: 0 0 8px">Display 1 - account overview totals</p>
-        <p class="mat-headline" style="margin: 0 0 8px">Headline - page titles</p>
-        <p class="mat-title" style="margin: 0 0 8px">Title - card headings</p>
-        <p class="mat-subheading-2" style="margin: 0 0 8px">Subheading 2 - section labels</p>
+      <cn-card title="Typography" subtitle="Material typography config built from the type tokens; the mixin applies it through mat.typography-hierarchy().">
+        <p class="mat-headline-4" style="margin: 0 0 8px">Headline 4 - account overview totals</p>
+        <p class="mat-headline-5" style="margin: 0 0 8px">Headline 5 - page titles</p>
+        <p class="mat-headline-6" style="margin: 0 0 8px">Headline 6 - card headings</p>
+        <p class="mat-subtitle-1" style="margin: 0 0 8px">Subtitle 1 - section labels</p>
         <p class="mat-body-1" style="margin: 0 0 8px">Body 1 - running copy. Balances shown are as of close of business and may not reflect pending activity.</p>
         <p class="mat-caption" style="margin: 0">Caption - disclosures, footnotes, table metadata</p>
       </cn-card>

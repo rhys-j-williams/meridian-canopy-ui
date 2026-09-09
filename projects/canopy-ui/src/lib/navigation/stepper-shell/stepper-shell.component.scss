@@ -1,10 +1,12 @@
 @use '../../tokens/spacing' as s;
 
+// The Material 15 stepper is not an MDC component: it keeps the 14.x `.mat-step-*` class names
+// and exposes no CSS tokens, so the header/icon/label overrides below stay on those selectors.
+// Justified in docs/upgrade/CNPY-2140/14-to-15/REPORT.md.
 .cn-stepper-shell {
   display: block;
 
-  &__stepper.mat-stepper-horizontal,
-  &__stepper.mat-stepper-vertical {
+  & &__stepper {
     background: transparent;
     font-family: var(--cn-font-family);
   }

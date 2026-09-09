@@ -18,7 +18,7 @@ describe('CnDialogShellComponent / CnDialogService', () => {
     const result = service.confirm({ title: 'Close account?', message: 'This cannot be undone.', destructive: true }).toPromise();
     await new Promise(r => setTimeout(r));
     TestBed.inject(ApplicationRef).tick();
-    const container = document.querySelector('.cn-dialog-panel .mat-dialog-container') as HTMLElement;
+    const container = document.querySelector('.cn-dialog-panel .mat-mdc-dialog-container') as HTMLElement;
     expect(container).toBeTruthy();
     expect(container.querySelector('.cn-dialog-shell__title')!.textContent).toContain('Close account?');
     const confirm = container.querySelector('.cn-confirm-dialog__confirm') as HTMLButtonElement;

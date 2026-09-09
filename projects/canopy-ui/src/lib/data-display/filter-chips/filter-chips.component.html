@@ -6,6 +6,6 @@
     <span class="cn-filter-chips__count" *ngIf="showCounts && chip.count !== undefined">{{ chip.count }}</span>
   </mat-chip>
   <button *ngIf="showClear && selected.length" type="button" class="cn-filter-chips__clear" mat-button (click)="clear()">
-    <mat-icon svgIcon="cn:close" aria-hidden="true"></mat-icon> Clear
+    <mat-icon class="cn-filter-chips__clear-icon" svgIcon="cn:close" aria-hidden="true"></mat-icon> Clear
   </button>
 </mat-chip-list>
