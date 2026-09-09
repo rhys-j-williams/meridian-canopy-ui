@@ -4,8 +4,8 @@ Canopy, the Northgate Trust Bank design system. Angular Material wrapped in the 
 
 dist
 .tarball: http://localhost:4873/@northgate/canopy-ui/-/canopy-ui-4.0.0.tgz
-.shasum: db70b2fc1cc5f39fbf9bbdf1cf58ceeb15e6ad4b
-.integrity: sha512-Phr+vd9DXhl1ZUKkdV5JM4eIZRJSA7QVFRdMgRI+XsN4qODH7WyDP5MvnPn8HKVUie4i6cLMOXyInF3AxCv7rQ==
+.shasum: 891cdaa734086fc60d27c676fda0b1db2b46b323
+.integrity: sha512-AwTtxLUyTv9VtF7dZYZoY0hCEBgHNglAiScsHyk029qCuZZLnLhY4FDdXgFdK9cEpPPgk8CVDK4n6Y5UiODrkw==
 
 dependencies:
 tslib: ^2.3.0

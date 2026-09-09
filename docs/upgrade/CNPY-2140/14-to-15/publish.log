@@ -123,7 +123,7 @@ Built Angular Package
  - to:   /home/ubuntu/repos/northgate-canopy-ui/dist/canopy-ui
 ------------------------------------------------------------------------------
 
-Build at: 2026-09-09T17:07:53.115Z - Time: 30726ms
+Build at: 2026-09-09T18:23:07.755Z - Time: 28575ms
 
 
 > @northgate/canopy-ui-workspace@4.0.0 postbuild
@@ -133,7 +133,7 @@ Build at: 2026-09-09T17:07:53.115Z - Time: 30726ms
 > @northgate/canopy-ui-workspace@4.0.0 build:schematics
 > tsc -p projects/canopy-ui/schematics/tsconfig.schematics.json
 
-copied schematics into dist, stamped 4.0.0@92b932f
+copied schematics into dist, stamped 4.0.0@d6fbf2b
 npm notice 
 npm notice 📦  @northgate/canopy-ui@4.0.0
 npm notice === Tarball Contents === 
@@ -446,8 +446,8 @@ npm notice version:       4.0.0
 npm notice filename:      @northgate/canopy-ui-4.0.0.tgz          
 npm notice package size:  494.6 kB                                
 npm notice unpacked size: 2.6 MB                                  
-npm notice shasum:        db70b2fc1cc5f39fbf9bbdf1cf58ceeb15e6ad4b
-npm notice integrity:     sha512-Phr+vd9DXhl1Z[...]XyInF3AxCv7rQ==
+npm notice shasum:        891cdaa734086fc60d27c676fda0b1db2b46b323
+npm notice integrity:     sha512-AwTtxLUyTv9Vt[...]K4n6Y5UiODrkw==
 npm notice total files:   303                                     
 npm notice 
 npm notice Publishing to http://localhost:4873
