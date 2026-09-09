@@ -90,4 +90,46 @@ common.e7ce18e2a2c6be21.js    | common                                          
 Build at: 2026-09-09T13:34:47.182Z - Hash: 1bbd99724564b8b8 - Time: 22266ms
 exit=0
 
-### step 5: npm test
+
+### step 5: npm test -- --watch=false  (Jenkinsfile testCommand; package.json "test" has singleRun:false so the plain script watches)
+    at Observable._trySubscribe (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Observable.js:37:25)
+    at cb (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Observable.js:31:30)
+    at errorContext (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/util/errorContext.js:19:9)
+Chrome Headless 133.0.0.0 (Linux 0.0.0): Executed 76 of 77 SUCCESS (0 secs / 0.646 secs)
+ERROR: 'ERROR', Error: Error retrieving icon cn:check! Unable to find icon with the name "cn:check"
+Error: Error retrieving icon cn:check! Unable to find icon with the name "cn:check"
+    at Object.error (http://localhost:9877/_karma_webpack_/webpack:/node_modules/@angular/material/fesm2020/icon.mjs:967:48)
+    at ConsumerObserver.error (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subscriber.js:102:33)
+    at SafeSubscriber._error (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subscriber.js:64:30)
+    at SafeSubscriber.error (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subscriber.js:40:18)
+    at OperatorSubscriber._error (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subscriber.js:64:30)
+    at OperatorSubscriber.error (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subscriber.js:40:18)
+    at Observable._subscribe (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/observable/throwError.js:5:45)
+    at Observable._trySubscribe (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Observable.js:37:25)
+    at cb (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Observable.js:31:30)
+    at errorContext (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/util/errorContext.js:19:9)
+Chrome Headless 133.0.0.0 (Linux 0.0.0): Executed 76 of 77 SUCCESS (0 secs / 0.646 secs)
+ERROR: 'ERROR', Error: Error retrieving icon cn:check! Unable to find icon with the name "cn:check"
+Error: Error retrieving icon cn:check! Unable to find icon with the name "cn:check"
+    at Object.error (http://localhost:9877/_karma_webpack_/webpack:/node_modules/@angular/material/fesm2020/icon.mjs:967:48)
+    at ConsumerObserver.error (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subscriber.js:102:33)
+    at SafeSubscriber._error (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subscriber.js:64:30)
+    at SafeSubscriber.error (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subscriber.js:40:18)
+    at OperatorSubscriber._error (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subscriber.js:64:30)
+    at OperatorSubscriber.error (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subscriber.js:40:18)
+    at Observable._subscribe (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/observable/throwError.js:5:45)
+    at Observable._trySubscribe (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Observable.js:37:25)
+    at cb (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Observable.js:31:30)
+    at errorContext (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/util/errorContext.js:19:9)
+Chrome Headless 133.0.0.0 (Linux 0.0.0): Executed 77 of 77 SUCCESS (0 secs / 0.648 secs)
+Chrome Headless 133.0.0.0 (Linux 0.0.0): Executed 77 of 77 SUCCESS (1.044 secs / 0.648 secs)
+TOTAL: 77 SUCCESS
+=============================== Coverage summary ===============================
+Statements   : 43.37% ( 344/793 )
+Branches     : 42.12% ( 123/292 )
+Functions    : 43.66% ( 93/213 )
+Lines        : 42.21% ( 320/758 )
+================================================================================
+✔ Browser application bundle generation complete.
+✔ Browser application bundle generation complete.
+exit=0

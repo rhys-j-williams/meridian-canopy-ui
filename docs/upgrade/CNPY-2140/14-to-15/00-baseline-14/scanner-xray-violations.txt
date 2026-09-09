@@ -1,0 +1,14 @@
+HIGH      XRAY-127400    @angular/core@14.3.0                              NORTHGATE-EOL-ANGULAR  fix 18.2.13  Angular major out of long term support. Angular 14 LTS ended 2023-11-18. Tracked under the CSWT modernisation programme.
+HIGH      XRAY-124800    webpack-dev-middleware@5.3.3                      CVE-2024-4068  fix 5.3.4  Path traversal in webpack-dev-middleware
+HIGH      XRAY-124400    ws@8.13.0                                         CVE-2024-37890  fix 8.17.1  DoS via many HTTP headers in ws
+MEDIUM    XRAY-132800    @babel/runtime@7.18.9                             CVE-2024-4068  fix 7.26.10  Inefficient regex complexity in @babel/runtime named capturing groups transform
+MEDIUM    XRAY-133200    esbuild@0.15.5                                    CVE-2024-4068  fix 0.25.0  Dev server allows any website to read responses (GHSA-67mh-4wv8-2f99)
+MEDIUM    XRAY-125300    karma@6.4.1                                       CVE-2023-8265  fix 6.4.3  Open redirect in karma return_url
+MEDIUM    XRAY-127200    node@16.20.2                                      CVE-2023-39333  fix 18.18.2  Code injection via WebAssembly export names. Node runtime; reported when engines.node pins an affected version.
+MEDIUM    XRAY-127310    node@16.20.2                                      NORTHGATE-EOL-NODE16  fix 18.19.0  Node.js 16 reached end of life 2023-09-11. Extended support waiver GIS-EX-2023-0114 expires 2025-06-30.
+MEDIUM    XRAY-124910    webpack@5.76.1                                    CVE-2024-43788  fix 5.94.0  DOM clobbering in AutoPublicPathRuntimeModule
+LOW       XRAY-133800    http-proxy@1.18.1                                 CVE-2023-26159  no fix  http-proxy depends on follow-redirects 1.x. Informational; no fix.
+LOW       XRAY-134600    karma@6.4.1                                       NORTHGATE-EOL-KARMA  no fix  karma is deprecated by its maintainers (Apr 2023). Not a vulnerability; flagged for the modernisation register.
+LOW       XRAY-127700    moment@2.29.4                                     NORTHGATE-EOL-MOMENT  no fix  moment is in maintenance mode by its own announcement. Not a vulnerability; flagged for the modernisation register.
+LOW       XRAY-127500    rxjs@6.6.7                                        NORTHGATE-EOL-RXJS  fix 7.8.1  RxJS 6 unsupported since 2021. Not a vulnerability; flagged for the modernisation register.
+LOW       XRAY-134900    typescript@4.7.4                                  NORTHGATE-EOL-TYPESCRIPT  fix 5.4.5  TypeScript 4.7 and earlier not supported by current Angular CLI. Modernisation register.
