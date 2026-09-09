@@ -38,7 +38,7 @@ node_modules/@angular/core
 @babel/core  <=7.29.0
 @babel/core: Arbitrary File Read via sourceMappingURL Comment - https://github.com/advisories/GHSA-4x5r-pxfx-6jf8
 fix available via `npm audit fix --force`
-Will install @angular/compiler-cli@22.1.5, which is a breaking change
+Will install @angular-devkit/build-angular@22.1.7, which is a breaking change
 node_modules/@angular-devkit/build-angular/node_modules/@babel/core
 node_modules/@babel/core
   @angular-devkit/build-angular  <=20.3.35 || 21.0.0-next.0 - 21.2.22 || 22.0.0-next.0 - 22.1.6

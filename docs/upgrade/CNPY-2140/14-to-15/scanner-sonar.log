@@ -7,7 +7,7 @@ INFO: 244 source files, 0 test files indexed; 8242 lines of code
 INFO: Coverage imported from coverage/canopy-ui/lcov.info (lcov): 47.6% lines
 INFO: No lint report found; no external issues imported
 INFO: Bugs 0, Vulnerabilities 0, Code smells 0, Duplication 3.8%
-INFO: Analysis report generated in 69ms, dir .sonar-reports
+INFO: Analysis report generated in 42ms, dir .sonar-reports
 INFO: ANALYSIS SUCCESSFUL, you can find the results at: https://sonar.northgate.internal/dashboard?id=northgate%3Acanopy-ui
 INFO: QUALITY GATE STATUS: PASSED - View details on https://sonar.northgate.internal/dashboard?id=northgate%3Acanopy-ui
 exit=0

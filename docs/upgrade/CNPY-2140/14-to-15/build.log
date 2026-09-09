@@ -45,10 +45,8 @@ Building entry point '@northgate/canopy-ui/forms'
 ------------------------------------------------------------------------------
 - Compiling with Angular sources in Ivy partial compilation mode.
 ✔ Compiling with Angular sources in Ivy partial compilation mode.
-- Generating FESM2020
-✔ Generating FESM2020
-- Generating FESM2015
-✔ Generating FESM2015
+- Writing FESM bundles
+✔ Writing FESM bundles
 ✔ Built @northgate/canopy-ui/forms
 
 ------------------------------------------------------------------------------
@@ -124,7 +122,7 @@ Built Angular Package
  - to:   /home/ubuntu/repos/northgate-canopy-ui/dist/canopy-ui
 ------------------------------------------------------------------------------
 
-Build at: 2026-09-09T17:05:47.756Z - Time: 28584ms
+Build at: 2026-09-09T18:21:40.190Z - Time: 29400ms
 
 
 > @northgate/canopy-ui-workspace@4.0.0 postbuild
@@ -134,5 +132,5 @@ Build at: 2026-09-09T17:05:47.756Z - Time: 28584ms
 > @northgate/canopy-ui-workspace@4.0.0 build:schematics
 > tsc -p projects/canopy-ui/schematics/tsconfig.schematics.json
 
-copied schematics into dist, stamped 4.0.0@92b932f
+copied schematics into dist, stamped 4.0.0@d6fbf2b
 exit=0

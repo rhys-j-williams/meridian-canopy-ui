@@ -525,8 +525,8 @@
         "node_modules/@babel/core"
       ],
       "fixAvailable": {
-        "name": "@angular/compiler-cli",
-        "version": "22.1.5",
+        "name": "@angular-devkit/build-angular",
+        "version": "22.1.7",
         "isSemVerMajor": true
       }
     },
@@ -843,8 +843,8 @@
         "node_modules/esbuild"
       ],
       "fixAvailable": {
-        "name": "@angular-devkit/build-angular",
-        "version": "22.1.7",
+        "name": "ng-packagr",
+        "version": "22.1.1",
         "isSemVerMajor": true
       }
     },
