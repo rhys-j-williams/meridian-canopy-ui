@@ -8,7 +8,7 @@
 | Hop | Angular 14.3.0 -> **15.2.10** (CLI 14.2.13 -> 15.2.11), Material/CDK 14.2.7 -> **15.2.9** (MDC), one major, no chaining |
 | Package | `@northgate/canopy-ui` 3.7.2 -> **4.0.0** (semver major: peer range `@angular/* ^15.0.0`, MDC DOM, typography level names, `@angular/flex-layout` peer dropped) |
 | Wave position | Stage 1 of the estate Angular 14 -> 15 wave: the shared component library moves first so the consumers (retail-web MOL-4471, iris-widget IRIS-0900, business-web MBZ-2140, keystone-web KEY-2210) can move in their own tickets |
-| Jira | CNPY-2140 (estate mirror: epic KAN-23). Blocked human decisions: KAN-27 (amount-slider redesign), KAN-28 (filter-chips rewrite), KAN-31 (showcase visual sign-off), KAN-32 (npm audit: overrides vs GIS exception). AI register AIT-014 |
+| Jira | CNPY-2140 (estate mirror: epic KAN-23). Blocked human decisions: KAN-27 (amount-slider redesign), KAN-28 (filter-chips rewrite), KAN-31 (showcase visual sign-off), KAN-32 (npm audit: overrides vs GIS exception), KAN-33 (typography rename table for `$body-2` / `$subheading-1`). AI register AIT-014 |
 | ADR | [`docs/adr/0005-canopy-4-material-15-mdc.md`](../../../adr/0005-canopy-4-material-15-mdc.md) (supersedes the deferral in ADR-0004) |
 | Consumer guide | [`docs/MIGRATION-4.0.md`](../../../MIGRATION-4.0.md) |
 | Compatibility matrix | [`../COMPATIBILITY_MATRIX.md`](../COMPATIBILITY_MATRIX.md) |
@@ -16,7 +16,7 @@
 | Consumers | [`CONSUMERS.md`](CONSUMERS.md) |
 | Deprecations | [`deprecations.log`](deprecations.log) |
 | Showcase visual evidence (KAN-31) | [`showcase-visual/SUMMARY.md`](showcase-visual/SUMMARY.md) |
-| Result | **PASS_WITH_BLOCKERS** - every gate that this hop can close is green; the red items are the pre-existing Xray `ws@8.13.0` carry-over, the KAN-32 audit decision, the KAN-27 / KAN-28 legacy interim and the KAN-31 human sign-off (section 4) |
+| Result | **PASS_WITH_BLOCKERS** - every gate that this hop can close is green; the red items are the pre-existing Xray `ws@8.13.0` carry-over, the KAN-32 audit decision, the KAN-27 / KAN-28 legacy interim, the KAN-31 human sign-off and the KAN-33 typography-table confirmation (section 4) |
 
 Baseline evidence (captured before any change) is in [`00-baseline-14/`](00-baseline-14/); every
 candidate log named below sits in this directory and was produced by the same command on the final
@@ -60,7 +60,8 @@ commit format, `check-forbidden-strings`):
 | `ff7c469` | Migrate Canopy to Angular 15 / Material 15 MDC, add Canopy 4 schematic and density API (component styles/templates, typography rename, flex-layout removal, `canopy-4-theme-mixin`, 4.0.0 version and peers, CHANGELOG) |
 | `92b932f` | Add ADR 0005, showcase visual candidate captures and MDC geometry fixes |
 | `6f95276` | Fade disabled `cn-toggle` label like 3.x, add showcase visual SUMMARY and re-captured evidence |
-| (this commit) | Gate logs, publish evidence, consumer verification, REPORT / CAB_RECORD / CONSUMERS / deprecations.log / COMPATIBILITY_MATRIX / MIGRATION-4.0 |
+| `12ee933` | Add hop report, consumer verification and compatibility matrix (REPORT / CONSUMERS / COMPATIBILITY_MATRIX, Xray violation listings) |
+| (this commit) | CAB_RECORD, MIGRATION-4.0, deprecations.log, KAN-33 references |
 
 ## 3. Migrations applied
 
@@ -153,6 +154,11 @@ unchanged). `sonar-project.properties` gained exclusions for the generated schem
 (`projects/canopy-ui/schematics/**/*.js`, `*.d.ts`) so that compiled output is not scanned twice as
 duplicated source; no rule was disabled.
 
+The `Jenkinsfile` `dependencyAudit.allowlist` entry `GHSA-c2qf-rxjj-qqgw` (semver via ngx-mask 14,
+GIS-RA-2023-118) no longer matches anything: the id is absent from both the baseline and candidate
+audit JSON. `Jenkinsfile` is a GIS AppSec-owned file, so the stale entry is left in place and flagged
+here for AppSec to remove at their next edit.
+
 ## 6. BLOCKED - awaiting human decision (do not decide in engineering)
 
 | item | Jira | interim in 4.0.0 | hard deadline |
@@ -161,6 +167,7 @@ duplicated source; no rule was disabled.
 | `cn-filter-chips`: MDC `mat-chip-listbox` / `mat-chip-grid` selection semantics | **KAN-28** | `CnFilterChipsModule` imports `MatLegacyChipsModule`; `@deprecated` with the ticket; showcase page identical (189 px) | same |
 | Showcase visual acceptance | **KAN-31** | evidence in `showcase-visual/SUMMARY.md`; this hop does not self-approve | before 4.0.0 is published to Artifactory |
 | npm audit new dev-only ids: `overrides` vs GIS exception | **KAN-32** | no override added; ids listed in `CAB_RECORD.md` s6 | before the CAB submission |
+| Typography rename table for 3.x `$body-2` / `$subheading-1` (Canopy metric-preserving table vs Material's `private-typography-to-2018-config`) | **KAN-33** | implemented table unchanged (`_typography.scss`, `canopy-4-theme-mixin` `TYPOGRAPHY_LEVEL_RENAMES`); section 8 item 2 | before 4.0.0 is published to Artifactory (a later change means a second consumer migration) |
 
 Secondary entry points: ADR-0002 allows splitting the two legacy components into their own entry
 points, but both already live in shared entry points (`@northgate/canopy-ui/forms`,
@@ -197,7 +204,7 @@ steps in `docs/MIGRATION-4.0.md`, summary in `CHANGELOG.md` 4.0.0):
 
 1. Peers `@angular/{animations,cdk,common,core,forms,material,material-moment-adapter,router} ^15.0.0`, `ngx-mask ^15.0.0`, `rxjs ^7.5.0`; `@angular/flex-layout` peer removed.
 2. Typography level names in `canopy.theme($typography: (...))` and the `canopy.$cn-typography` / `$cn-typography-dense` maps are the Material 15 names (`$display-4..1` -> `$headline-1..4`, `$headline` -> `$headline-5`, `$title` -> `$headline-6`, `$subheading-2/1` -> `$subtitle-1/2`, `$input` removed, `$caption` / `$button` / `$overline` added). `ng update @northgate/canopy-ui` runs `canopy-4-theme-mixin`, which rewrites the keys in consumer SCSS (idempotent, ignores `node_modules`/`dist`/non-SCSS).
-   The `$body-*` / `$subheading-*` part of the rename is **Canopy's own table, not Material's**: Canopy maps 3.x `$subheading-2` *and* `$body-2` (both 16px/24px medium in 3.7.2) to `$subtitle-1`, `$subheading-1` to `$subtitle-2`, and copies 3.x `$body-1` to both `$body-1` and `$body-2` (Material 15 renders `.mat-typography` running copy from `body-2`). Material's `private-typography-to-2018-config` instead maps `body-2 -> subtitle-2`, `subheading-1 -> body-1`, `body-1 -> body-2`. Canopy's table is the one that keeps every rendered metric of the 3.7.2 scale identical through the hop (that is what the showcase diff measures), and the schematic applies the same table to consumer overrides, so a consumer that overrode `$body-2` keeps its metrics. Recorded in section 10 for design review because it is a naming choice Canopy owns.
+   The `$body-*` / `$subheading-*` part of the rename is **Canopy's own table, not Material's**: Canopy maps 3.x `$subheading-2` *and* `$body-2` (both 16px/24px medium in 3.7.2) to `$subtitle-1`, `$subheading-1` to `$subtitle-2`, and copies 3.x `$body-1` to both `$body-1` and `$body-2` (Material 15 renders `.mat-typography` running copy from `body-2`). Material's `private-typography-to-2018-config` instead maps `body-2 -> subtitle-2`, `subheading-1 -> body-1`, `body-1 -> body-2`. Canopy's table is the one that keeps every rendered metric of the 3.7.2 scale identical through the hop (that is what the showcase diff measures), and the schematic applies the same table to consumer overrides, so a consumer that overrode `$body-2` keeps its metrics. **Decision KAN-33 (Highest, parent KAN-23), not taken here:** the implemented table is the metric-preserving one and is left unchanged pending design's confirmation; see section 6 and section 10.
 3. MDC DOM: consumer styles that reach into Material internals (`.mat-button-wrapper`, `.mat-form-field-*`, `.mat-tab-label`, `.mat-chip` outside `cn-filter-chips`, ...) stop matching. Canopy's own `.cn-*` hooks are unchanged.
 4. Density is an API: `canopy.theme($density: 0 | -1 | -2)`, `.cn-density-default / -compact / -dense` classes (`canopy.density-classes`), `canopy.density($scale)` for a container. `CnConfig.density` / `CnThemeService.setDensity()` now apply globally (3.x applied compact to `cn-data-table` only). **Mismatch recorded, not decided:** the Sass API exposes three scales but the runtime type `CnDensity` stays `'default' | 'compact'` (unchanged from 3.x so no consumer type break); `-dense` (Material scale -2) is reachable from Sass / the class only. Whether `'dense'` joins the runtime type is a design/API question (section 10).
 5. `cn-amount-slider` and `cn-filter-chips` are `@deprecated` (KAN-27, KAN-28); no behaviour change in 4.0.0.
@@ -226,7 +233,7 @@ checkouts only; no consumer repository was modified and no consumer PR was opene
 2. **`CnDensity` runtime type vs Sass scales** (API): add `'dense'` (-2) to `CnDensity` / `CnConfig.density`, or keep -2 Sass/class only. Not decided.
 3. **Ledgerline-web (Angular 16) migration path**: cannot take 4.0.0 (peer `^15`); needs a ticket in LDG to pick up Canopy 5 and drop the LDG-3104 patches, or an agreed interim.
 4. **GIS acceptance for the carried Xray High** (`ws@8.13.0`, XRAY-124400): same decision shape as KAN-32; either fold into KAN-32 or raise a GIS-RA request.
-5. **Typography rename table for `$body-2` / `$subheading-1`** (design / API review, low): Canopy's 2014 -> 2018 mapping (section 8 item 2) preserves rendered metrics but differs from Material's own `private-typography-to-2018-config` table. Design should confirm the Canopy table (and that a consumer override of `$body-2` is meant to land on `$subtitle-1`) before 4.0.0 is published to Artifactory; changing it later means a second migration.
+5. **Typography rename table for `$body-2` / `$subheading-1`** - raised by the coordinator as **KAN-33** (Highest, parent KAN-23) after this report flagged it: Canopy's 2014 -> 2018 mapping (section 8 item 2) preserves rendered metrics but differs from Material's own `private-typography-to-2018-config` table. Design confirms the Canopy table (and that a consumer override of `$body-2` is meant to land on `$subtitle-1`) before 4.0.0 is published to Artifactory; changing it later means a second migration. Not decided here; the implemented table is unchanged.
 
 ## 11. Rollback
 
@@ -237,6 +244,6 @@ local and disposable.
 
 ## 12. Next
 
-- Humans: KAN-31 (accept or reject the MDC differences), KAN-32 (audit option), KAN-27 / KAN-28 (component design), items in section 10.
+- Humans: KAN-31 (accept or reject the MDC differences), KAN-32 (audit option), KAN-33 (typography table), KAN-27 / KAN-28 (component design), items in section 10.
 - Consumers: keystone-web KEY-2210 first (already on Angular 15, verified PASS), then retail-web MOL-4471 / iris-widget IRIS-0900 / business-web MBZ-2140 as part of their own 14 -> 15 hops (Stage 3).
 - Canopy 5 (15 -> 16) cannot start until KAN-27 and KAN-28 are implemented (legacy modules are deleted in Material 16).

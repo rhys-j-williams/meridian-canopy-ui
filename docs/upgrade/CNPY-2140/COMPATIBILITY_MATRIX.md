@@ -52,7 +52,7 @@ adds a column and must first close KAN-27 / KAN-28 (Material 16 deletes the lega
 | `dependencies.tslib` | `^2.3.0` | `^2.3.0` |
 | `sideEffects` | false | false |
 | Material modules imported | `Mat*Module` (Material 14, pre-MDC) | MDC `Mat*Module` for every wrapped component except `MatLegacySliderModule` (`cn-amount-slider`, KAN-27) and `MatLegacyChipsModule` (`cn-filter-chips`, KAN-28) |
-| Theme mixin | `canopy.theme($include-dark, $include-high-contrast)` with Material 2014 typography level names | `canopy.theme($include-dark, $include-high-contrast, $typography, $density)` with Material 2018 level names; `canopy.density($scale)`, `canopy.density-classes` added |
+| Theme mixin | `canopy.theme($include-dark, $include-high-contrast)` with Material 2014 typography level names | `canopy.theme($include-dark, $include-high-contrast, $typography, $density)` with Material 2018 level names (Canopy's metric-preserving rename table for `$body-2` / `$subheading-1`, design confirmation **KAN-33** open); `canopy.density($scale)`, `canopy.density-classes` added |
 
 ## Third-party dev dependencies
 
